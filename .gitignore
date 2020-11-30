@@ -313,6 +313,10 @@ __pycache__/
 # Tabs Studio
 *.tss
 
+
+# Local configuration file (sdk path, etc)
+local.properties
+
 # Telerik's JustMock configuration file
 *.jmconfig
 
