@@ -10,6 +10,8 @@ int main(int argc, char** argv) {
 	std::cout<< "Hello world!";
 	std::cout << "git e skitt";
 
+	std::cout << "WOW, skoj med SDL" << std::endl;
+
 	//I FIX
 	//ÄR RICKARDS LINKER KVAR??? 
 	// NUDÅ!?
