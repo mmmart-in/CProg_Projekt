@@ -1,5 +1,5 @@
 #include <iostream>
-#include <SDL.h>
+
 
 
 int main() {
@@ -7,5 +7,9 @@ int main() {
 	std::cout << "git e skitt";
 
 	//I FIX
-	//ÄR RICKARDS LINKER KVAR???
+	//ÄR RICKARDS LINKER KVAR??? 
+
+	//FUNKAR FÖR MIG MEGALULZ
+
+	return 0;
 }
