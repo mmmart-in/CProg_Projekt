@@ -11,7 +11,7 @@
 *.sln.docstates
 
 #tillagd av martin
-*C++_Proj.vcxproj
+C++_Proj.vcxproj
 git rm --cached C++_Proj.vcxproj
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
