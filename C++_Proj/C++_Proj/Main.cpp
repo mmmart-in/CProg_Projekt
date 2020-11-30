@@ -10,8 +10,6 @@ int main(int argc, char** argv) {
 	
 	SDL_Init(SDL_INIT_EVERYTHING);
 
-
-	//libbbbbb
 	std::cout<< "Hello world!";
 	std::cout << "git e skitt";
 
