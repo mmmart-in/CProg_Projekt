@@ -8,7 +8,7 @@ int main() {
 
 	//I FIX
 	//ÄR RICKARDS LINKER KVAR??? 
-
+	// NUDÅ!?
 	//FUNKAR FÖR MIG MEGALULZ
 
 	return 0;
