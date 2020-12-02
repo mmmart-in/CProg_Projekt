@@ -16,6 +16,8 @@ int main(int argc, char** argv) {
 
 	SDL_Delay(2000);
 
+	//Pushar igen då, RICKARD!!!
+
 	std::cout<< "Hello world!";
 	std::cout << "git e skitt";
 
