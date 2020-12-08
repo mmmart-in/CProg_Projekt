@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
 	std::string alienPNG = "C:/resources/player.png";
 
 	Player p(100, 100, 100, 100, alienPNG);
-	Label* lb = Label::getInstance(100, 200, 100, 50, "cool ship", { 255, 255, 255 });
+	Label* lb = Label::getInstance(100, 200, 100, 50, "cool ship ", { 255, 255, 255 });
 	GameSystem gameSystem;
 	gameSystem.add_sprites(&p);
 	gameSystem.add_component(lb);

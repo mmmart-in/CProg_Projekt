@@ -26,8 +26,11 @@ void GameSystem::run() {
 		for (Component* component : components)
 			component->draw();
 
-		for (Sprite* sprite : sprites)
+		for (Sprite* sprite : sprites) {
 			sprite->draw();
+			sprite->tick();
+		}
+			
 
 		SDL_RenderPresent(mainWindow.get_ren());
 
