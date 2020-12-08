@@ -13,6 +13,5 @@ protected:
 	~Sprite();
 	SDL_Rect rect;
 	//SDL_Texture* txtur;
-	
 };
 
