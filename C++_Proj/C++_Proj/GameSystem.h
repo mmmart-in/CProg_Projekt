@@ -7,8 +7,6 @@ class GameSystem
 	public:
 		void add_component(Component*);
 		void add_sprites(Sprite*);
-		void remove_component(Component*);
-		void remove_all_components();
 		void run();
 		~GameSystem();
 
