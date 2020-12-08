@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SDL.h>
-
+#include "GameEngine.h"
+#include "Component.h"
 
 void berättaOmGit() {
 	std::cout << "Gitt är skoj, ojojoj!";
@@ -8,27 +9,19 @@ void berättaOmGit() {
 
 int main(int argc, char** argv) {
 	
-	SDL_Init(SDL_INIT_EVERYTHING);
+	//SDL_Init(SDL_INIT_EVERYTHING);
 
-	SDL_Window* win = SDL_CreateWindow("Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 200, 200, NULL);
-	SDL_Renderer* ren = SDL_CreateRenderer(win, -1, 0);
-	SDL_RenderPresent(ren);
+	GameEngine engine;
 
-	SDL_Delay(2000);
+	
+	Component* c = new Component(1, 1, 1, 1);
 
-	//Pushar igen då, RICKARD!!!
+	engine.add_component(c);
+	engine.remove_component(c);
 
-	std::cout<< "Hello world!";
-	std::cout << "git e skitt";
 
-	std::cout << "WOW, skoj med SDL" << std::endl;
-
-	//I FIX
-	//ÄR RICKARDS LINKER KVAR??? 
-	// NUDÅ!?
-	//FUNKAR FÖR MIG MEGALULZ
-
-	berättaOmGit();
+	//SDL_Quit();
 
 	return 0;
+		
 }
