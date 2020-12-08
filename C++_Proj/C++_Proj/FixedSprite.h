@@ -3,5 +3,11 @@
 class FixedSprite :
     public Sprite
 {
+protected:
+    FixedSprite(int, int, int, int);
+    ~FixedSprite();
+private:
+
+    
 };
 

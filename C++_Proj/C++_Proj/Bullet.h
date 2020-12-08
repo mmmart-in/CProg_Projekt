@@ -6,6 +6,7 @@ class Bullet :
 public:
     Bullet(int x, int y, int w, int h);
     ~Bullet();
+private:
     void tick();
 };
 

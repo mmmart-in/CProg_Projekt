@@ -6,6 +6,7 @@ class Enemy :
 public:
     Enemy(int x, int y, int w, int h);
     ~Enemy();
+private:
     void tick();
 
     
