@@ -7,6 +7,7 @@ public:
 	static Label* getInstance(int, int, int, int, std::string, SDL_Color);
 	std::string getText() const;
 	void draw() const;
+	void tick();
 	void setText(std::string newText);
 	~Label();
 protected:

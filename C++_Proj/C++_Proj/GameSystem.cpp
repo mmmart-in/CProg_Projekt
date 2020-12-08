@@ -12,7 +12,12 @@ void GameSystem::add_sprites(Sprite* sprite) {
 
 void GameSystem::run() {
 	bool run = true;
+
+	Uint32 tickInterval = 1000 / FPS;
+
 	while (run) {
+		Uint32 nextTick = SDL_GetTicks() + tickInterval;
+
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
@@ -20,21 +25,36 @@ void GameSystem::run() {
 				run = false;
 				break;
 			}
-		}//inre while
+		}
 
 		SDL_RenderClear(mainWindow.get_ren());
-		for (Component* component : components)
-			component->draw();
 
-		for (Sprite* sprite : sprites) {
-			sprite->draw();
-			sprite->tick();
-		}
-			
+		update_components();
+		update_sprites();
 
 		SDL_RenderPresent(mainWindow.get_ren());
 
-	}//yttre while
+		int delay = nextTick - SDL_GetTicks();
+		if (delay > 0)
+			SDL_Delay(delay);
+	}
 }
+
+void GameSystem::update_components() {
+	for (Component* component : components) {
+		component->tick();
+		component->draw();
+	}
+		
+}
+
+void GameSystem::update_sprites() {
+	for (Sprite* sprite : sprites) {
+		sprite->tick();
+		sprite->draw();
+	}
+
+}
+
 
 GameSystem::~GameSystem() {}
