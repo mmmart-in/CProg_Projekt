@@ -12,7 +12,6 @@ public:
 protected:
 	Sprite(int x, int y, int w, int h, std::string image);
 	SDL_Texture* texture;
-private:
 	SDL_Rect rect;
 };
 

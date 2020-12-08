@@ -17,6 +17,9 @@ void Label::draw() const {
 	SDL_RenderCopy(mainWindow.get_ren(), texture, NULL, &get_rect());
 }
 
+void Label::tick() {
+}
+
 Label::~Label() {
 	SDL_DestroyTexture(texture);
 }
