@@ -13,6 +13,8 @@ protected:
 	SDL_Texture* texture;
 private:
 	SDL_Rect rect;
+
+
 	
 };
 
