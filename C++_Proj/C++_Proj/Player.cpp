@@ -19,3 +19,5 @@ void Player::move() {
 void Player::shoot() {
 
 }
+
+void Player::draw() {}

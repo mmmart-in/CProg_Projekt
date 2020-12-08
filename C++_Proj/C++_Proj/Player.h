@@ -9,6 +9,7 @@ public:
     void move();
     void shoot();
     void check_collision(); //??? kallas i tick kanske?
+    void draw();
 
 };
 
