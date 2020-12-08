@@ -1,27 +1,27 @@
 #include "GameEngine.h"
+#include "MainWindow.h"
 #include <SDL.h>
-#include <iostream>
-
-#define LOG(x) std::cout << x << std::endl;
 
 void GameEngine::add_component(Component* component) {
 	components.push_back(component);
-	LOG("La till!");
-	LOG(components.size());
+}
+
+/*
+* Kallar delete på alla componenter, tror inte det räcker med bara empty.
+*/
+void GameEngine::remove_component(Component* component) {
+	for (int i = 0; i < components.size(); i++)
+		if (components[i] = component) {
+			components.erase(components.begin() + i);
+		}	
 }
 
 /*
 * Kallar delete på alla componenter, tror inte det räcker med bara empty.
 */
 void GameEngine::remove_all_components() {
-	LOG(components.size());
-	for (int i = 0; i < components.size(); i++) {
-		Component* c = components[i];
-		components.erase(components.begin() + i);
-		delete c;
-	}
-		
-	LOG(components.size());
+	for (int i = 0; i < components.size(); i++) 
+		delete components[i];
 }
 
 void GameEngine::run() {
@@ -36,13 +36,11 @@ void GameEngine::run() {
 			}
 		}//inre while
 
-		//SetRenderClear(renderer);
-		/*for (Component* component : components)
+		SetRenderClear(mainWindow.get_ren());
+		for (Component* component : components)
 			component->draw();
-		*/
-		//SDL_RenderPresent(renderer);
+		
+		SDL_RenderPresent(mainWindow.get_ren());
 
 	}//yttre while
 }
-
-GameEngine::~GameEngine() {}

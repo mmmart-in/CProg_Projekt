@@ -10,6 +10,7 @@ public:
 
 protected:
 	Sprite(int x, int y, int w, int h) : rect{ x, y, w, h } {};
+	~Sprite();
 	SDL_Rect rect;
 	SDL_Texture* txtur;
 	
