@@ -14,6 +14,5 @@ protected:
 	SDL_Rect rect;
 	//SDL_Texture* txtur;
 	
-	
 };
 

@@ -6,11 +6,10 @@ class Component {
 
 public:
 	~Component();
-	//virtual void draw() const = 0;
+	virtual void draw() const = 0;
 	const SDL_Rect& get_rect() const;
-	Component(int, int, int, int);
 protected:
-	
+	Component(int, int, int, int);
 private:
 	SDL_Rect rect;
 	Component(const Component&) = delete;
