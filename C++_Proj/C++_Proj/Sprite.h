@@ -1,5 +1,18 @@
 #pragma once
+#include <SDL.h>
+
 class Sprite
 {
+public:
+	virtual void tick() = 0;
+	virtual void draw() = 0;
+	
+
+protected:
+	Sprite(int x, int y, int w, int h) : rect{ x, y, w, h } {};
+	SDL_Rect rect;
+	SDL_Texture* txtur;
+	
+	
 };
 
