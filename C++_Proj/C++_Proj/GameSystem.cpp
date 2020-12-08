@@ -17,19 +17,21 @@ void GameSystem::run() {
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
 			case SDL_QUIT:
-				run = true;
+				run = false;
 				break;
 			}
 		}//inre while
 
 		SDL_RenderClear(mainWindow.get_ren());
 		for (Component* component : components)
-			//component->draw();
+			component->draw();
 
 		for (Sprite* sprite : sprites)
-			//sprite->draw();
+			sprite->draw();
 
 		SDL_RenderPresent(mainWindow.get_ren());
 
 	}//yttre while
 }
+
+GameSystem::~GameSystem() {}
