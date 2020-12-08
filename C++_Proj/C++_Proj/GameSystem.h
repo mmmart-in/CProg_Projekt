@@ -5,8 +5,7 @@
 
 #define FPS 60
 
-class GameSystem
-{
+class GameSystem {
 	public:
 		void add_component(Component*);
 		void add_sprites(Sprite*);

@@ -1,6 +1,7 @@
 #include "GameSystem.h"
 #include "MainWindow.h"
 #include <SDL.h>
+#include <iostream>
 
 void GameSystem::add_component(Component* component) {
 	components.push_back(component);
@@ -16,8 +17,7 @@ void GameSystem::run() {
 	Uint32 tickInterval = 1000 / FPS;
 
 	while (run) {
-		Uint32 nextTick = SDL_GetTicks() + tickInterval;
-
+		Uint32 nextTick = SDL_GetTicks() + tickInterval; //Antal millisekunder tills nästa loop ska ske
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
@@ -34,6 +34,7 @@ void GameSystem::run() {
 
 		SDL_RenderPresent(mainWindow.get_ren());
 
+		//nextTick - millisekunder sedan nextTick, positivt = loopen var för snabb, vänta in tills nextTick
 		int delay = nextTick - SDL_GetTicks();
 		if (delay > 0)
 			SDL_Delay(delay);
@@ -53,8 +54,6 @@ void GameSystem::update_sprites() {
 		sprite->tick();
 		sprite->draw();
 	}
-
 }
-
 
 GameSystem::~GameSystem() {}
