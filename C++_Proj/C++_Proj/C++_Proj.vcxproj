@@ -28,7 +28,7 @@
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MainWIndow.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="MovableSprite.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -43,7 +43,7 @@
     <ClInclude Include="FixedSprite.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="Level.h" />
-    <ClInclude Include="MainWIndow.h" />
+    <ClInclude Include="MainWindow.h" />
     <ClInclude Include="MovableSprite.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Sprite.h" />
