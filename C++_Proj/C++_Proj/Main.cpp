@@ -17,10 +17,10 @@ int main(int argc, char** argv) {
 	std::string alienPNG = "C:/resources/alien.png";
 
 	Player p(100, 100, 100, 100, alienPNG);
-	Label* lb = Label::getInstance(100, 100, 100, 100, "hejehj");
+	Label* lb = Label::getInstance(100, 200, 100, 100, "hejehj", { 255, 255, 255 });
 	GameSystem gameSystem;
 	gameSystem.add_sprites(&p);
-	//gameSystem.add_component(lb);
+	gameSystem.add_component(lb);
 	gameSystem.run();
 	return 0;
 }

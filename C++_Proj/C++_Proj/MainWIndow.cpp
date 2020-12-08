@@ -7,7 +7,7 @@ MainWindow::MainWindow()
 	SDL_Init(SDL_INIT_EVERYTHING);
 	win = SDL_CreateWindow("Space Invaders", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1200, 800, 0);
 	ren = SDL_CreateRenderer(win, -1, 0);
-	SDL_SetRenderDrawColor(ren, 255, 255, 255, 255);
+	SDL_SetRenderDrawColor(ren, 0, 0, 0, 0);
 	SDL_RenderPresent(ren);
 	TTF_Init();
 	font = TTF_OpenFont("c:/Windows/Fonts/arial.ttf", 36);
