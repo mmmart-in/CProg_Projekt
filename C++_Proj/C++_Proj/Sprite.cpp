@@ -13,5 +13,10 @@ Sprite::Sprite(int x, int y, int w, int h, std::string image) :
 	SDL_RenderCopy(mainWindow.get_ren(), texture, NULL, &rect);
 };
 
+
+const SDL_Rect& Sprite::get_rect() const {
+	return rect;
+}
+
 Sprite::~Sprite(){}
 
