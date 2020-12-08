@@ -6,7 +6,6 @@ class Player :
 {
 public:
     Player(int x, int y, int w, int h, std::string image);
-
 private:
     
     void tick();
