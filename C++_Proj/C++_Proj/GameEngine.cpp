@@ -1,5 +1,7 @@
 #include "GameEngine.h"
+#include "MainWindow.h"
 #include <SDL.h>
+
 void GameEngine::add_component(Component* component) {
 	components.push_back(component);
 }
@@ -34,11 +36,11 @@ void GameEngine::run() {
 			}
 		}//inre while
 
-		//SetRenderClear(renderer);
-		/*for (Component* component : components)
+		SetRenderClear(mainWindow.get_ren());
+		for (Component* component : components)
 			component->draw();
-		*/
-		//SDL_RenderPresent(renderer);
+		
+		SDL_RenderPresent(mainWindow.get_ren());
 
 	}//yttre while
 }
