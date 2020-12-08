@@ -2,6 +2,9 @@
 #include <vector>
 #include "Component.h"
 #include "Sprite.h"
+
+#define FPS 60
+
 class GameSystem
 {
 	public:
@@ -11,9 +14,9 @@ class GameSystem
 		~GameSystem();
 
 	private:
+		void update_components();
+		void update_sprites();
 		std::vector<Component*> components;
 		std::vector<Sprite*> sprites;
-
-
 };
 

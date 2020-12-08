@@ -6,21 +6,18 @@
 #include "Player.h"
 #include "Label.h"
 
-void berättaOmGit() {
-	std::cout << "Gitt är skoj, ojojoj!";
-}
-
-
-
 int main(int argc, char** argv) {
 
-	std::string alienPNG = "C:/resources/player.png";
+	Player p(600, 700, 50, 50, "../../Resources/Player.png");
 
-	Player p(100, 100, 100, 100, alienPNG);
-	Label* lb = Label::getInstance(100, 200, 100, 50, "cool ship ", { 255, 255, 255 });
+	Label* lb = Label::getInstance(0, 0, 100, 100, "Score", { 255, 255, 255 });
+
 	GameSystem gameSystem;
+
 	gameSystem.add_sprites(&p);
 	gameSystem.add_component(lb);
+	
 	gameSystem.run();
+
 	return 0;
 }
