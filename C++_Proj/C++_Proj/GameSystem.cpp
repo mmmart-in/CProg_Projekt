@@ -6,24 +6,6 @@ void GameSystem::add_component(Component* component) {
 	components.push_back(component);
 }
 
-/*
-* Kallar delete på alla componenter, tror inte det räcker med bara empty.
-*/
-void GameSystem::remove_component(Component* component) {
-	for (int i = 0; i < components.size(); i++)
-		if (components[i] = component) {
-			components.erase(components.begin() + i);
-		}
-}
-
-/*
-* Kallar delete på alla componenter, tror inte det räcker med bara empty.
-*/
-void GameSystem::remove_all_components() {
-	for (int i = 0; i < components.size(); i++)
-		delete components[i];
-}
-
 void GameSystem::run() {
 	bool run = true;
 	while (run) {
@@ -38,7 +20,7 @@ void GameSystem::run() {
 
 		SDL_RenderClear(mainWindow.get_ren());
 		for (Component* component : components)
-			//component->draw();
+			component->draw();
 
 		SDL_RenderPresent(mainWindow.get_ren());
 
