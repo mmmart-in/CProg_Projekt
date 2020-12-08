@@ -10,6 +10,8 @@ void berättaOmGit() {
 	std::cout << "Gitt är skoj, ojojoj!";
 }
 
+std::string alienPNG = "C:/resources/alien.png"
+
 int main(int argc, char** argv) {
 
 

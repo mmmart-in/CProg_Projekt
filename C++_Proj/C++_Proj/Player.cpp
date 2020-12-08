@@ -1,8 +1,8 @@
 #include "Player.h"
 
 
-Player::Player(int x, int y, int w, int h):
-	MovableSprite(x, y, w, h)
+Player::Player(int x, int y, int w, int h, std::string image):
+	MovableSprite(x, y, w, h, image)
 {
 
 }
@@ -20,4 +20,6 @@ void Player::shoot() {
 
 }
 
-void Player::draw() {}
+void Player::draw() {
+
+}

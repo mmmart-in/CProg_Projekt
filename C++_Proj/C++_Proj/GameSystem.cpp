@@ -6,6 +6,10 @@ void GameSystem::add_component(Component* component) {
 	components.push_back(component);
 }
 
+void GameSystem::add_sprites(Sprite* sprite) {
+	sprites.push_back(sprite);
+}
+
 void GameSystem::run() {
 	bool run = true;
 	while (run) {
@@ -21,6 +25,9 @@ void GameSystem::run() {
 		SDL_RenderClear(mainWindow.get_ren());
 		for (Component* component : components)
 			//component->draw();
+
+		for (Sprite* sprite : sprites)
+			//sprite->draw();
 
 		SDL_RenderPresent(mainWindow.get_ren());
 
