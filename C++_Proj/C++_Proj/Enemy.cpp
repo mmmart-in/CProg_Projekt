@@ -11,5 +11,5 @@ Enemy::~Enemy() {
 }
 
 void Enemy::tick() {
-
+	
 }
