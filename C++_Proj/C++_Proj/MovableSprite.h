@@ -7,6 +7,6 @@ class MovableSprite :
 protected:
     MovableSprite(int x, int y, int w, int h);
     virtual void tick() = 0;
-    int speed;
+    
 };
 
