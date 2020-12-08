@@ -20,7 +20,7 @@ void GameSystem::run() {
 
 		SDL_RenderClear(mainWindow.get_ren());
 		for (Component* component : components)
-			component->draw();
+			//component->draw();
 
 		SDL_RenderPresent(mainWindow.get_ren());
 
