@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SDL.h>
+#include "MainWindow.h"
 
 
 void berättaOmGit() {
@@ -8,6 +9,7 @@ void berättaOmGit() {
 
 int main(int argc, char** argv) {
 	SDL_Delay(2000);
+	SDL_RenderPresent(mainWindow.get_ren());
 
 	//Pushar igen då, RICKARD!!!
 
