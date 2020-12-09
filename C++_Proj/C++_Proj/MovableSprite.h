@@ -3,6 +3,7 @@
 class MovableSprite :
     public Sprite
 {
+public:
 
 protected:
     MovableSprite(int x, int y, int w, int h, std::string image);

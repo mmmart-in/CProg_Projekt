@@ -1,18 +1,13 @@
 #include "GameSystem.h"
 #include "MainWindow.h"
 #include <SDL.h>
-#include <iostream>
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 void GameSystem::add_component(Component* component) {
 	components.push_back(component);
 }
 
 void GameSystem::add_sprites(Sprite* sprite) {
 	sprites.push_back(sprite);
-	std::cout << "Added!" << sprite;
 }
 
 void GameSystem::run() {
@@ -21,7 +16,8 @@ void GameSystem::run() {
 	Uint32 tickInterval = 1000 / FPS;
 
 	while (run) {
-		Uint32 nextTick = SDL_GetTicks() + tickInterval; //Antal millisekunder tills nästa loop ska ske
+		Uint32 nextTick = SDL_GetTicks() + tickInterval;
+
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
@@ -38,7 +34,6 @@ void GameSystem::run() {
 
 		SDL_RenderPresent(mainWindow.get_ren());
 
-		//nextTick - millisekunder sedan nextTick, positivt = loopen var för snabb, vänta in tills nextTick
 		int delay = nextTick - SDL_GetTicks();
 		if (delay > 0)
 			SDL_Delay(delay);
@@ -46,23 +41,22 @@ void GameSystem::run() {
 }
 
 void GameSystem::update_components() {
-	for (int i = 0; i < components.size(); i++) {
-		components[i]->tick();
-		components[i]->draw();
+	for (Component* component : components) {
+		//component->tick();
+		component->draw();
 	}
+		
 }
 
 void GameSystem::update_sprites() {
-	for (int i = 0; i < sprites.size(); i++) {
-		sprites[i]->tick();
-		sprites[i]->draw();
+	for (Sprite* sprite : sprites) {
+		sprite->tick();
+		sprite->draw();
 	}
+
 }
 
-<<<<<<< Updated upstream
-GameSystem::~GameSystem() {}
-=======
+
 GameSystem::~GameSystem() {}
 
 GameSystem gameSystem;
->>>>>>> Stashed changes

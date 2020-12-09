@@ -1,15 +1,16 @@
 #pragma once
 #include "MovableSprite.h"
 #include <string>
-class Bullet : public MovableSprite {
+class Bullet :
+    public MovableSprite
+{
 public:
-    Bullet(int x, int y, int w, int h, std::string image);
+    static Bullet* get_instance(int x, int y, int w, int h, std::string image);
     ~Bullet();
-private:
-<<<<<<< Updated upstream
+    void draw();
     void tick();
-=======
+private:
+    
     Bullet(int x, int y, int w, int h, std::string image);
->>>>>>> Stashed changes
 };
 
