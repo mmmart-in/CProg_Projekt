@@ -41,19 +41,17 @@ void GameSystem::run() {
 }
 
 void GameSystem::update_components() {
-	for (Component* component : components) {
-		//component->tick();
-		component->draw();
+	for (int i = 0; i < components.size(); i++) {
+		components[i]->tick();
+		components[i]->draw();
 	}
-		
 }
 
 void GameSystem::update_sprites() {
-	for (Sprite* sprite : sprites) {
-		sprite->tick();
-		sprite->draw();
+	for (int i = 0; i < sprites.size(); i++) {
+		sprites[i]->tick();
+		sprites[i]->draw();
 	}
-
 }
 
 

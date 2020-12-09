@@ -17,7 +17,7 @@ Bullet::~Bullet() {
 }
 
 void Bullet::tick() {
-	std::cout << "BULLET!" << std::endl;
+	rect.y--;
 }
 
 void Bullet::draw() {

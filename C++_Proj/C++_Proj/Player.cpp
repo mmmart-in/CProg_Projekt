@@ -29,10 +29,13 @@ void Player::move() {
 }
 
 void Player::shoot() {
-	
-	Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet.png");
-	if(bptr != nullptr)
+	const Uint8* currentKeys = SDL_GetKeyboardState(NULL);
+
+	if (currentKeys[SDL_SCANCODE_SPACE]) {
+		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet.png");
 		gameSystem.add_sprites(bptr);
+	}
+		
 }
 
 void Player::draw() {
