@@ -33,6 +33,8 @@ void Player::move() {
 		rect.x += movementSpeed;
 		anim->change_image(1);
 	}
+
+	
 		
 }
 

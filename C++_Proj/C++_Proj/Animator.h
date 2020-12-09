@@ -12,7 +12,7 @@ class Animator
 public:
 	Animator(std::initializer_list<Animation>);
 	void draw(Sprite*);
-	//TEMPORÄRT:
+	//TEMPORÄRT: DENNA ÄR SPECIFIK FÖR PLAYER...
 	void change_image(int);
 private:
 	std::vector<Animation> animations;
