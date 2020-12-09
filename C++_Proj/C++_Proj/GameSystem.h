@@ -20,3 +20,5 @@ class GameSystem
 		std::vector<Sprite*> sprites;
 };
 
+extern GameSystem gameSystem;
+

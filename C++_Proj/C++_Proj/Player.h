@@ -15,5 +15,6 @@ private:
 
 private:
     int movementSpeed = 5;
+    int firePoint = 2;
 };
 

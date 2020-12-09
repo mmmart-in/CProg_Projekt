@@ -42,7 +42,7 @@ void GameSystem::run() {
 
 void GameSystem::update_components() {
 	for (Component* component : components) {
-		component->tick();
+		//component->tick();
 		component->draw();
 	}
 		
@@ -58,3 +58,5 @@ void GameSystem::update_sprites() {
 
 
 GameSystem::~GameSystem() {}
+
+GameSystem gameSystem;

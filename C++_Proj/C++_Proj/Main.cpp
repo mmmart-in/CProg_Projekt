@@ -12,7 +12,6 @@ int main(int argc, char** argv) {
 
 	Label* lb = Label::getInstance(0, 0, 100, 100, "Score", { 255, 255, 255 });
 
-	GameSystem gameSystem;
 
 	gameSystem.add_sprites(&p);
 	gameSystem.add_component(lb);
