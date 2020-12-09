@@ -23,7 +23,15 @@ void Player::move() {
 }
 
 void Player::shoot() {
+<<<<<<< Updated upstream
 
+=======
+	const Uint8* currentKeys = SDL_GetKeyboardState(NULL);
+	if (currentKeys[SDL_SCANCODE_SPACE]) {
+		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet.png");
+		gameSystem.add_sprites(bptr);
+	}
+>>>>>>> Stashed changes
 }
 
 void Player::draw() {

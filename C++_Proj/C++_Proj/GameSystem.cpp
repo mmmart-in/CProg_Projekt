@@ -2,13 +2,17 @@
 #include "MainWindow.h"
 #include <SDL.h>
 #include <iostream>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 void GameSystem::add_component(Component* component) {
 	components.push_back(component);
 }
 
 void GameSystem::add_sprites(Sprite* sprite) {
 	sprites.push_back(sprite);
+	std::cout << "Added!" << sprite;
 }
 
 void GameSystem::run() {
@@ -42,18 +46,23 @@ void GameSystem::run() {
 }
 
 void GameSystem::update_components() {
-	for (Component* component : components) {
-		//component->tick();
-		component->draw();
+	for (int i = 0; i < components.size(); i++) {
+		components[i]->tick();
+		components[i]->draw();
 	}
-		
 }
 
 void GameSystem::update_sprites() {
-	for (Sprite* sprite : sprites) {
-		sprite->tick();
-		sprite->draw();
+	for (int i = 0; i < sprites.size(); i++) {
+		sprites[i]->tick();
+		sprites[i]->draw();
 	}
 }
 
+<<<<<<< Updated upstream
 GameSystem::~GameSystem() {}
+=======
+GameSystem::~GameSystem() {}
+
+GameSystem gameSystem;
+>>>>>>> Stashed changes
