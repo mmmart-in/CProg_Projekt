@@ -4,7 +4,7 @@
 Player::Player(int x, int y, int w, int h, std::string image):
 	MovableSprite(x, y, w, h, image)
 {
-
+	//SKAPA ANIMATIONER HÄR:::::
 }
 
 void Player::tick() {
