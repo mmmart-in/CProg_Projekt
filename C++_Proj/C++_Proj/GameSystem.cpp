@@ -58,3 +58,5 @@ void GameSystem::update_sprites() {
 
 
 GameSystem::~GameSystem() {}
+
+GameSystem gameSystem;
