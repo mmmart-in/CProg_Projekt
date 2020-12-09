@@ -29,10 +29,15 @@ void Player::move() {
 		anim->change_image(2);
 	}
 		
-	if (currentKeys[SDL_SCANCODE_RIGHT] && rect.x < 1200 - rect.w) {
+	else if (currentKeys[SDL_SCANCODE_RIGHT] && rect.x < 1200 - rect.w) {
 		rect.x += movementSpeed;
 		anim->change_image(1);
 	}
+
+	else
+		anim->change_image(0);
+
+	
 
 	
 		

@@ -14,6 +14,7 @@ public:
 	void draw(Sprite*);
 	//TEMPORÄRT: DENNA ÄR SPECIFIK FÖR PLAYER...
 	void change_image(int);
+	void animate_loop(int);
 private:
 	std::vector<Animation> animations;
 	SDL_Texture* activeTexture;
