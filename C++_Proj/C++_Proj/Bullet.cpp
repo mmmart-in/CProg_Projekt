@@ -17,7 +17,7 @@ Bullet::~Bullet() {
 }
 
 void Bullet::tick() {
-	rect.y--;
+	rect.y -= 5;
 }
 
 void Bullet::draw() {

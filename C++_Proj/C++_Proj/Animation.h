@@ -9,7 +9,7 @@ class Animation
 {
 public:
 	Animation(std::initializer_list<std::string>);
-	
+	SDL_Texture* get_texture_at(int);
 private:
 	std::vector<SDL_Texture*> texts;
 };

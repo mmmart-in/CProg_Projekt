@@ -9,6 +9,8 @@ Player::Player(int x, int y, int w, int h, std::string image):
 	MovableSprite(x, y, w, h, image)
 {
 	//SKAPA ANIMATIONER HÄR:::::
+	Animation a1{ "../../Resources/ship1.png", "../../Resources/ship2.png", "../../Resources/ship3.png" };
+	anim = new Animator{ a1 };
 	
 }
 
@@ -22,10 +24,16 @@ void Player::tick() {
 void Player::move() {
 	const Uint8* currentKeys = SDL_GetKeyboardState(NULL);
 
-	if (currentKeys[SDL_SCANCODE_LEFT] && rect.x > 0)
+	if (currentKeys[SDL_SCANCODE_LEFT] && rect.x > 0) {
 		rect.x -= movementSpeed;
-	if (currentKeys[SDL_SCANCODE_RIGHT] && rect.x < 1200 - rect.w)
+		anim->change_image(2);
+	}
+		
+	if (currentKeys[SDL_SCANCODE_RIGHT] && rect.x < 1200 - rect.w) {
 		rect.x += movementSpeed;
+		anim->change_image(1);
+	}
+		
 }
 
 void Player::shoot() {
@@ -39,5 +47,5 @@ void Player::shoot() {
 }
 
 void Player::draw() {
-	SDL_RenderCopy(mainWindow.get_ren(), texture, NULL, &get_rect());
+	anim->draw(this);
 }

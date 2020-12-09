@@ -9,3 +9,7 @@ Animation::Animation(std::initializer_list<std::string> images) {
 		texts.push_back(textur);
 	}
 }
+
+SDL_Texture* Animation::get_texture_at(int i) {
+	return texts[i];
+}
