@@ -28,6 +28,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FixedSprite.cpp" />
     <ClCompile Include="GameSystem.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -47,6 +48,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="FixedSprite.h" />
     <ClInclude Include="GameSystem.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="MainWindow.h" />
