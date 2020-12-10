@@ -10,11 +10,11 @@ Animator::Animator(std::initializer_list<Animation> vecs){
 }
 
 void Animator::next_image(int animInt) {
+	//Här är next image!
 	if (activeInt >= animations[animInt].get_size())
 		activeInt = 0;
 	activeTexture = animations[animInt].get_texture_at(activeInt);
 	activeInt++;
-	
 	
 }
 
