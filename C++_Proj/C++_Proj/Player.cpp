@@ -9,8 +9,10 @@ Player::Player(int x, int y, int w, int h, std::string image):
 	MovableSprite(x, y, w, h, image)
 {
 	//SKAPA ANIMATIONER HÄR:::::
-	Animation a1{ "../../Resources/ship1.png", "../../Resources/ship2.png", "../../Resources/ship3.png" };
-	anim = new Animator{ a1 };
+	Animation forward{"../../Resources/ship1.png"};
+	Animation turnRight{"../../Resources/ship2.png"};
+	Animation turnLeft{"../../Resources/ship3.png"};
+	anim = new Animator{ forward, turnRight, turnLeft};
 	
 }
 
@@ -26,16 +28,16 @@ void Player::move() {
 
 	if (currentKeys[SDL_SCANCODE_LEFT] && rect.x > 0) {
 		rect.x -= movementSpeed;
-		anim->change_image(2);
+		anim->animate_loop(2);
 	}
 		
 	else if (currentKeys[SDL_SCANCODE_RIGHT] && rect.x < 1200 - rect.w) {
 		rect.x += movementSpeed;
-		anim->change_image(1);
+		anim->animate_loop(1);
 	}
 
 	else
-		anim->change_image(0);
+		anim->animate_loop(0);
 
 	
 

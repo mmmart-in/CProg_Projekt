@@ -7,17 +7,7 @@ Animator::Animator(std::initializer_list<Animation> vecs){
 	activeTexture = animations[0].get_texture_at(0);
 }
 
-//TEMPORÄRT: DENNA ÄR SPECIFIK FÖR PLAYER... KANSKE ÄR DET EN SUBKLASS AV ANIMATOR FÖR OLIKA SORTERS OBJEKT SOM SKA ANIMERAS...
-void Animator::change_image(int action) {
-	switch (action) {
-	case 0:
-		activeTexture = animations[0].get_texture_at(0); break; //vanlig
-	case 1:
-		activeTexture = animations[0].get_texture_at(1); break; //HÖGER
-	case 2:
-		activeTexture = animations[0].get_texture_at(2); break; //vänster
-	}
-}
+
 
 //vene om detta är rätt men nått sånt.. den här kallas när man vill loopa en animation.. "x" är då vilken animation man vill loopa genom
 void Animator::animate_loop(int x) {
