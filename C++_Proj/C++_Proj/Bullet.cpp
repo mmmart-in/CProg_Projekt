@@ -13,10 +13,7 @@ Bullet::Bullet(int x, int y, int w, int h, std::string image) :
 	Animation idle{ "../../Resources/bullet1.png",
 	"../../Resources/bullet2.png",
 	"../../Resources/bullet3.png", 
-	"../../Resources/bullet4.png", 
-	"../../Resources/bullet5.png", 
-	"../../Resources/bullet6.png", 
-	"../../Resources/bullet7.png", };
+	"../../Resources/bullet4.png"};
 
 	
 	anim = new Animator{idle};
@@ -36,7 +33,7 @@ void Bullet::tick() {
 }
 
 void Bullet::fly() {
-	if (tickCount % 10 == 0) {
+	if (tickCount % 5 == 0) {
 		anim->next_image(0);
 	}
 }

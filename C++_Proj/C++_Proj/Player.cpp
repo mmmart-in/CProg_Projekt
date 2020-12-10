@@ -21,12 +21,12 @@ void Player::tick() {
 	
 	if (input.get_key_down("Left") && rect.x > 0) {
 		move_left();
-		anim->animate_loop(turnLeftAnim);
+		anim->next_image(turnLeftAnim);
 	} else if (input.get_key_down("Right") && rect.x < 1200 - rect.w) {
 		move_right();
-		anim->animate_loop(turnRightAnim);
+		anim->next_image(turnRightAnim);
 	} else
-		anim->animate_loop(forwardAnim);
+		anim->next_image(forwardAnim);
 	
 	if (input.get_key_down("Fire"))
 		shoot();
@@ -44,7 +44,7 @@ void Player::move_right(){
 
 void Player::shoot() {
 	if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
-		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet.png");
+		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 30, "../../Resources/bullet.png");
 		gameSystem.add_sprites(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
 	}
