@@ -15,7 +15,13 @@ Enemy::~Enemy() {
 }
 
 void Enemy::tick() {
-	
+	tickCount++;
+	animate();
+}
+
+void Enemy::animate() {
+	if(tickCount % 20 == 0)
+	anim->next_image(0);
 }
 
 void Enemy::draw() {
