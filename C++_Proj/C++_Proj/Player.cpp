@@ -4,39 +4,60 @@
 #include "Bullet.h"
 #include <SDL_image.h>
 #include "GameSystem.h"
-#include "Input.h"
 
 Player::Player(int x, int y, int w, int h, std::string image):
 	MovableSprite(x, y, w, h, image)
 {
 	//SKAPA ANIMATIONER HÄR:::::
+	Animation forward{"../../Resources/ship1.png"};
+	Animation turnRight{"../../Resources/ship2.png"};
+	Animation turnLeft{"../../Resources/ship3.png"};
+	anim = new Animator{ forward, turnRight, turnLeft};
 	
 }
 
 void Player::tick() {
-	if (input.get_key_down("Left"))
-		move_left();
-	if (input.get_key_down("Right"))
-		move_right();
-	if (input.get_key_down("Fire"))
-		shoot();
+	//här händer saker hela tiden.. Beroende på vad som händer kalla på olika metoder
+	move();
+	shoot();
+
 }
 
-void Player::move_left() {
-	rect.x -= movementSpeed;
-	std::cout << "Move left" << std::endl;
-}
+void Player::move() {
+	const Uint8* currentKeys = SDL_GetKeyboardState(NULL);
 
-void Player::move_right() {
-	rect.x += movementSpeed;
-	std::cout << "Move right" << std::endl;
+	if (currentKeys[SDL_SCANCODE_LEFT] && rect.x > 0) {
+		rect.x -= movementSpeed;
+		anim->animate_loop(turnLeftAnim);
+	}
+		
+	else if (currentKeys[SDL_SCANCODE_RIGHT] && rect.x < 1200 - rect.w) {
+		rect.x += movementSpeed;
+		anim->animate_loop(turnRightAnim);
+	}
+
+	else
+		anim->animate_loop(forwardAnim);
+
+	
+
+	
+		
 }
 
 void Player::shoot() {
-	Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet.png");
-	gameSystem.add_sprites(bptr);
+	const Uint8* currentKeys = SDL_GetKeyboardState(NULL);
+
+	if (currentKeys[SDL_SCANCODE_SPACE]) {
+		if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
+			Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet.png");
+			gameSystem.add_sprites(bptr);
+			fireCooldownCount = SDL_GetTicks() + fireCooldown;
+		}
+	}
+		
 }
 
 void Player::draw() {
-	SDL_RenderCopy(mainWindow.get_ren(), texture, NULL, &get_rect());
+	anim->draw(this);
 }

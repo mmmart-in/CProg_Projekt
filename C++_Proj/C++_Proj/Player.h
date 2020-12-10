@@ -1,6 +1,8 @@
 #pragma once
 #include "MovableSprite.h"
 #include <string>
+#include "Animator.h"
+#include "Animation.h"
 class Player :
     public MovableSprite
 {
@@ -17,5 +19,11 @@ private:
 private:
     int movementSpeed = 5;
     int firePoint = 2;
+    int fireCooldown = 500;
+    int fireCooldownCount = 0; 
+    Animator* anim;
+    int forwardAnim = 0;
+    int turnRightAnim = 1;
+    int turnLeftAnim = 2;
 };
 
