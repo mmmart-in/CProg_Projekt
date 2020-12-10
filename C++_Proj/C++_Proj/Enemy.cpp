@@ -1,9 +1,13 @@
 #include "Enemy.h"
+#include <SDL_image.h>
+#include "Animator.h"
 
 
-Enemy::Enemy(int x, int y, int w, int h, std::string image) :
-	MovableSprite(x, y, w, h, image) {
+Enemy::Enemy(int x, int y, int w, int h, std::string enemyType) :
+	MovableSprite(x, y, w, h, enemyType) {
 	enemyCount++;
+	Animation idle{ "../../Resources/Fiende1_1.png",  "../../Resources/Fiende1_2.png" };
+	anim = new Animator{idle};
 }
 
 Enemy::~Enemy() {
@@ -12,4 +16,8 @@ Enemy::~Enemy() {
 
 void Enemy::tick() {
 	
+}
+
+void Enemy::draw() {
+	anim->draw(this);
 }
