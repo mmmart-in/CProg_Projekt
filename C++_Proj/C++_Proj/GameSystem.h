@@ -11,10 +11,11 @@ class GameSystem {
 		void add_sprites(Sprite*);
 		void run();
 		~GameSystem();
-
+		bool running = true;
 	private:
 		void update_components();
 		void update_sprites();
+		void handle_input();
 		std::vector<Component*> components;
 		std::vector<Sprite*> sprites;
 };

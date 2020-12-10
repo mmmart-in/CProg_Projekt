@@ -8,10 +8,11 @@ class Player :
 {
 public:
     Player(int x, int y, int w, int h, std::string image);
+    void move_left();
+    void move_right();
+    void shoot();
 private:
     void tick();
-    void move();
-    void shoot();
     void check_collision(); //??? kallas i tick kanske?
     void draw();
 
