@@ -2,6 +2,7 @@
 #include "MainWindow.h"
 #include <SDL.h>
 #include <iostream>
+#include "Input.h"
 
 void GameSystem::add_component(Component* component) {
 	components.push_back(component);
@@ -20,7 +21,7 @@ void GameSystem::run() {
 		
 		SDL_RenderClear(mainWindow.get_ren());
 		
-		handle_input();
+		
 		update_components();
 		update_sprites();
 		
@@ -29,6 +30,8 @@ void GameSystem::run() {
 		float delay = nextTick - SDL_GetTicks();
 		if (delay > 0)
 			SDL_Delay(delay);
+
+		handle_input();
 	}
 }
 
@@ -49,10 +52,15 @@ void GameSystem::update_sprites() {
 void GameSystem::handle_input() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
-		switch (event.type) {
-		case SDL_QUIT:
-			running = false;
-			break;
+		if (event.type == SDL_KEYDOWN && event.key.repeat == 0) {
+			switch (event.key.keysym.scancode) {
+			case SDL_SCANCODE_ESCAPE:
+				running = false;
+				break;
+			case SDL_SCANCODE_F1:
+				input.rebind_key();
+				break;
+			}
 		}
 	}
 }
