@@ -5,8 +5,6 @@
 #include "GameSystem.h"
 #include "Player.h"
 #include "Label.h"
-#include "PlayerKeybind.h"
-#include "Keybindings.h"
 #include "Input.h"
 
 

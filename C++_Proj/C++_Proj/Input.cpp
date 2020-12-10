@@ -10,8 +10,7 @@ void Input::add_keybind(std::string command, SDL_Scancode key) {
 
 bool Input::get_key_down(std::string command) {
 	auto it = keybinds.find(command);
-	if (it != keybinds.end()) 
-		return keyboard[it->second];
+	return it != keybinds.end() ? keyboard[it->second] : false; 
 }
 
 bool Input::get_key(SDL_Scancode key) {

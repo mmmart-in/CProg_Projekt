@@ -2,7 +2,6 @@
 #include "MainWindow.h"
 #include <SDL.h>
 #include <iostream>
-#include "Keybindings.h"
 
 void GameSystem::add_component(Component* component) {
 	components.push_back(component);

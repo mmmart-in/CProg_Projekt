@@ -29,8 +29,6 @@
     <ClCompile Include="FixedSprite.cpp" />
     <ClCompile Include="GameSystem.cpp" />
     <ClCompile Include="Input.cpp" />
-    <ClCompile Include="Keybind.cpp" />
-    <ClCompile Include="Keybindings.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -51,9 +49,6 @@
     <ClInclude Include="FixedSprite.h" />
     <ClInclude Include="GameSystem.h" />
     <ClInclude Include="Input.h" />
-    <ClInclude Include="Keybind.h" />
-    <ClInclude Include="PlayerKeybind.h" />
-    <ClInclude Include="Keybindings.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="MainWindow.h" />
