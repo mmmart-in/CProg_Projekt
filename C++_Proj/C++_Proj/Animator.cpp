@@ -20,6 +20,7 @@ void Animator::next_image(int animInt) {
 
 
 
+
 void Animator::draw(Sprite* parent) {
 	SDL_RenderCopy(mainWindow.get_ren(), activeTexture, NULL, &parent->get_rect());
 }
