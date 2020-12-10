@@ -28,16 +28,16 @@ void Player::move() {
 
 	if (currentKeys[SDL_SCANCODE_LEFT] && rect.x > 0) {
 		rect.x -= movementSpeed;
-		anim->next_image(turnLeftAnim);
+		anim->animate_loop(turnLeftAnim);
 	}
 		
 	else if (currentKeys[SDL_SCANCODE_RIGHT] && rect.x < 1200 - rect.w) {
 		rect.x += movementSpeed;
-		anim->next_image(turnRightAnim);
+		anim->animate_loop(turnRightAnim);
 	}
 
 	else
-		anim->next_image(forwardAnim);
+		anim->animate_loop(forwardAnim);
 
 	
 
@@ -49,8 +49,11 @@ void Player::shoot() {
 	const Uint8* currentKeys = SDL_GetKeyboardState(NULL);
 
 	if (currentKeys[SDL_SCANCODE_SPACE]) {
-		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet1.png");
-		gameSystem.add_sprites(bptr);
+		if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
+			Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet.png");
+			gameSystem.add_sprites(bptr);
+			fireCooldownCount = SDL_GetTicks() + fireCooldown;
+		}
 	}
 		
 }
