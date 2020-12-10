@@ -21,7 +21,6 @@ void Animator::animate_loop(int x) {
 //vilken animation man ska köra igenom och sen den andra inten för att säga vart den ska härnäst.
 //detta kanske bara är svammel... men tror nått sånt här borde funka.
 
-
 void Animator::draw(Sprite* parent) {
 	SDL_RenderCopy(mainWindow.get_ren(), activeTexture, NULL, &parent->get_rect());
 }

@@ -15,6 +15,7 @@ Bullet::Bullet(int x, int y, int w, int h, std::string image) :
 	"../../Resources/bullet3.png", 
 	"../../Resources/bullet4.png"};
 
+	
 	anim = new Animator{idle};
 	tickCount = 0;
 	
