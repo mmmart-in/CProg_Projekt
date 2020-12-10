@@ -28,16 +28,16 @@ void Player::move() {
 
 	if (currentKeys[SDL_SCANCODE_LEFT] && rect.x > 0) {
 		rect.x -= movementSpeed;
-		anim->animate_loop(2);
+		anim->animate_loop(turnLeftAnim);
 	}
 		
 	else if (currentKeys[SDL_SCANCODE_RIGHT] && rect.x < 1200 - rect.w) {
 		rect.x += movementSpeed;
-		anim->animate_loop(1);
+		anim->animate_loop(turnRightAnim);
 	}
 
 	else
-		anim->animate_loop(0);
+		anim->animate_loop(forwardAnim);
 
 	
 

@@ -7,8 +7,6 @@ Animator::Animator(std::initializer_list<Animation> vecs){
 	activeTexture = animations[0].get_texture_at(0);
 }
 
-
-
 //vene om detta är rätt men nått sånt.. den här kallas när man vill loopa en animation.. "x" är då vilken animation man vill loopa genom
 void Animator::animate_loop(int x) {
 	for (int i = 0; i < animations[x].get_size(); i++) {

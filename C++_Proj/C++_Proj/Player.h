@@ -19,5 +19,8 @@ private:
     int movementSpeed = 5;
     int firePoint = 2;
     Animator* anim;
+    int forwardAnim = 0;
+    int turnRightAnim = 1;
+    int turnLeftAnim = 2;
 };
 
