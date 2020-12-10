@@ -13,12 +13,8 @@ Bullet::Bullet(int x, int y, int w, int h, std::string image) :
 	Animation idle{ "../../Resources/bullet1.png",
 	"../../Resources/bullet2.png",
 	"../../Resources/bullet3.png", 
-	"../../Resources/bullet4.png", 
-	"../../Resources/bullet5.png", 
-	"../../Resources/bullet6.png", 
-	"../../Resources/bullet7.png", };
+	"../../Resources/bullet4.png"};
 
-	
 	anim = new Animator{idle};
 	tickCount = 0;
 	
