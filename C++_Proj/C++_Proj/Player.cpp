@@ -49,8 +49,11 @@ void Player::shoot() {
 	const Uint8* currentKeys = SDL_GetKeyboardState(NULL);
 
 	if (currentKeys[SDL_SCANCODE_SPACE]) {
-		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet.png");
-		gameSystem.add_sprites(bptr);
+		if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
+			Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet.png");
+			gameSystem.add_sprites(bptr);
+			fireCooldownCount = SDL_GetTicks() + fireCooldown;
+		}
 	}
 		
 }
