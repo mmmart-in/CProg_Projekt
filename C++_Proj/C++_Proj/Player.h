@@ -18,7 +18,7 @@ private:
 private:
     int movementSpeed = 5;
     int firePoint = 2;
-    int fireCooldown = 500;
+    int fireCooldown = 300;
     int fireCooldownCount = 0; 
     Animator* anim;
     int forwardAnim = 0;
