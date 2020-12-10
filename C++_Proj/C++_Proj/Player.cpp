@@ -4,6 +4,7 @@
 #include "Bullet.h"
 #include <SDL_image.h>
 #include "GameSystem.h"
+#include "Input.h"
 
 Player::Player(int x, int y, int w, int h, std::string image):
 	MovableSprite(x, y, w, h, image)
@@ -13,29 +14,27 @@ Player::Player(int x, int y, int w, int h, std::string image):
 }
 
 void Player::tick() {
-	//här händer saker hela tiden.. Beroende på vad som händer kalla på olika metoder
-	move();
-	shoot();
-
+	if (input.get_key_down("Left"))
+		move_left();
+	if (input.get_key_down("Right"))
+		move_right();
+	if (input.get_key_down("Fire"))
+		shoot();
 }
 
-void Player::move() {
-	const Uint8* currentKeys = SDL_GetKeyboardState(NULL);
+void Player::move_left() {
+	rect.x -= movementSpeed;
+	std::cout << "Move left" << std::endl;
+}
 
-	if (currentKeys[SDL_SCANCODE_LEFT] && rect.x > 0)
-		rect.x -= movementSpeed;
-	if (currentKeys[SDL_SCANCODE_RIGHT] && rect.x < 1200 - rect.w)
-		rect.x += movementSpeed;
+void Player::move_right() {
+	rect.x += movementSpeed;
+	std::cout << "Move right" << std::endl;
 }
 
 void Player::shoot() {
-	const Uint8* currentKeys = SDL_GetKeyboardState(NULL);
-
-	if (currentKeys[SDL_SCANCODE_SPACE]) {
-		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet.png");
-		gameSystem.add_sprites(bptr);
-	}
-		
+	Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 50, "../../Resources/bullet.png");
+	gameSystem.add_sprites(bptr);
 }
 
 void Player::draw() {

@@ -5,6 +5,10 @@
 #include "GameSystem.h"
 #include "Player.h"
 #include "Label.h"
+#include "PlayerKeybind.h"
+#include "Keybindings.h"
+#include "Input.h"
+
 
 int main(int argc, char** argv) {
 
@@ -12,7 +16,10 @@ int main(int argc, char** argv) {
 
 	Label* lb = Label::getInstance(0, 0, 100, 100, "Score", { 255, 255, 255 });
 
-
+	input.add_keybind("Fire", SDL_SCANCODE_SPACE);
+	input.add_keybind("Left", SDL_SCANCODE_LEFT);
+	input.add_keybind("Right", SDL_SCANCODE_RIGHT);
+	
 	gameSystem.add_sprites(&p);
 	gameSystem.add_component(lb);
 	
