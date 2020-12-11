@@ -9,6 +9,7 @@ class GameSystem {
 	public:
 		void add_component(Component*);
 		void add_sprites(Sprite*);
+		//void add_to_temp(Sprite*);
 		void run();
 		~GameSystem();
 		bool running = true;
@@ -18,6 +19,7 @@ class GameSystem {
 		void handle_input();
 		std::vector<Component*> components;
 		std::vector<Sprite*> sprites;
+		std::vector<Sprite*> temp;
 };
 
 extern GameSystem gameSystem;

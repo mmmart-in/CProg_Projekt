@@ -9,12 +9,14 @@ class Enemy :
 public:
     void draw();
     void animate();
-    Enemy(int x, int y, int w, int h, std::string image);
+    static Enemy* get_instance(int x, int y, int w, int h);
     ~Enemy();
+
 private:
+    Enemy(int x, int y, int w, int h);
     void tick();
     Animator* anim;
-    int tickCount;
+    int tickCount = 0;
     
 };
 
