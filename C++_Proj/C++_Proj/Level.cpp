@@ -1,6 +1,6 @@
 #include "Level.h"
 
-Level::Level(Player p, std::initializer_list<EnemyHandler> e) {
-	player = p;
+Level::Level(std::initializer_list<EnemyHandler> e) {
+	
 	allEnemies = e;
 }
