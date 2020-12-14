@@ -14,7 +14,7 @@
 
 int main(int argc, char** argv) {
 	
-
+	EnemyHandler eh(100, 100, 3, 6);
 
 	Player p(600, 700, 50, 50, "../../Resources/Player.png");
 	
