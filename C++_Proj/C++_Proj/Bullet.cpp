@@ -30,6 +30,7 @@ void Bullet::tick() {
 	tickCount++;
 	rect.y -= 5;
 	fly();
+	//if y = 0, ta bort	
 }
 
 void Bullet::fly() {
