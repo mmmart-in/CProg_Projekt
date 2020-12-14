@@ -6,9 +6,9 @@
 class Level
 {
 public:
-	Level(Player, std::initializer_list<EnemyHandler>);
+	Level(std::initializer_list<EnemyHandler>);
 private:
-	Player player;
+	
 	std::vector<EnemyHandler> allEnemies;
 	
 };
