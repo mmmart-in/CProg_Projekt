@@ -12,6 +12,9 @@ void GameSystem::add_sprites(Sprite* sprite) {
 	sprites.push_back(sprite);
 }
 
+/*void GameSystem::add_to_temp(Sprite* sprite) {
+	temp.push_back(sprite);
+}*/
 void GameSystem::run() {
 
 	Uint32 tickInterval = 1000 / FPS;
@@ -25,6 +28,10 @@ void GameSystem::run() {
 		update_components();
 		update_sprites();
 		
+		/*for (Sprite* s : temp)
+			add_sprites(s);
+		temp.clear();*/
+
 		SDL_RenderPresent(mainWindow.get_ren());
 
 		float delay = nextTick - SDL_GetTicks();

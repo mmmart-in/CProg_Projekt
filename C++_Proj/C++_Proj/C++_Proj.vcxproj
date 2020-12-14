@@ -26,6 +26,7 @@
     <ClCompile Include="Castle.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyHandler.cpp" />
     <ClCompile Include="FixedSprite.cpp" />
     <ClCompile Include="GameSystem.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="Castle.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyHandler.h" />
     <ClInclude Include="FixedSprite.h" />
     <ClInclude Include="GameSystem.h" />
     <ClInclude Include="Input.h" />

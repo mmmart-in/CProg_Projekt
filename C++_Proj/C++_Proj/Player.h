@@ -20,7 +20,7 @@ private:
     int movementSpeed = 5;
     int firePoint = 2;
     int fireCooldown = 100;
-    int fireCooldownCount = 0; 
+    Uint32 fireCooldownCount = 0; 
     Animator* anim;
     int forwardAnim = 0;
     int turnRightAnim = 1;

@@ -7,19 +7,26 @@
 #include "Label.h"
 #include "Input.h"
 #include "Enemy.h"
+#include "EnemyHandler.h"
 
 
 int main(int argc, char** argv) {
+	EnemyHandler eh(100, 100, 7);
+	EnemyHandler eh2(100, 200, 7);
+	EnemyHandler eh3(100, 300, 7);
 
 	Player p(600, 700, 50, 50, "../../Resources/Player.png");
 
 	Label* lb = Label::getInstance(0, 0, 100, 100, "Score", { 255, 255, 255 });
-	Enemy e(200, 200, 50, 50, "Hej");
-	gameSystem.add_sprites(&e);
+
 	input.add_keybind("Fire", SDL_SCANCODE_SPACE);
 	input.add_keybind("Left", SDL_SCANCODE_LEFT);
 	input.add_keybind("Right", SDL_SCANCODE_RIGHT);
 	
+
+
+	
+
 	gameSystem.add_sprites(&p);
 	gameSystem.add_component(lb);
 	

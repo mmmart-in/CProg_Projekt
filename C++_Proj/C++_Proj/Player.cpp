@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "MainWIndow.h"
+#include "MainWindow.h"
 #include <iostream>
 #include "Bullet.h"
 #include <SDL_image.h>
