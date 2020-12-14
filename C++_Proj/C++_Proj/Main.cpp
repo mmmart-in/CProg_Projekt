@@ -13,9 +13,8 @@
 
 
 int main(int argc, char** argv) {
-	EnemyHandler eh(100, 100, 7);
-	EnemyHandler eh2(100, 200, 7);
-	EnemyHandler eh3(100, 300, 7);
+	EnemyHandler eh(100, 100, 3, 5);
+
 
 	Player p(600, 700, 50, 50, "../../Resources/Player.png");
 	
