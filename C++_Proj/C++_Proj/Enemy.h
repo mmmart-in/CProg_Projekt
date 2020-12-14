@@ -7,16 +7,17 @@ class Enemy :
     public MovableSprite
 {
 public:
-    void draw();
-    void animate();
     static Enemy* get_instance(int x, int y, int w, int h);
     ~Enemy();
-
 private:
-    Enemy(int x, int y, int w, int h);
+    void animate();
+    void draw();
     void tick();
+    Enemy(int x, int y, int w, int h);
     Animator* anim;
     int tickCount = 0;
+
+    friend class EnemyHandler;
     
 };
 

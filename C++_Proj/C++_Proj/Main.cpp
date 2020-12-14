@@ -13,8 +13,8 @@
 
 
 int main(int argc, char** argv) {
-	
-	EnemyHandler eh(100, 100, 3, 6);
+	EnemyHandler eh(100, 100, 3, 5);
+
 
 	Player p(600, 700, 50, 50, "../../Resources/Player.png");
 	
@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
 	
 
 	//gameSystem.add_level(level1); och sen måste man ju kunna byta mellan levels i gamesystem också
-	
+	gameSystem.add_sprites(&eh);
 
 	gameSystem.add_sprites(&p);
 	gameSystem.add_component(lb);
