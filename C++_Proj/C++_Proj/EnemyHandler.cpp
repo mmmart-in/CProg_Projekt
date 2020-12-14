@@ -21,7 +21,7 @@ void EnemyHandler::tick()
 	{
 		e->tick();
 	}
-	if (tickCount  %  enemyCount== 0) 
+	if (tickCount  %  enemyCount / speed == 0) 
 	{
 		move();
 	}
@@ -35,9 +35,17 @@ void EnemyHandler::draw()
 }
 void EnemyHandler::move() 
 {
-	for (Enemy* e : enemies)
-		e->move_right();
+	if (leftEnemy->rect.x <= 5) {
+		moveLeft = false;
+		std::cout << "moveleft false";
+	}
+	else if (!moveLeft && rightEnemy->rect.x > 1200 - rightEnemy->rect.w)
+		moveLeft = true;
 
+	for (Enemy* e : enemies)
+	{
+		e->move(moveLeft);
+	}
 
 	//slog LEFT_ENEMY i väggen? 
 	//byt håll

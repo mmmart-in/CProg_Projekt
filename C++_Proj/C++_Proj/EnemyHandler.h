@@ -11,6 +11,8 @@ public:
 	void tick();
 	void draw();
 private:
+	int speed = 2;
+	bool moveLeft = false;
 	int enemyCount = 0;
 	int tickCount = 0;
 	Enemy* leftEnemy;

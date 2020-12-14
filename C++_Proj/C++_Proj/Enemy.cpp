@@ -30,5 +30,10 @@ void Enemy::animate() {
 void Enemy::draw() {
 	anim->draw(this);
 }
-void Enemy::move_right() { rect.x += 5; }
-void Enemy::move_left() { rect.x -= 5; }
+void Enemy::move(bool moveLeft)
+{
+	if (moveLeft)
+		rect.x -= 5;
+	else
+		rect.x += 5;
+}

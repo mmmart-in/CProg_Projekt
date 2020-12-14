@@ -10,8 +10,7 @@ public:
     static Enemy* get_instance(int x, int y, int w, int h, int c, int r);
     ~Enemy();
 private:
-    void move_right(); 
-    void move_left();
+    void move(bool moveLeft); 
     Enemy(int x, int y, int w, int h, int c, int r);
     void animate();
     void draw();
