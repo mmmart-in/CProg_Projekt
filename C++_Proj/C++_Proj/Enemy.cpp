@@ -2,13 +2,13 @@
 #include <SDL_image.h>
 #include "Animator.h"
 
-Enemy* Enemy::get_instance(int x, int y, int w, int h) 
+Enemy* Enemy::get_instance(int x, int y, int w, int h, int c, int r) 
 {
-	return new Enemy(x, y, w, h);
+	return new Enemy(x, y, w, h, c, r);
 }
 
-Enemy::Enemy(int x, int y, int w, int h) :
-	MovableSprite(x, y, w, h, "nullvärde, parameter behövs ej") {
+Enemy::Enemy(int x, int y, int w, int h, int c, int r) :
+	MovableSprite(x, y, w, h, "nullvärde, parameter behövs ej"), col(c), row(r) {
 	enemyCount++;
 	Animation idle{ "../../Resources/Fiende1_1.png",  "../../Resources/Fiende1_2.png" };
 	anim = new Animator{idle};
@@ -24,7 +24,7 @@ void Enemy::tick() {
 }
 
 void Enemy::animate() {
-	if(tickCount % 50 == 0)
+	if(tickCount % 20 == 0)
 	anim->next_image(0);
 }
 

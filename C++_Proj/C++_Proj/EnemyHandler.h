@@ -11,6 +11,10 @@ public:
 	void tick();
 	void draw();
 private:
+	Enemy* leftEnemy;
+	Enemy* rightEnemy;
+	void move();
+	void outermost_enemies();
 	std::vector<Enemy*> enemies;
 };
 
