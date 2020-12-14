@@ -24,7 +24,7 @@ void Enemy::tick() {
 }
 
 void Enemy::animate() {
-	if(tickCount % 20 == 0)
+	if(tickCount % 50 == 0)
 	anim->next_image(0);
 }
 
