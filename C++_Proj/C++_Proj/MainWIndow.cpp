@@ -33,4 +33,10 @@ TTF_Font* MainWindow::get_font() const
 	return font;
 }
 
+/*int* MainWindow::get_width() {
+	int* widthPoint = nullptr; 
+	SDL_GetWindowSize(win, widthPoint, NULL);
+		return widthPoint;
+}*/
+
 MainWindow mainWindow;

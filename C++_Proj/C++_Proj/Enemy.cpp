@@ -9,13 +9,12 @@ Enemy* Enemy::get_instance(int x, int y, int w, int h, int c, int r)
 
 Enemy::Enemy(int x, int y, int w, int h, int c, int r) :
 	MovableSprite(x, y, w, h, "nullvärde, parameter behövs ej"), col(c), row(r) {
-	enemyCount++;
 	Animation idle{ "../../Resources/Fiende1_1.png",  "../../Resources/Fiende1_2.png" };
 	anim = new Animator{idle};
 }
 
 Enemy::~Enemy() {
-	enemyCount--;
+
 }
 
 void Enemy::tick() {
@@ -31,3 +30,5 @@ void Enemy::animate() {
 void Enemy::draw() {
 	anim->draw(this);
 }
+void Enemy::move_right() { rect.x += 5; }
+void Enemy::move_left() { rect.x -= 5; }
