@@ -5,6 +5,7 @@
 #include <SDL_image.h>
 #include "GameSystem.h"
 #include "Input.h"
+#include "Log.h"
 Player::Player(int x, int y, int w, int h, std::string image):
 	MovableSprite(x, y, w, h, image)
 {
@@ -33,6 +34,10 @@ void Player::tick() {
 	
 }
 
+Player* Player::create_instance(int x, int y, int w, int h, std::string sprite) {
+	return new Player(x, y, w, h, sprite);
+}
+
 void Player::move_left() {
 	rect.x -= movementSpeed;
 }
@@ -45,10 +50,9 @@ void Player::move_right(){
 void Player::shoot() {
 	if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
 		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 30, "../../Resources/bullet.png");
-		gameSystem.add_sprites(bptr);
+		gameSystem.get_current_scene()->add_sprite(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
 	}
-		
 }
 
 void Player::draw() {

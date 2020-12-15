@@ -2,7 +2,8 @@
 #include "MainWIndow.h"
 #include <iostream>
 #include "Animation.h"
-
+#include "Log.h"
+#include "GameSystem.h"
 
 Bullet* Bullet::get_instance(int x, int y, int w, int h, std::string image) {
 	return new Bullet(x, y, w, h, image);
@@ -14,7 +15,6 @@ Bullet::Bullet(int x, int y, int w, int h, std::string image) :
 	"../../Resources/bullet2.png",
 	"../../Resources/bullet3.png", 
 	"../../Resources/bullet4.png"};
-
 	
 	anim = new Animator{idle};
 	tickCount = 0;
@@ -22,15 +22,15 @@ Bullet::Bullet(int x, int y, int w, int h, std::string image) :
 }
 
 Bullet::~Bullet() {
-	//Vi gör new!!
-	
+	std::cout << "bullet destructor" << std::endl;
 }
 
 void Bullet::tick() {
 	tickCount++;
 	rect.y -= 5;
 	fly();
-	//if y = 0, ta bort	
+	if (rect.y <= 0)
+		gameSystem.get_current_scene()->remove_sprite(this);
 }
 
 void Bullet::fly() {

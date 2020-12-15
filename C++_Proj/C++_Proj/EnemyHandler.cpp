@@ -14,6 +14,10 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 	outermost_enemies();
 }
 
+EnemyHandler* EnemyHandler::create_instance(int startX, int startY, int rows, int cols) {
+	return new EnemyHandler(startX, startY, rows, cols);
+}
+
 void EnemyHandler::tick()
 {
 	tickCount++;
