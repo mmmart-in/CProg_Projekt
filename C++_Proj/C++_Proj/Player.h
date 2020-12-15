@@ -7,7 +7,7 @@ class Player :
     public MovableSprite
 {
 public:
-    static Player* create_instance(int, int, int, int, std::string);
+    static Player* create_instance(int, int, int, int);
     void move_left();
     void move_right();
     void shoot();
@@ -16,7 +16,7 @@ private:
     void check_collision(); //??? kallas i tick kanske?
     void draw();
 private:
-    Player(int x, int y, int w, int h, std::string image);
+    Player(int x, int y, int w, int h);
     int movementSpeed = 5;
     int firePoint = 2;
     int fireCooldown = 100;

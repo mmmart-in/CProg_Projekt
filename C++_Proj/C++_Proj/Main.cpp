@@ -17,8 +17,8 @@ int main(int argc, char** argv) {
 	EnemyHandler* eh2 = EnemyHandler::create_instance(10, 20, 4,8);
 
 
-	Player* player = Player::create_instance(600, 700, 50, 50, "../../Resources/Player.png");
-	Player* player2 = Player::create_instance(600, 700, 50, 50, "../../Resources/Player.png");
+	Player* player = Player::create_instance(600, 700, 50, 50);
+	Player* player2 = Player::create_instance(600, 700, 50, 50);
 	
 	
 		

@@ -6,8 +6,8 @@
 #include "GameSystem.h"
 #include "Input.h"
 #include "Log.h"
-Player::Player(int x, int y, int w, int h, std::string image):
-	MovableSprite(x, y, w, h, image)
+Player::Player(int x, int y, int w, int h):
+	MovableSprite(x, y, w, h)
 {
 	//SKAPA ANIMATIONER HÄR:::::
 	Animation forward{"../../Resources/ship1.png"};
@@ -34,8 +34,8 @@ void Player::tick() {
 	
 }
 
-Player* Player::create_instance(int x, int y, int w, int h, std::string sprite) {
-	return new Player(x, y, w, h, sprite);
+Player* Player::create_instance(int x, int y, int w, int h) {
+	return new Player(x, y, w, h);
 }
 
 void Player::move_left() {
@@ -49,7 +49,7 @@ void Player::move_right(){
 
 void Player::shoot() {
 	if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
-		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 30, "../../Resources/bullet.png");
+		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 30);
 		gameSystem.get_current_scene()->add_sprite(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
 	}
