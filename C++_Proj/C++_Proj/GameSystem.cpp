@@ -80,9 +80,9 @@ void GameSystem::update_scene_objects() {
 	är tomma när en ny frame börjar. 
 	*************************************************************************************/
 
-	if (current_scene->removed_components_size() > 0) {
+	if (current_scene->components->get_removed().size() > 0) {
 		
-		for (Component* component : current_scene->get_removed_components()) {
+		for (Component* component : current_scene->components->get_removed()) {
 			auto it = std::find(active_components.begin(), active_components.end(), component);
 			if (it != active_components.end()) {
 				delete *it;
@@ -92,9 +92,9 @@ void GameSystem::update_scene_objects() {
 		}
 	}
 
-	if (current_scene->removed_sprites_size() > 0) {
+	if (current_scene->sprites->get_removed().size() > 0) {
 
-		for (Sprite* sprite : current_scene->get_removed_sprites()) {
+		for (Sprite* sprite : current_scene->sprites->get_removed()) {
 			auto it = std::find(active_sprites.begin(), active_sprites.end(), sprite);
 			if (it != active_sprites.end()) {
 				delete* it;
@@ -103,15 +103,16 @@ void GameSystem::update_scene_objects() {
 		}
 	}
 		
-	if (current_scene->new_components_size() > 0) 
-		for (Component* new_component : current_scene->get_added_components())
+	if (current_scene->components->get_added().size() > 0) 
+		for (Component* new_component : current_scene->components->get_added())
 			active_components.push_back(new_component);
 
-	if (current_scene->new_sprites_size() > 0)
-		for (Sprite* new_sprite : current_scene->get_added_sprites())
+	if (current_scene->sprites->get_added().size() > 0)
+		for (Sprite* new_sprite : current_scene->sprites->get_added())
 			active_sprites.push_back(new_sprite);
 			
-	current_scene->clear_vectors();
+	current_scene->components->clear_vectors();
+	current_scene->sprites->clear_vectors();
 }
 
 GameSystem::~GameSystem() {}
@@ -131,14 +132,15 @@ void GameSystem::load_new_scene(unsigned int scene_index) {
 	active_components.clear();
 	active_sprites.clear();
 	
-	for (Component* component : it->second->get_added_components())
+	for (Component* component : it->second->components->get_added())
 		active_components.push_back(component);
 		
-	for (Sprite* sprite : it->second->get_added_sprites())
+	for (Sprite* sprite : it->second->sprites->get_added())
 		active_sprites.push_back(sprite);
 
 	current_scene = it->second;
-	current_scene->clear_vectors();
+	current_scene->components->clear_vectors();
+	current_scene->sprites->clear_vectors();
 }
 
 void GameSystem::add_new_scenes(std::initializer_list<Scene*> new_scenes) {

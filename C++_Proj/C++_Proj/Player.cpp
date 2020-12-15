@@ -50,7 +50,7 @@ void Player::move_right(){
 void Player::shoot() {
 	if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
 		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 30, "../../Resources/bullet.png");
-		gameSystem.get_current_scene()->add_sprite(bptr);
+		gameSystem.get_current_scene()->sprites->add(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
 	}
 }

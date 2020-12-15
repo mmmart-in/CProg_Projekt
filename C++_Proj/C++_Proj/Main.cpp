@@ -40,18 +40,18 @@ int main(int argc, char** argv) {
 
 	
 	Label* header = Label::getInstance(450, 100, 300, 100, "SPACE INVADERS", { 255, 255, 255 });
-	Label* play_instruction = Label::getInstance(450, 300, 300, 50f, "Press F1 to play!", { 255, 255, 255 });
+	Label* play_instruction = Label::getInstance(450, 300, 300, 50, "Press F1 to play!", { 255, 255, 255 });
 
-	main_menu->add_component(header);
-	main_menu->add_component(play_instruction);
+	main_menu->components->add(header);
+	main_menu->components->add(play_instruction);
 
-	first_scene->add_sprite(eh);
-	first_scene->add_sprite(player);
-	first_scene->add_component(lb);
+	first_scene->sprites->add(eh);
+	first_scene->sprites->add(player);
+	first_scene->components->add(lb);
 
-	second_scene->add_sprite(eh2);
-	second_scene->add_sprite(player2);
-	second_scene->add_component(lb2);
+	second_scene->sprites->add(eh2);
+	second_scene->sprites->add(player2);
+	second_scene->components->add(lb2);
 
 	input.add_keybind("Fire", SDL_SCANCODE_SPACE);
 	input.add_keybind("Left", SDL_SCANCODE_LEFT);

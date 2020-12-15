@@ -30,7 +30,7 @@ void Bullet::tick() {
 	rect.y -= 5;
 	fly();
 	if (rect.y <= 0)
-		gameSystem.get_current_scene()->remove_sprite(this);
+		gameSystem.get_current_scene()->sprites->remove(this);
 }
 
 void Bullet::fly() {

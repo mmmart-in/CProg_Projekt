@@ -59,6 +59,7 @@
     <ClInclude Include="MovableSprite.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneContents.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="UIButton.h" />
   </ItemGroup>
