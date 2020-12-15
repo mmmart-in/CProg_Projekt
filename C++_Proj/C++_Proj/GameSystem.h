@@ -5,7 +5,7 @@
 #include "Scene.h"
 #include <map>
 
-#define FPS 60
+#define FPS 30
 
 class GameSystem {
 	public:

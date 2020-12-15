@@ -111,7 +111,7 @@ void GameSystem::update_scene_objects() {
 		for (Sprite* new_sprite : current_scene->get_added_sprites())
 			active_sprites.push_back(new_sprite);
 			
-	current_scene->clear_vectors();
+	current_scene->clear_temp_vectors();
 }
 
 GameSystem::~GameSystem() {}

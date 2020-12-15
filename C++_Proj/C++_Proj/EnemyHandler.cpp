@@ -25,7 +25,7 @@ void EnemyHandler::tick()
 	{
 		e->tick();
 	}
-	if (tickCount  %  enemyCount / speed == 0) 
+	if (SDL_GetTicks()  %  enemyCount / speed == 0) 
 	{
 		move();
 	}
