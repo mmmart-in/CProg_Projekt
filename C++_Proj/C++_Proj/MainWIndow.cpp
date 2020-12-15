@@ -10,7 +10,7 @@ MainWindow::MainWindow()
 	SDL_SetRenderDrawColor(ren, 0, 0, 0, 0);
 	SDL_RenderPresent(ren);
 	TTF_Init();
-	font = TTF_OpenFont("c:/Windows/Fonts/arial.ttf", 36);
+	font = TTF_OpenFont("../../Resources/Minecraft.ttf", 36);
 	std::cout << TTF_GetError();
 }
 
