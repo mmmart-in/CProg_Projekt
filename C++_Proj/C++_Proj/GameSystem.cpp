@@ -138,7 +138,7 @@ void GameSystem::load_new_scene(unsigned int scene_index) {
 		active_sprites.push_back(sprite);
 
 	current_scene = it->second;
-	current_scene->clear_vectors();
+
 }
 
 void GameSystem::add_new_scenes(std::initializer_list<Scene*> new_scenes) {
