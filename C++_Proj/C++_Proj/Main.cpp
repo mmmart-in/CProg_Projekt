@@ -13,10 +13,12 @@
 
 
 int main(int argc, char** argv) {
-	EnemyHandler eh(10, 20, 3,5);
+	EnemyHandler* eh = EnemyHandler::create_instance(10, 20, 3,5);
+	EnemyHandler* eh2 = EnemyHandler::create_instance(10, 20, 3,5);
 
 
-	Player p(600, 700, 50, 50, "../../Resources/Player.png");
+	Player* player = Player::create_instance(600, 700, 50, 50, "../../Resources/Player.png");
+	Player* player2 = Player::create_instance(600, 700, 50, 50, "../../Resources/Player.png");
 	
 	/*
 	Så här vil jag typ göra istället för som ovan.
@@ -30,9 +32,26 @@ int main(int argc, char** argv) {
 	*/
 		
 	Label* lb = Label::getInstance(0, 0, 100, 100, "Score", { 255, 255, 255 });
+	Label* lb2 = Label::getInstance(0, 0, 200, 100, "Second score", { 255, 255, 255 });
 
+	Scene* main_menu = Scene::create_instance("Main Menu", 0);
+	Scene* first_scene = Scene::create_instance("Level 1", 1);
+	Scene* second_scene = Scene::create_instance("Level 2", 2);
 
+	
+	Label* header = Label::getInstance(450, 100, 300, 100, "SPACE INVADERS", { 255, 255, 255 });
+	Label* play_instruction = Label::getInstance(450, 300, 300, 50f, "Press F1 to play!", { 255, 255, 255 });
 
+	main_menu->add_component(header);
+	main_menu->add_component(play_instruction);
+
+	first_scene->add_sprite(eh);
+	first_scene->add_sprite(player);
+	first_scene->add_component(lb);
+
+	second_scene->add_sprite(eh2);
+	second_scene->add_sprite(player2);
+	second_scene->add_component(lb2);
 
 	input.add_keybind("Fire", SDL_SCANCODE_SPACE);
 	input.add_keybind("Left", SDL_SCANCODE_LEFT);
@@ -40,11 +59,8 @@ int main(int argc, char** argv) {
 	
 
 	//gameSystem.add_level(level1); och sen måste man ju kunna byta mellan levels i gamesystem också
-	gameSystem.add_sprites(&eh);
 
-	gameSystem.add_sprites(&p);
-	gameSystem.add_component(lb);
-	
+	gameSystem.add_new_scenes({main_menu, second_scene, first_scene});
 	gameSystem.run();
 
 	return 0;

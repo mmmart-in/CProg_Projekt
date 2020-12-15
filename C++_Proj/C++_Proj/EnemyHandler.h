@@ -11,11 +11,11 @@ class EnemyHandler : public Sprite
 public:
 	//konstruktor kanske ska ta rows+columns som argument istället för att göra det lättare senare
 	//vill man här bestämma width och height för hela raden? det går ju att göra.
-	EnemyHandler(int startX, int startY, int rows, int cols);
+	static EnemyHandler* create_instance(int, int, int, int);
 	void tick();
 	void draw();
 private:
-
+	EnemyHandler(int startX, int startY, int rows, int cols);
 	int speed = 2;
 	bool moveLeft = false;
 	int enemyCount = 0;
