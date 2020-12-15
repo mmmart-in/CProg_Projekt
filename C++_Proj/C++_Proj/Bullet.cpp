@@ -5,12 +5,12 @@
 #include "Log.h"
 #include "GameSystem.h"
 
-Bullet* Bullet::get_instance(int x, int y, int w, int h, std::string image) {
-	return new Bullet(x, y, w, h, image);
+Bullet* Bullet::get_instance(int x, int y, int w, int h) {
+	return new Bullet(x, y, w, h);
 }
 
-Bullet::Bullet(int x, int y, int w, int h, std::string image) :
-	MovableSprite(x, y, w, h, image) {
+Bullet::Bullet(int x, int y, int w, int h) :
+	MovableSprite(x, y, w, h) {
 	Animation idle{ "../../Resources/bullet1.png",
 	"../../Resources/bullet2.png",
 	"../../Resources/bullet3.png", 

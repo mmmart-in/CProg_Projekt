@@ -8,7 +8,7 @@ Enemy* Enemy::get_instance(int x, int y, int w, int h, int c, int r)
 }
 
 Enemy::Enemy(int x, int y, int w, int h, int c, int r) :
-	MovableSprite(x, y, w, h, "nullvärde, parameter behövs ej"), col(c), row(r) {
+	MovableSprite(x, y, w, h), col(c), row(r) {
 	Animation idle{ "../../Resources/Fiende1_1.png",  "../../Resources/Fiende1_2.png" };
 	anim = new Animator{idle};
 }

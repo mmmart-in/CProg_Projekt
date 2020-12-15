@@ -1,7 +1,7 @@
 #include "EnemyHandler.h"
 #include <iostream>
 
-EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(1, 1, 1, 1, "Ingen image")
+EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(1, 1, 1, 1)
 {	
 	for (int i = 0; i < cols; i++) {
 		for (int j = 0; j < rows; j++) {

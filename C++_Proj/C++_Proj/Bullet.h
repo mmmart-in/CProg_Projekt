@@ -6,14 +6,14 @@ class Bullet :
     public MovableSprite
 {
 public:
-    static Bullet* get_instance(int x, int y, int w, int h, std::string image);
+    static Bullet* get_instance(int x, int y, int w, int h);
     ~Bullet();
     void draw();
     void tick();
     void fly();
 private:
     
-    Bullet(int x, int y, int w, int h, std::string image);
+    Bullet(int x, int y, int w, int h);
     Animator* anim;
     int tickCount;
 };

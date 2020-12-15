@@ -6,8 +6,9 @@ class MovableSprite :
 public:
 
 protected:
-    MovableSprite(int x, int y, int w, int h, std::string image);
+    MovableSprite(int x, int y, int w, int h);
     virtual void tick() = 0;
+    virtual void draw() = 0;
     
 };
 

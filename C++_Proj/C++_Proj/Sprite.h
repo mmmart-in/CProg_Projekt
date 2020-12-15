@@ -10,8 +10,7 @@ public:
 	virtual void draw() = 0;
 	const SDL_Rect& get_rect() const;
 protected:
-	Sprite(int x, int y, int w, int h, std::string image);
-	SDL_Texture* texture;
+	Sprite(int x, int y, int w, int h);
 	SDL_Rect rect;
 	
 private:

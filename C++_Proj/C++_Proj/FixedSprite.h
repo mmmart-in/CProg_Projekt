@@ -5,9 +5,10 @@ class FixedSprite :
     public Sprite
 {
 protected:
-    FixedSprite(int, int, int, int, std::string image);
+    FixedSprite(int, int, int, int);
     ~FixedSprite();
 private:
+    virtual void tick() = 0;
     virtual void draw() = 0;
     
 };
