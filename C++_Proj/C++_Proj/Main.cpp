@@ -45,6 +45,7 @@ int main(int argc, char** argv) {
 	main_menu->components->add(header);
 	main_menu->components->add(play_instruction);
 
+
 	first_scene->sprites->add(eh);
 	first_scene->sprites->add(player);
 	first_scene->components->add(lb);
