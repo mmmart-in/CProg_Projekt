@@ -11,8 +11,6 @@ public:
 	void clear_vectors();
 	const std::vector<T*>& get_added() const;
 	const std::vector<T*>& get_removed() const;
-	const unsigned int get_scene_index() const;
-	const std::string get_scene_name() const;
 private:
 	std::vector<T*> added, removed;
 };
@@ -42,14 +40,3 @@ template<typename T>
 inline const std::vector<T*>& SceneContents<T>::get_removed() const {
 	return removed;
 }
-
-template<typename T>
-inline const unsigned int SceneContents<T>::get_scene_index() const {
-	return scene_index;
-}
-
-template<typename T>
-inline const std::string SceneContents<T>::get_scene_name() const {
-	return scene_name;
-}
-
