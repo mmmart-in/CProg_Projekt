@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(1, 1, 1, 1), r(rows)
+EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(1, 1, 1, 1), r(rows - 1)
 {	
 	for (int i = 0; i < cols; i++) {
 		for (int j = 0; j < rows; j++) {
@@ -11,6 +11,7 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 		enemyCount++;
 		}
 	}
+	count = r;
 	//varning om oinitialiserade variabler sköts här
 	outermost_enemies();
 }
@@ -26,10 +27,12 @@ void EnemyHandler::tick()
 	{
 		e->tick();
 	}
-	if (SDL_GetTicks()  %  enemyCount / speed == 0) 
+	if (tickCount %  enemyCount * speed == 0) 
 	{
 		move(enemies_to_move());
+		tickCount = 0;
 	}
+	std::cout << tickCount << std::endl;
 }
 void EnemyHandler::move_down() 
 {
@@ -46,10 +49,10 @@ std::vector<Enemy*> EnemyHandler::enemies_to_move() {
 	std::vector<Enemy*> enemiesToMove;
 
 	for (Enemy* e : enemies) {
-		if (e->row == r)
+		if (e->row == count)
 			enemiesToMove.push_back(e);
 	}
-	r--;
+	count == 0 ? count = r : count--;
 	return enemiesToMove;
 }
 void EnemyHandler::move(std::vector<Enemy*> enems)

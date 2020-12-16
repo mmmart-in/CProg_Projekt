@@ -19,7 +19,7 @@ private:
     Animator* anim;
     int tickCount = 0;
     int col, row;
-    float moveSpeed = 3;
+    float moveSpeed = 10;
 
     friend class EnemyHandler;
     

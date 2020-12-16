@@ -6,6 +6,7 @@
 #include "Log.h"
 #include <chrono>
 #include "SceneData.h"
+#include "EnemyHandler.h"
 void GameSystem::run() {
 	deltaTime = 0;
 
@@ -16,6 +17,7 @@ void GameSystem::run() {
 	while (running) {
 		Uint32 nextTick = SDL_GetTicks() + tickInterval;
 		
+
 		SDL_RenderClear(mainWindow.get_ren());
 
 		update_components();

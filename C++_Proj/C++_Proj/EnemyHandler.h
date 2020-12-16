@@ -6,6 +6,8 @@
 #define ROW_HEIGHT 60
 #define COL_WIDTH 80
 
+	static Uint32 SDL_Ticks = 0;
+
 class EnemyHandler : public Sprite
 {
 public:
@@ -17,11 +19,12 @@ public:
 	void draw();
 private:
 	EnemyHandler(int startX, int startY, int rows, int cols);
-	int speed = 2;
+	int speed = 20;
 	bool moveLeft = false;
 	int r = 0;
 	int enemyCount = 0;
 	int tickCount = 0;
+	int count = 0; 
 	Enemy* leftEnemy;
 	Enemy* rightEnemy;
 	void move(std::vector<Enemy*> enems);
