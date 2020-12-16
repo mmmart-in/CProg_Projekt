@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(1, 1, 1, 1)
+EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(1, 1, 1, 1), r(rows)
 {	
 	for (int i = 0; i < cols; i++) {
 		for (int j = 0; j < rows; j++) {
@@ -28,7 +28,7 @@ void EnemyHandler::tick()
 	}
 	if (SDL_GetTicks()  %  enemyCount / speed == 0) 
 	{
-		move();
+		move(enemies_to_move());
 	}
 }
 void EnemyHandler::move_down() 
@@ -42,7 +42,17 @@ void EnemyHandler::draw()
 		e->draw();
 	}
 }
-void EnemyHandler::move() 
+std::vector<Enemy*> EnemyHandler::enemies_to_move() {
+	std::vector<Enemy*> enemiesToMove;
+
+	for (Enemy* e : enemies) {
+		if (e->row == r)
+			enemiesToMove.push_back(e);
+	}
+	r--;
+	return enemiesToMove;
+}
+void EnemyHandler::move(std::vector<Enemy*> enems)
 {
 	if (leftEnemy->rect.x <= 5) {
 		moveLeft = false;
@@ -53,9 +63,8 @@ void EnemyHandler::move()
 		moveLeft = true;
 		move_down();
 	}
-	
 
-	for (Enemy* e : enemies)
+	for (Enemy* e : enems) 
 	{
 		e->move(moveLeft);
 	}

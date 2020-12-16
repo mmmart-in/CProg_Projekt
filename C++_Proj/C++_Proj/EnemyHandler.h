@@ -12,20 +12,23 @@ public:
 	//konstruktor kanske ska ta rows+columns som argument istället för att göra det lättare senare
 	//vill man här bestämma width och height för hela raden? det går ju att göra.
 	static EnemyHandler* create_instance(int, int, int, int);
+	std::vector<Enemy*> enemies_to_move();
 	void tick();
 	void draw();
 private:
 	EnemyHandler(int startX, int startY, int rows, int cols);
 	int speed = 2;
 	bool moveLeft = false;
+	int r = 0;
 	int enemyCount = 0;
 	int tickCount = 0;
 	Enemy* leftEnemy;
 	Enemy* rightEnemy;
-	void move();
+	void move(std::vector<Enemy*> enems);
 	void outermost_enemies();
 	void enemy_destroyed();
 	void move_down();
 	std::vector<Enemy*> enemies;
+
 };
 
