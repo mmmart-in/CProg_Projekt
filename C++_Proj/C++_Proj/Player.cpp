@@ -6,8 +6,8 @@
 #include "GameSystem.h"
 #include "Input.h"
 #include "Log.h"
-Player::Player(int x, int y, int w, int h):
-	MovableSprite(x, y, w, h)
+Player::Player(int x, int y, int w, int h, std::string image):
+	MovableSprite(x, y, w, h, image)
 {
 	//SKAPA ANIMATIONER HÄR:::::
 	Animation forward{"../../Resources/ship1.png"};
@@ -20,10 +20,10 @@ Player::Player(int x, int y, int w, int h):
 void Player::tick() {
 	//här händer saker hela tiden.. Beroende på vad som händer kalla på olika metoder
 	
-	if (input.get_key_down("Left") && rect.x > 10) {
+	if (input.get_key_down("Left") && rect.x > 0) {
 		move_left();
 		anim->next_image(turnLeftAnim);
-	} else if (input.get_key_down("Right") && rect.x < 1190 - rect.w) {
+	} else if (input.get_key_down("Right") && rect.x < 1200 - rect.w) {
 		move_right();
 		anim->next_image(turnRightAnim);
 	} else
@@ -34,23 +34,23 @@ void Player::tick() {
 	
 }
 
-Player* Player::create_instance(int x, int y, int w, int h) {
-	return new Player(x, y, w, h);
+Player* Player::create_instance(int x, int y, int w, int h, std::string sprite) {
+	return new Player(x, y, w, h, sprite);
 }
 
 void Player::move_left() {
-	rect.x -= (gameSystem.deltaTime / 10) * movementSpeed;
+	rect.x -= movementSpeed;
 }
 
 void Player::move_right(){
-	rect.x += (gameSystem.deltaTime / 10) * movementSpeed;
+	rect.x += movementSpeed;
 
 }
 
 void Player::shoot() {
 	if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
-		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 30);
-		gameSystem.get_current_scene()->add_sprite(bptr);
+		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 30, "../../Resources/bullet.png");
+		gameSystem.get_current_scene()->sprites->add(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
 	}
 }

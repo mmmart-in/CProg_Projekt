@@ -30,7 +30,7 @@ void Bullet::tick() {
 	rect.y -= (gameSystem.deltaTime / 10) * movementSpeed;
 	animate();
 	if (rect.y <= 0)
-		gameSystem.get_current_scene()->remove_sprite(this);
+		gameSystem.get_current_scene()->sprites->remove(this);
 }
 
 void Bullet::animate() {

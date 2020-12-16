@@ -4,6 +4,7 @@
 #include "Sprite.h"
 #include <vector>
 #include <string>
+#include "SceneContents.h"
 
 /*************************************************************************
 Klassen används för att lägga till komponenter eller sprites 
@@ -25,29 +26,16 @@ vid en ny scen, så man kan inte ladda tillbaka en gammal scen. Inte mitt smartas
 drag. 
 *****************************************************************************/
 
-class Scene{
+class Scene {
 public:
 	static Scene* create_instance(std::string, unsigned int);
-	void add_component(Component*);
-	void remove_component(Component*);
-	void add_sprite(Sprite*);
-	void remove_sprite(Sprite*);
-	void clear_vectors();
-	const std::vector<Component*>& get_added_components() const;
-	const std::vector<Component*> get_removed_components() const;
-	const std::vector<Sprite*>& get_added_sprites() const;
-	const std::vector<Sprite*>& get_removed_sprites() const;
-	const unsigned int new_components_size() const;
-	const unsigned int removed_components_size() const;
-	const unsigned int new_sprites_size() const;
-	const unsigned int removed_sprites_size() const;
 	const unsigned int get_scene_index() const;
 	const std::string get_scene_name() const;
+	SceneContents<Component>* components;
+	SceneContents<Sprite>* sprites;
 private:
 	unsigned int scene_index;
 	Scene(std::string, unsigned int);
 	std::string scene_name;
-	std::vector<Component*> added_components, removed_components;
-	std::vector<Sprite*> added_sprites, removed_sprites;
 };
 
