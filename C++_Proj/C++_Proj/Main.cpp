@@ -14,15 +14,24 @@
 
 int main(int argc, char** argv) {
 	EnemyHandler* eh = EnemyHandler::create_instance(10, 20, 3,5);
-	EnemyHandler* eh2 = EnemyHandler::create_instance(10, 20, 4,8);
+	EnemyHandler* eh2 = EnemyHandler::create_instance(10, 20, 3,5);
 
 
 	Player* player = Player::create_instance(600, 700, 50, 50);
 	Player* player2 = Player::create_instance(600, 700, 50, 50);
 	
+	/*
+	Så här vil jag typ göra istället för som ovan.
+	Och sen ladda in en level till gameSystem istället. 
+	och i gameSYstem måste man kunna lägga till en level som delar ut sina objekt till comps och sprites osv.
 	
+	Level level1(Player (600, 700, 50, 50, "../../Resources/Player.png"),
+		{EnemyHandler(100, 100, 7),
+		EnemyHandler (100, 200, 7),
+		EnemyHandler (100, 300, 7) });
+	*/
 		
-	Label* lb = Label::getInstance(0, 0, 100, 50, "Score", { 255, 255, 255 });
+	Label* lb = Label::getInstance(0, 0, 100, 100, "Score", { 255, 255, 255 });
 	Label* lb2 = Label::getInstance(0, 0, 200, 100, "Second score", { 255, 255, 255 });
 
 	Scene* main_menu = Scene::create_instance("Main Menu", 0);
@@ -30,19 +39,20 @@ int main(int argc, char** argv) {
 	Scene* second_scene = Scene::create_instance("Level 2", 2);
 
 	
-	Label* header = Label::getInstance(350, 100, 500, 100, "SPACE INVADERS", { 100, 100, 255 });
+	Label* header = Label::getInstance(300, 100, 600, 100, "SPACE INVADERS", { 100, 100, 255 });
 	Label* play_instruction = Label::getInstance(450, 300, 300, 50, "Press F1 to play!", { 255, 255, 255 });
 
-	main_menu->add_component(header);
-	main_menu->add_component(play_instruction);
+	main_menu->components->add(header);
+	main_menu->components->add(play_instruction);
 
-	first_scene->add_sprite(eh);
-	first_scene->add_sprite(player);
-	first_scene->add_component(lb);
 
-	second_scene->add_sprite(eh2);
-	second_scene->add_sprite(player2);
-	second_scene->add_component(lb2);
+	first_scene->sprites->add(eh);
+	first_scene->sprites->add(player);
+	first_scene->components->add(lb);
+
+	second_scene->sprites->add(eh2);
+	second_scene->sprites->add(player2);
+	second_scene->components->add(lb2);
 
 	input.add_keybind("Fire", SDL_SCANCODE_SPACE);
 	input.add_keybind("Left", SDL_SCANCODE_LEFT);

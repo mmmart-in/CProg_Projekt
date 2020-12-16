@@ -3,6 +3,7 @@
 #include <string>
 #include "Animator.h"
 
+
 class Enemy :
     public MovableSprite
 {
@@ -18,6 +19,7 @@ private:
     Animator* anim;
     int tickCount = 0;
     int col, row;
+    float moveSpeed = 3;
 
     friend class EnemyHandler;
     

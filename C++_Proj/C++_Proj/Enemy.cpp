@@ -1,6 +1,8 @@
 #include "Enemy.h"
 #include <SDL_image.h>
 #include "Animator.h"
+#include "GameSystem.h"
+
 
 Enemy* Enemy::get_instance(int x, int y, int w, int h, int c, int r) 
 {
@@ -33,7 +35,7 @@ void Enemy::draw() {
 void Enemy::move(bool moveLeft)
 {
 	if (moveLeft)
-		rect.x -= 5;
+		rect.x -= (gameSystem.deltaTime / 10) * moveSpeed;
 	else
-		rect.x += 5;
+		rect.x += (gameSystem.deltaTime / 10) * moveSpeed;
 }
