@@ -5,15 +5,16 @@
 #include "Input.h"
 #include "Log.h"
 
+
 void GameSystem::run() {
-
+	deltaTime = 0;
 	current_scene = scene_map.begin()->second;
-
+		
 	Uint32 tickInterval = 1000 / FPS;
 
 	while (running) {
 		Uint32 nextTick = SDL_GetTicks() + tickInterval;
-		
+
 		SDL_RenderClear(mainWindow.get_ren());
 
 		update_components();
@@ -21,13 +22,15 @@ void GameSystem::run() {
 		
 		SDL_RenderPresent(mainWindow.get_ren());
 		
-		float delay = nextTick - SDL_GetTicks();
-		if (delay > 0)
-			SDL_Delay(delay);
+		deltaTime = nextTick - SDL_GetTicks();
+		if (deltaTime > 0)
+			SDL_Delay(deltaTime);
 
+		
 		update_scene_objects();
 		handle_input();
 
+		
 	}
 }
 
@@ -35,6 +38,7 @@ void GameSystem::update_components() {
 	for (Component* component : active_components) {
 		component->tick();
 		component->draw();
+			
 	}
 }
 

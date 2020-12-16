@@ -20,10 +20,10 @@ Player::Player(int x, int y, int w, int h):
 void Player::tick() {
 	//här händer saker hela tiden.. Beroende på vad som händer kalla på olika metoder
 	
-	if (input.get_key_down("Left") && rect.x > 0) {
+	if (input.get_key_down("Left") && rect.x > 10) {
 		move_left();
 		anim->next_image(turnLeftAnim);
-	} else if (input.get_key_down("Right") && rect.x < 1200 - rect.w) {
+	} else if (input.get_key_down("Right") && rect.x < 1190 - rect.w) {
 		move_right();
 		anim->next_image(turnRightAnim);
 	} else
@@ -39,11 +39,11 @@ Player* Player::create_instance(int x, int y, int w, int h) {
 }
 
 void Player::move_left() {
-	rect.x -= movementSpeed;
+	rect.x -= (gameSystem.deltaTime / 10) * movementSpeed;
 }
 
 void Player::move_right(){
-	rect.x += movementSpeed;
+	rect.x += (gameSystem.deltaTime / 10) * movementSpeed;
 
 }
 

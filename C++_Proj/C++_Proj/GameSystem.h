@@ -5,10 +5,13 @@
 #include "Scene.h"
 #include <map>
 
-#define FPS 60
+
 
 class GameSystem {
+
+
 	public:
+		float deltaTime;
 		//void add_component(Component*);
 		//void add_sprites(Sprite*);
 		//void add_to_temp(Sprite*);
@@ -23,8 +26,12 @@ class GameSystem {
 		void update_sprites();
 		void handle_input();
 		void update_scene_objects();
+		void change_FPS(int x);
 	private:
 		bool running = true;
+		//FPS SKA KUNNA ÄNDRAS VIA INMATNINGSFÄLT!?!??!?!?!
+		int FPS = 60;
+		
 		Scene* current_scene;
 		std::map <unsigned int, Scene*> scene_map;
 		std::vector<Component*> active_components;

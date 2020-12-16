@@ -27,13 +27,13 @@ Bullet::~Bullet() {
 
 void Bullet::tick() {
 	tickCount++;
-	rect.y -= 5;
-	fly();
+	rect.y -= (gameSystem.deltaTime / 10) * movementSpeed;
+	animate();
 	if (rect.y <= 0)
 		gameSystem.get_current_scene()->remove_sprite(this);
 }
 
-void Bullet::fly() {
+void Bullet::animate() {
 	if (tickCount % 5 == 0) {
 		anim->next_image(0);
 	}

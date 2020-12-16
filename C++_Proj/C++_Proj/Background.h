@@ -7,6 +7,6 @@ class Background : public FixedSprite
 public:
 	Background(int, int, int, int);
 private:
-	Animator anim;
+	Animator* anim;
 };
 

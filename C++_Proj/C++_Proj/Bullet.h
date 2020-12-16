@@ -10,11 +10,12 @@ public:
     ~Bullet();
     void draw();
     void tick();
-    void fly();
+    void animate();
 private:
     
     Bullet(int x, int y, int w, int h);
     Animator* anim;
     int tickCount;
+    float movementSpeed = 2; 
 };
 

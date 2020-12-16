@@ -17,7 +17,7 @@ private:
     void draw();
 private:
     Player(int x, int y, int w, int h);
-    int movementSpeed = 5;
+    float movementSpeed = 2;
     int firePoint = 2;
     int fireCooldown = 100;
     Uint32 fireCooldownCount = 0; 
