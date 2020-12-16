@@ -28,14 +28,12 @@ drag.
 
 class Scene {
 public:
-	static Scene* create_instance(std::string, unsigned int);
-	const unsigned int get_scene_index() const;
-	const std::string get_scene_name() const;
+	static Scene* create_instance();
 	SceneContents<Component>* components;
 	SceneContents<Sprite>* sprites;
 private:
-	unsigned int scene_index;
-	Scene(std::string, unsigned int);
-	std::string scene_name;
+	
+	Scene();
+	
 };
 
