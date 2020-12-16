@@ -16,6 +16,6 @@ private:
     Bullet(int x, int y, int w, int h);
     Animator* anim;
     int tickCount;
-    float movementSpeed = 2; 
+    float movementSpeed = 3; 
 };
 

@@ -6,7 +6,7 @@
 #include "Log.h"
 #include <chrono>
 void GameSystem::run() {
-
+	deltaTime = 0;
 
 	current_scene = scene_map.begin()->second;
 	
@@ -22,9 +22,9 @@ void GameSystem::run() {
 		
 		SDL_RenderPresent(mainWindow.get_ren());
 		
-		float delay = nextTick - SDL_GetTicks();
-		if (delay > 0)
-			SDL_Delay(delay);
+		deltaTime = nextTick - SDL_GetTicks();
+		if (deltaTime > 0)
+			SDL_Delay(deltaTime);
 
 		update_scene_objects();
 		handle_input();

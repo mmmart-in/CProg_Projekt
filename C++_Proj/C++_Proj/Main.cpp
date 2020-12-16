@@ -17,8 +17,8 @@ int main(int argc, char** argv) {
 	EnemyHandler* eh2 = EnemyHandler::create_instance(10, 20, 3,5);
 
 
-	Player* player = Player::create_instance(600, 700, 50, 50, "../../Resources/Player.png");
-	Player* player2 = Player::create_instance(600, 700, 50, 50, "../../Resources/Player.png");
+	Player* player = Player::create_instance(600, 700, 50, 50);
+	Player* player2 = Player::create_instance(600, 700, 50, 50);
 	
 	/*
 	Så här vil jag typ göra istället för som ovan.
@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
 	Scene* second_scene = Scene::create_instance("Level 2", 2);
 
 	
-	Label* header = Label::getInstance(450, 100, 300, 100, "SPACE INVADERS", { 255, 255, 255 });
+	Label* header = Label::getInstance(300, 100, 600, 100, "SPACE INVADERS", { 100, 100, 255 });
 	Label* play_instruction = Label::getInstance(450, 300, 300, 50, "Press F1 to play!", { 255, 255, 255 });
 
 	main_menu->components->add(header);
