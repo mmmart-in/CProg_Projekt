@@ -17,9 +17,8 @@ class GameSystem {
 		//void add_to_temp(Sprite*);
 		void run();
 		~GameSystem();
-		void add_new_scene(Scene*);
-		void add_new_scenes(std::initializer_list<Scene*>);
-		void load_new_scene(unsigned int);
+		
+		void load_new_scene(Scene* newScene);
 		Scene* get_current_scene();
 		template<typename T>void update_active_vector(const std::vector<T*>&, const std::vector<T*>&, std::vector<T*>&);
 	private:
@@ -34,7 +33,7 @@ class GameSystem {
 		int FPS = 60;
 		
 		Scene* current_scene;
-		std::map <unsigned int, Scene*> scene_map;
+		
 		std::vector<Component*> active_components;
 		std::vector<Sprite*> active_sprites;
 		//std::vector<Sprite*> temp;

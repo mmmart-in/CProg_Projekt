@@ -5,10 +5,11 @@
 #include "Input.h"
 #include "Log.h"
 #include <chrono>
+#include "SceneData.h"
 void GameSystem::run() {
 	deltaTime = 0;
 
-	current_scene = scene_map.begin()->second;
+	current_scene = sceneData.load_menu();
 	
 	Uint32 tickInterval = 1000 / FPS;
 
@@ -59,13 +60,13 @@ void GameSystem::handle_input() {
 				input.rebind_key();
 				break;
 			case SDL_SCANCODE_F1:
-				load_new_scene(0);
+				load_new_scene(sceneData.load_menu());
 				break;
 			case SDL_SCANCODE_F2:
-				load_new_scene(1);
+				load_new_scene(sceneData.load_gameplay(3, 5));
 				break;
 			case SDL_SCANCODE_F3:
-				load_new_scene(2);
+				load_new_scene(sceneData.load_gameplay(11, 15));
 				break;
 			}
 		}
@@ -107,31 +108,21 @@ void GameSystem::update_scene_objects() {
 GameSystem::~GameSystem() {}
 
 
-void GameSystem::load_new_scene(unsigned int scene_index) {
-	auto it = scene_map.find(scene_index);
+void GameSystem::load_new_scene(Scene* newScene) {
+	delete current_scene;
 
-	if (it == scene_map.end()) {
-		LOG("Could not load scene, no such index");
-		return;
-	}
-
-	//FÖRSTÖR INTE GAMLA OBJEKT ANNARS BLIR DET JÄÄÄVLIGT SVÅRT ATT LADDA OM EN ANNAN SCEN
-
-	//Rensar aktiva objekt, datan finns ju sparad i respektive scen-objekt
-
-	/****************************
-	* Måste hitta ett sätt att resetta en scen, laddar man in en scen som redan har körts en gång
-	* renderas sprites på samma plats som de var på när scenen byttes ut eftersom den gamla scenens pekarna fortfarande
-	* finns i minnet.
-	****************************/
+	current_scene = newScene;
+	
 
 	active_components.clear();
 	active_sprites.clear();
 
-	for (Component* component : it->second->components->get_added()) 
+	
+
+	for (Component* component : current_scene->components->get_added())
 		active_components.push_back(component);
 	
-	for (Sprite* sprite : it->second->sprites->get_added())
+	for (Sprite* sprite : current_scene->sprites->get_added())
 		active_sprites.push_back(sprite);
 
 
@@ -140,14 +131,7 @@ void GameSystem::load_new_scene(unsigned int scene_index) {
 	current_scene->sprites->clear_vectors();
 }
 
-void GameSystem::add_new_scenes(std::initializer_list<Scene*> new_scenes) {
-	for(Scene* scene : new_scenes)
-		scene_map.insert(std::pair<unsigned int, Scene*>(scene->get_scene_index(), scene));
-}
 
-void GameSystem::add_new_scene(Scene* new_scene) {
-	scene_map.insert(std::pair<unsigned int, Scene*>(new_scene->get_scene_index(), new_scene));
-}
 
 Scene* GameSystem::get_current_scene() {
 	return current_scene;
