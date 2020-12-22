@@ -58,3 +58,12 @@ void Player::shoot() {
 void Player::draw() {
 	anim->draw(this);
 }
+
+
+Collider* Player::get_collider() {
+	return collider;
+}
+
+void Player::resolve_collision() {
+
+}

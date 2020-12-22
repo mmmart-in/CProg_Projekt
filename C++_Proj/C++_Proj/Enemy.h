@@ -10,6 +10,8 @@ class Enemy :
 public:
     static Enemy* get_instance(int x, int y, int w, int h, int c, int r);
     ~Enemy();
+    Collider* get_collider();
+    void resolve_collision();
 private:
     void move(bool moveLeft); 
     Enemy(int x, int y, int w, int h, int c, int r);

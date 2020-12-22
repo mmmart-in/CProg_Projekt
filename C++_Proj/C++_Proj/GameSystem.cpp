@@ -29,9 +29,22 @@ void GameSystem::run() {
 		if (deltaTime > 0)
 			SDL_Delay(deltaTime);
 
+		
 		update_scene_objects();
 		handle_input();
+		//check_collision();
 
+	}
+}
+
+void GameSystem::check_collision() {
+	for (int i = 0; i < active_sprites.size(); i++) {
+		for (int j = 0; j < active_sprites.size(); j++) {
+			if (j == i)
+				continue;
+			/*if (active_sprites[i]->get_collider()->check_collision(*active_sprites[j]->get_collider()))
+				active_sprites[i]->resolve_collision();*/
+		}
 	}
 }
 

@@ -102,3 +102,11 @@ void  EnemyHandler::enemy_destroyed() {
 	enemyCount--;
 }
 //enemydestroyed, uppdatera fiender längst ut på kanten (kalla på outermost_enemies();)
+
+Collider* EnemyHandler::get_collider() {
+	return collider;
+}
+
+void EnemyHandler::resolve_collision() {
+
+}

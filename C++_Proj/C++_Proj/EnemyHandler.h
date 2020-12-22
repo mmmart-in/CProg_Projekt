@@ -17,6 +17,8 @@ public:
 	std::vector<Enemy*> enemies_to_move();
 	void tick();
 	void draw();
+	Collider* get_collider();
+	void resolve_collision();
 private:
 	EnemyHandler(int startX, int startY, int rows, int cols);
 	int speed = 20;

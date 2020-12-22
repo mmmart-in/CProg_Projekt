@@ -11,6 +11,8 @@ public:
     void move_left();
     void move_right();
     void shoot();
+    Collider* get_collider();
+    void resolve_collision();
 private:
     void tick();
     void check_collision(); //??? kallas i tick kanske?

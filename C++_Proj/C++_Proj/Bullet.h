@@ -11,6 +11,8 @@ public:
     void draw();
     void tick();
     void animate();
+    Collider* get_collider();
+    void resolve_collision();
 private:
     
     Bullet(int x, int y, int w, int h);

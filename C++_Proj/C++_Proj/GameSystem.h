@@ -22,6 +22,7 @@ class GameSystem {
 		Scene* get_current_scene();
 		template<typename T>void update_active_vector(const std::vector<T*>&, const std::vector<T*>&, std::vector<T*>&);
 	private:
+		void check_collision();
 		void update_components();
 		void update_sprites();
 		void handle_input();

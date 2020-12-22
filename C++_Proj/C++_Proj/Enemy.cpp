@@ -42,3 +42,12 @@ void Enemy::move(bool moveLeft)
 
 	std::cout << row << std::endl;
 }
+
+
+Collider* Enemy::get_collider() {
+	return collider;
+}
+
+void Enemy::resolve_collision() {
+
+}

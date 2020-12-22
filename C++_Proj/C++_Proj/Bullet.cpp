@@ -23,6 +23,8 @@ Bullet::Bullet(int x, int y, int w, int h) :
 
 Bullet::~Bullet() {
 	std::cout << "bullet destructor" << std::endl;
+	delete anim;
+	delete this;
 }
 
 void Bullet::tick() {
@@ -41,4 +43,12 @@ void Bullet::animate() {
 
 void Bullet::draw() {
 	anim->draw(this);
+}
+
+Collider* Bullet::get_collider() {
+	return collider;
+}
+
+void Bullet::resolve_collision() {
+	gameSystem.get_current_scene()->sprites->remove(this);
 }
