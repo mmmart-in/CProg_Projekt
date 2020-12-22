@@ -28,10 +28,18 @@ Bullet::~Bullet() {
 
 void Bullet::tick() {
 	tickCount++;
-	rect.y -= (gameSystem.deltaTime / 10) * movementSpeed;
+	move();
 	animate();
 	if (rect.y <= 0)
 		gameSystem.get_current_scene()->sprites->remove(this);
+}
+
+void Bullet::move() {
+	rect.y -= (gameSystem.deltaTime / 10) * movementSpeed;
+	collider->x = rect.x;
+	collider->y = rect.y;
+	collider->w = rect.w;
+	collider->h = rect.h;
 }
 
 void Bullet::animate() {
@@ -49,5 +57,7 @@ Collider* Bullet::get_collider() {
 }
 
 void Bullet::resolve_collision() {
+	
 	gameSystem.get_current_scene()->sprites->remove(this);
 }
+

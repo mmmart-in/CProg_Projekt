@@ -11,18 +11,10 @@ Collider::~Collider() {
 }
 
 /*
-//Calculate the sides of rect A
-    leftA = a.x;
-    rightA = a.x + a.w;
-    topA = a.y;
-    bottomA = a.y + a.h;
-
-    //Calculate the sides of rect B
-    leftB = b.x;
-    rightB = b.x + b.w;
-    topB = b.y;
-    bottomB = b.y + b.h;
-
+    leftA = x;
+    rightA = x + w;
+    topA = y;
+    bottomA = y + h;
 */
 
 bool Collider::check_collision(const Collider& other) {

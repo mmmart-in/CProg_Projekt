@@ -5,7 +5,7 @@
 #include <iostream>
 
 
-Enemy* Enemy::get_instance(int x, int y, int w, int h, int c, int r) 
+Enemy* Enemy::get_instance(int x, int y, int w, int h, int c, int r)
 {
 	return new Enemy(x, y, w, h, c, r);
 }
@@ -41,6 +41,10 @@ void Enemy::move(bool moveLeft)
 	else
 		rect.x += (gameSystem.deltaTime/ 10) * moveSpeed;
 
+	collider->x = rect.x;
+	collider->y = rect.y;
+	collider->w = rect.w;
+	collider->h = rect.h;
 	
 }
 
@@ -52,3 +56,4 @@ Collider* Enemy::get_collider() {
 void Enemy::resolve_collision() {
 	std::cout << "Fiende träffad" << std::endl;
 }
+

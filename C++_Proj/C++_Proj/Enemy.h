@@ -18,6 +18,7 @@ private:
     void draw();
     void tick();
     void move(bool moveLeft);
+   
 private:
     int tickCount = 0;
     int col, row;

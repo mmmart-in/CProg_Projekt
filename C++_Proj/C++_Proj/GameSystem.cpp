@@ -38,16 +38,30 @@ void GameSystem::run() {
 		if (deltaTime > 0)
 			SDL_Delay(deltaTime);
 
-		check_collision();
+		
 		update_scene_objects();
 		handle_input();
+		check_collision();
 		
 
 	}
 }
 
 void GameSystem::check_collision() {
-	
+
+	for (auto& kv : collision_layers) {
+		for (Sprite* i : kv.second) {
+			for (Sprite* j : kv.second) {
+				if (i->get_collider()->check_collision(*j->get_collider())) {
+					if (i != j) {
+						i->resolve_collision();
+						j->resolve_collision();
+					}
+				}
+			}
+		}
+	}
+
 
 	
 
@@ -133,7 +147,7 @@ void GameSystem::update_scene_objects() {
 								 current_scene->sprites->get_added(), 
 								 active_sprites);
 	
-	//LÄGG I METOOD
+	//LÄGG I METOD
 	int index;
 	for (int i = 0; i < current_scene->sprites->get_added().size(); i++) {
 		index = current_scene->sprites->get_added()[i]->get_layer();
@@ -141,11 +155,21 @@ void GameSystem::update_scene_objects() {
 		std::cout << "HEJ";
 	}
 
-	for (int i = 0; i < current_scene->sprites->get_removed().size(); i++) {
-		index = current_scene->sprites->get_removed()[i]->get_layer();
-		collision_layers[index].push_back(current_scene->sprites->get_removed()[i]);
-		std::cout << "HEJ DA";
+	
+	for (auto& kv : collision_layers) {
+		for (Sprite* s : current_scene->sprites->get_removed()) {
+			auto it = std::find(kv.second.begin(), kv.second.end(), s);
+			if (it != kv.second.end()) {
+				kv.second.erase(it);
+			}
+		}
 	}
+
+	
+	
+
+	
+
 
 	current_scene->components->clear_vectors();
 	current_scene->sprites->clear_vectors();
@@ -162,6 +186,9 @@ void GameSystem::load_new_scene(Scene* newScene) {
 
 	active_components.clear();
 	active_sprites.clear();
+	for (auto& kv : collision_layers) {
+		kv.second.clear();
+	}
 
 	
 

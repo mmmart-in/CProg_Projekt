@@ -13,8 +13,6 @@ class EnemyHandler : public Sprite
 public:
 	std::vector<Enemy*> enemies_to_move();
 
-	//konstruktor kanske ska ta rows+columns som argument istället för att göra det lättare senare
-	//vill man här bestämma width och height för hela raden? det går ju att göra.
 	static EnemyHandler* create_instance(int, int, int, int);
 	void tick();
 	void draw();
@@ -22,6 +20,8 @@ public:
 	void resolve_collision();
 	Collider* get_collider();
 	std::vector<Enemy*> get_enemies();
+
+	
 	
 private:
 	int enemyCount = 0;

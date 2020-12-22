@@ -13,11 +13,12 @@ public:
     void shoot();
     Collider* get_collider();
     void resolve_collision();
+
 private:
     Player(int x, int y, int w, int h);
     void tick();
-    void check_collision(); //??? kallas i tick kanske?
     void draw();
+
 private:
     int forwardAnim = 0;
     int turnRightAnim = 1;

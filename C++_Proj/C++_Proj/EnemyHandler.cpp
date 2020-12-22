@@ -122,3 +122,4 @@ void EnemyHandler::remove_enemy(Enemy* e) {
 			enemies.erase(enemies.begin() + i);
 	}
 }
+
