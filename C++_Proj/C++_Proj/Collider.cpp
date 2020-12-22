@@ -6,7 +6,9 @@ Collider::Collider(int x, int y, int w, int h) :
 
 }
 
+Collider::~Collider() {
 
+}
 
 /*
 //Calculate the sides of rect A
@@ -22,6 +24,7 @@ Collider::Collider(int x, int y, int w, int h) :
     bottomB = b.y + b.h;
 
 */
+
 bool Collider::check_collision(const Collider& other) {
     //bottom <= otherTop
     if (y + h <= other.y)

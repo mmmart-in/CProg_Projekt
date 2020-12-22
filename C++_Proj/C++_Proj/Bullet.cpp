@@ -18,13 +18,12 @@ Bullet::Bullet(int x, int y, int w, int h) :
 	
 	anim = new Animator{idle};
 	tickCount = 0;
-	
+	layer = 2;
 }
 
 Bullet::~Bullet() {
 	std::cout << "bullet destructor" << std::endl;
 	delete anim;
-	delete this;
 }
 
 void Bullet::tick() {

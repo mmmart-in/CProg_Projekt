@@ -7,6 +7,15 @@
 #include <chrono>
 #include "SceneData.h"
 #include "EnemyHandler.h"
+#include <typeinfo>
+
+GameSystem::GameSystem() {
+	for (int i = 0; i < 10; i++) {
+		collision_layers.insert(std::pair<int, std::vector<Sprite*>>(i, std::vector<Sprite*>()));
+	}
+
+}
+
 void GameSystem::run() {
 	deltaTime = 0;
 
@@ -29,23 +38,21 @@ void GameSystem::run() {
 		if (deltaTime > 0)
 			SDL_Delay(deltaTime);
 
-		
+		check_collision();
 		update_scene_objects();
 		handle_input();
-		//check_collision();
+		
 
 	}
 }
 
 void GameSystem::check_collision() {
-	for (int i = 0; i < active_sprites.size(); i++) {
-		for (int j = 0; j < active_sprites.size(); j++) {
-			if (j == i)
-				continue;
-			/*if (active_sprites[i]->get_collider()->check_collision(*active_sprites[j]->get_collider()))
-				active_sprites[i]->resolve_collision();*/
-		}
-	}
+	
+
+	
+
+
+
 }
 
 void GameSystem::update_components() {
@@ -83,6 +90,16 @@ void GameSystem::handle_input() {
 			case SDL_SCANCODE_F3:
 				load_new_scene(sceneData.load_gameplay(11, 15));
 				break;
+
+			//TA BORT DETTA!!!!!!!
+			case SDL_SCANCODE_F4:
+				for (Sprite* sprite : active_sprites) {
+					if (EnemyHandler* eh = dynamic_cast<EnemyHandler*>(sprite)) {
+						eh->remove_enemy(eh->get_enemies()[1]);
+						std::cout << "SKITSNACKARE";
+					}
+				}
+				break;
 			}
 		}
 	}
@@ -115,6 +132,20 @@ void GameSystem::update_scene_objects() {
 	update_active_vector<Sprite>(current_scene->sprites->get_removed(),
 								 current_scene->sprites->get_added(), 
 								 active_sprites);
+	
+	//LÄGG I METOOD
+	int index;
+	for (int i = 0; i < current_scene->sprites->get_added().size(); i++) {
+		index = current_scene->sprites->get_added()[i]->get_layer();
+		collision_layers[index].push_back(current_scene->sprites->get_added()[i]);
+		std::cout << "HEJ";
+	}
+
+	for (int i = 0; i < current_scene->sprites->get_removed().size(); i++) {
+		index = current_scene->sprites->get_removed()[i]->get_layer();
+		collision_layers[index].push_back(current_scene->sprites->get_removed()[i]);
+		std::cout << "HEJ DA";
+	}
 
 	current_scene->components->clear_vectors();
 	current_scene->sprites->clear_vectors();
@@ -137,9 +168,19 @@ void GameSystem::load_new_scene(Scene* newScene) {
 	for (Component* component : current_scene->components->get_added())
 		active_components.push_back(component);
 	
-	for (Sprite* sprite : current_scene->sprites->get_added())
+	for (Sprite* sprite : current_scene->sprites->get_added()) {
 		active_sprites.push_back(sprite);
+		collision_layers[sprite->get_layer()].push_back(sprite);
 
+		if (EnemyHandler* eh = dynamic_cast<EnemyHandler*>(sprite)) {
+			for (Enemy* e : eh->get_enemies()) {
+				collision_layers[e->get_layer()].push_back(e);
+			}
+		}
+	}
+		
+
+	
 
 
 	current_scene->components->clear_vectors();

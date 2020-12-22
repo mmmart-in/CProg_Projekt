@@ -16,6 +16,7 @@ class GameSystem {
 		//void add_sprites(Sprite*);
 		//void add_to_temp(Sprite*);
 		void run();
+		GameSystem();
 		~GameSystem();
 		
 		void load_new_scene(Scene* newScene);
@@ -34,7 +35,7 @@ class GameSystem {
 		int FPS = 60;
 		
 		Scene* current_scene;
-		
+		std::map<int, std::vector<Sprite*>> collision_layers;
 		std::vector<Component*> active_components;
 		std::vector<Sprite*> active_sprites;
 		//std::vector<Sprite*> temp;

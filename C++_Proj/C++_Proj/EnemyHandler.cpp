@@ -14,6 +14,7 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 	count = r;
 	//varning om oinitialiserade variabler sköts här
 	outermost_enemies();
+	layer = 3;
 }
 
 EnemyHandler* EnemyHandler::create_instance(int startX, int startY, int rows, int cols) {
@@ -32,7 +33,7 @@ void EnemyHandler::tick()
 		move(enemies_to_move());
 		tickCount = 0;
 	}
-	std::cout << tickCount << std::endl;
+	
 }
 void EnemyHandler::move_down() 
 {
@@ -60,7 +61,7 @@ void EnemyHandler::move(std::vector<Enemy*> enems)
 	if (leftEnemy->rect.x <= 5) {
 		moveLeft = false;
 		move_down();
-		std::cout << "moveleft false";
+		
 	}
 	else if (!moveLeft && rightEnemy->rect.x > 1200 - rightEnemy->rect.w) {
 		moveLeft = true;
@@ -108,5 +109,16 @@ Collider* EnemyHandler::get_collider() {
 }
 
 void EnemyHandler::resolve_collision() {
+	
+}
 
+std::vector<Enemy*> EnemyHandler::get_enemies() {
+	return enemies;
+}
+
+void EnemyHandler::remove_enemy(Enemy* e) {
+	for (int i = 0; i < enemies.size(); i++) {
+		if (enemies[i] == e)
+			enemies.erase(enemies.begin() + i);
+	}
 }

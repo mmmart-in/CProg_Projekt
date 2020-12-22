@@ -14,6 +14,7 @@ Enemy::Enemy(int x, int y, int w, int h, int c, int r) :
 	MovableSprite(x, y, w, h), col(c), row(r) {
 	Animation idle{ "../../Resources/Fiende1_1.png",  "../../Resources/Fiende1_2.png" };
 	anim = new Animator{idle};
+	layer = 2;
 }
 
 Enemy::~Enemy() {
@@ -40,7 +41,7 @@ void Enemy::move(bool moveLeft)
 	else
 		rect.x += (gameSystem.deltaTime/ 10) * moveSpeed;
 
-	std::cout << row << std::endl;
+	
 }
 
 
@@ -49,5 +50,5 @@ Collider* Enemy::get_collider() {
 }
 
 void Enemy::resolve_collision() {
-
+	std::cout << "WOW" << std::endl;
 }

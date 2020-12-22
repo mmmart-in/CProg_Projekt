@@ -14,6 +14,7 @@ Player::Player(int x, int y, int w, int h):
 	Animation turnRight{"../../Resources/ship2.png"};
 	Animation turnLeft{"../../Resources/ship3.png"};
 	anim = new Animator{ forward, turnRight, turnLeft};
+	layer = 1;
 	
 }
 
@@ -49,10 +50,11 @@ void Player::move_right(){
 
 void Player::shoot() {
 	if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
-		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - firePoint, 30, 30);
+		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - 50, 30, 30);
 		gameSystem.get_current_scene()->sprites->add(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
 	}
+
 }
 
 void Player::draw() {
