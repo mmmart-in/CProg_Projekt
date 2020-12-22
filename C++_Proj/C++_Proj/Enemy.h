@@ -13,16 +13,16 @@ public:
     Collider* get_collider();
     void resolve_collision();
 private:
-    void move(bool moveLeft); 
     Enemy(int x, int y, int w, int h, int c, int r);
     void animate();
     void draw();
     void tick();
-    Animator* anim;
+    void move(bool moveLeft);
+private:
     int tickCount = 0;
     int col, row;
     float moveSpeed = 10;
-
+    Animator* anim;
     friend class EnemyHandler;
     
 };

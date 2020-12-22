@@ -29,17 +29,19 @@ class GameSystem {
 		void handle_input();
 		void update_scene_objects();
 		void change_FPS(int x);
+
 	private:
-		bool running = true;
 		//FPS SKA KUNNA ÄNDRAS VIA INMATNINGSFÄLT!?!??!?!?!
 		int FPS = 60;
-		
+		float dur;
+		bool running = true;
 		Scene* current_scene;
+
 		std::map<int, std::vector<Sprite*>> collision_layers;
 		std::vector<Component*> active_components;
 		std::vector<Sprite*> active_sprites;
-		//std::vector<Sprite*> temp;
-		float dur;
+		
+		
 };
 
 extern GameSystem gameSystem;

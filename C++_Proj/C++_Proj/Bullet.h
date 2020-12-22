@@ -11,13 +11,16 @@ public:
     void draw();
     void tick();
     void animate();
-    Collider* get_collider();
     void resolve_collision();
-private:
+    Collider* get_collider();
     
-    Bullet(int x, int y, int w, int h);
-    Animator* anim;
+private:
     int tickCount;
-    float movementSpeed = 3; 
+    float movementSpeed = 3;
+    Animator* anim;
+    Bullet(int x, int y, int w, int h);
+    
+  
+    
 };
 

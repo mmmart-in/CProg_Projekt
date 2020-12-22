@@ -14,18 +14,19 @@ public:
     Collider* get_collider();
     void resolve_collision();
 private:
+    Player(int x, int y, int w, int h);
     void tick();
     void check_collision(); //??? kallas i tick kanske?
     void draw();
 private:
-    Player(int x, int y, int w, int h);
-    float moveSpeed = 2;
-    int firePoint = 2;
-    int fireCooldown = 100;
-    Uint32 fireCooldownCount = 0; 
-    Animator* anim;
     int forwardAnim = 0;
     int turnRightAnim = 1;
     int turnLeftAnim = 2;
+    int firePoint = 2;
+    int fireCooldown = 100;
+    float moveSpeed = 2;
+    Uint32 fireCooldownCount = 0; 
+    Animator* anim;
+    
 };
 

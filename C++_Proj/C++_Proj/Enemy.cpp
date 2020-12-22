@@ -50,5 +50,5 @@ Collider* Enemy::get_collider() {
 }
 
 void Enemy::resolve_collision() {
-	std::cout << "WOW" << std::endl;
+	std::cout << "Fiende träffad" << std::endl;
 }
