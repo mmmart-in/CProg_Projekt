@@ -15,6 +15,7 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 	//varning om oinitialiserade variabler sköts här
 	outermost_enemies();
 	layer = 3;
+	tag = "enemyHandler";
 }
 
 EnemyHandler* EnemyHandler::create_instance(int startX, int startY, int rows, int cols) {
@@ -58,6 +59,7 @@ std::vector<Enemy*> EnemyHandler::enemies_to_move() {
 }
 void EnemyHandler::move(std::vector<Enemy*> enems)
 {
+	//nåt skumt här???
 	if (leftEnemy->rect.x <= 5) {
 		moveLeft = false;
 		move_down();

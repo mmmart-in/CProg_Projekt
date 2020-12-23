@@ -14,8 +14,5 @@ const SDL_Rect& Sprite::get_rect() const {
 	return rect;
 }
 
-int Sprite::get_layer() {
-	return layer;
-}
 Sprite::~Sprite(){}
 

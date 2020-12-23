@@ -19,6 +19,7 @@ Bullet::Bullet(int x, int y, int w, int h) :
 	anim = new Animator{idle};
 	tickCount = 0;
 	layer = 2;
+	tag = "bullet";
 }
 
 Bullet::~Bullet() {

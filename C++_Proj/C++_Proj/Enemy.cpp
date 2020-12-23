@@ -20,6 +20,7 @@ Enemy::Enemy(int x, int y, int w, int h, int c, int r) :
 		"../../Resources/enemy6.png" };
 	anim = new Animator{idle};
 	layer = 2;
+	tag = "enemy";
 }
 
 Enemy::~Enemy() {

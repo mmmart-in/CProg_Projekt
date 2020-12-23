@@ -12,13 +12,15 @@ public:
 	
 	virtual Collider* get_collider() = 0;
 	virtual void resolve_collision() = 0;
-	int get_layer();
+	std::string get_tag() { return tag; }
+	int get_layer() { return layer; }
 	const SDL_Rect& get_rect() const;
 protected:
 	Sprite(int x, int y, int w, int h);
 	SDL_Rect rect;
 	Collider* collider;
 	int layer;
+	std::string tag;
 private:
 	
 };

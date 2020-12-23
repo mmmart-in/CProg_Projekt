@@ -52,12 +52,15 @@ void GameSystem::check_collision() {
 	for (auto& kv : collision_layers) {
 		for (Sprite* i : kv.second) {
 			for (Sprite* j : kv.second) {
-				if (i->get_collider()->check_collision(*j->get_collider())) {
-					if (i != j) {
-						i->resolve_collision();
-						j->resolve_collision();
+				if (i->get_tag() != j->get_tag()) {
+					if (i->get_collider()->check_collision(*j->get_collider())) {
+						if (i != j) {
+							i->resolve_collision();
+							j->resolve_collision();
+						}
 					}
 				}
+				
 			}
 		}
 	}
