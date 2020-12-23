@@ -68,6 +68,7 @@ void EnemyHandler::move(std::vector<Enemy*> enems)
 		move_down();
 	}
 
+	
 	for (Enemy* e : enems) 
 	{
 		e->move(moveLeft);

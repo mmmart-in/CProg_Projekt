@@ -38,8 +38,7 @@ void Bullet::move() {
 	rect.y -= (gameSystem.deltaTime / 10) * movementSpeed;
 	collider->x = rect.x;
 	collider->y = rect.y;
-	collider->w = rect.w;
-	collider->h = rect.h;
+	
 }
 
 void Bullet::animate() {
