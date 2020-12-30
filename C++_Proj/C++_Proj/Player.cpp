@@ -15,7 +15,7 @@ Player::Player(int x, int y, int w, int h):
 	Animation turnLeft{"../../Resources/ship3.png"};
 	anim = new Animator{ forward, turnRight, turnLeft};
 	layer = 1;
-	
+	tag = "player";
 }
 
 void Player::tick() {

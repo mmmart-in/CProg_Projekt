@@ -12,9 +12,15 @@ Enemy* Enemy::get_instance(int x, int y, int w, int h, int c, int r)
 
 Enemy::Enemy(int x, int y, int w, int h, int c, int r) :
 	MovableSprite(x, y, w, h), col(c), row(r) {
-	Animation idle{ "../../Resources/Fiende1_1.png",  "../../Resources/Fiende1_2.png" };
+	Animation idle{ "../../Resources/enemy1.png",
+		"../../Resources/enemy2.png",
+		"../../Resources/enemy3.png",
+		"../../Resources/enemy4.png" ,
+		"../../Resources/enemy5.png" ,
+		"../../Resources/enemy6.png" };
 	anim = new Animator{idle};
 	layer = 2;
+	tag = "enemy";
 }
 
 Enemy::~Enemy() {
@@ -27,7 +33,7 @@ void Enemy::tick() {
 }
 
 void Enemy::animate() {
-	if(tickCount % 20 == 0)
+	if(tickCount % 10 == 0)
 	anim->next_image(0);
 }
 
@@ -43,8 +49,7 @@ void Enemy::move(bool moveLeft)
 
 	collider->x = rect.x;
 	collider->y = rect.y;
-	collider->w = rect.w;
-	collider->h = rect.h;
+	
 	
 }
 

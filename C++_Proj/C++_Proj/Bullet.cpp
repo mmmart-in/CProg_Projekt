@@ -19,6 +19,7 @@ Bullet::Bullet(int x, int y, int w, int h) :
 	anim = new Animator{idle};
 	tickCount = 0;
 	layer = 2;
+	tag = "bullet";
 }
 
 Bullet::~Bullet() {
@@ -38,8 +39,7 @@ void Bullet::move() {
 	rect.y -= (gameSystem.deltaTime / 10) * movementSpeed;
 	collider->x = rect.x;
 	collider->y = rect.y;
-	collider->w = rect.w;
-	collider->h = rect.h;
+	
 }
 
 void Bullet::animate() {
