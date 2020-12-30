@@ -9,8 +9,7 @@ public:
 	virtual ~Sprite();
 	virtual void tick() = 0;
 	virtual void draw() = 0;
-	
-	virtual Collider* get_collider() = 0;
+	Collider* get_collider() { return collider; }
 	virtual void resolve_collision() = 0;
 	std::string get_tag() { return tag; }
 	int get_layer() { return layer; }

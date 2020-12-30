@@ -28,7 +28,10 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="EnemyHandler.cpp" />
+    <ClCompile Include="EventObserver.cpp" />
+    <ClCompile Include="EventSubject.cpp" />
     <ClCompile Include="FixedSprite.cpp" />
     <ClCompile Include="GameSystem.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -38,8 +41,10 @@
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="MovableSprite.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneData.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="UIButton.cpp" />
   </ItemGroup>
@@ -52,6 +57,9 @@
     <ClInclude Include="Castle.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="EnemyBullet.h" />
+    <ClInclude Include="EventObserver.h" />
+    <ClInclude Include="EventSubject.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyHandler.h" />
@@ -63,9 +71,11 @@
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="MovableSprite.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerBullet.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneContents.h" />
     <ClInclude Include="SceneData.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="UIButton.h" />
   </ItemGroup>
