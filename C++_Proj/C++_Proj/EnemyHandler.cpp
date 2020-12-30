@@ -61,7 +61,7 @@ std::vector<Enemy*> EnemyHandler::enemies_to_move() {
 void EnemyHandler::move(std::vector<Enemy*> enems)
 {
 	//nåt skumt här???
-	if (leftEnemy->rect.x <= 5) {
+	if (moveLeft && leftEnemy->rect.x <= 5) {
 		moveLeft = false;
 		move_down();
 		
@@ -122,6 +122,7 @@ std::vector<Enemy*> EnemyHandler::get_enemies() {
 
 void EnemyHandler::callback(EventSubject& object) {
 	remove_enemy(dynamic_cast<Enemy*>(&object));
+	gameSystem.get_current_scene()->sprites->remove(dynamic_cast<Enemy*>(&object));
 }
 
 void EnemyHandler::remove_enemy(Enemy* e) {
@@ -129,5 +130,8 @@ void EnemyHandler::remove_enemy(Enemy* e) {
 		if (enemies[i] == e)
 			enemies.erase(enemies.begin() + i);
 	}
+
+	leftEnemy = *(enemies.begin());
+	rightEnemy = *(enemies.end() - 1);
 }
 

@@ -21,6 +21,9 @@ Player::Player(int x, int y, int w, int h):
 void Player::tick() {
 	//här händer saker hela tiden.. Beroende på vad som händer kalla på olika metoder
 	
+	collider->x = rect.x;
+	collider->y = rect.y;
+
 	if (input.get_key_down("Left") && rect.x > 0) {
 		move_left();
 		anim->next_image(turnLeftAnim);

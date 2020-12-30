@@ -35,9 +35,11 @@ void GameSystem::run() {
 		SDL_RenderPresent(mainWindow.get_ren());
 		
 		deltaTime = nextTick - SDL_GetTicks();
+
+
 		if (deltaTime > 0)
 			SDL_Delay(deltaTime);
-
+			
 		
 		update_scene_objects();
 		handle_input();
@@ -65,12 +67,8 @@ void GameSystem::check_collision() {
 		}
 	}
 
-
-	
-
-
-
 }
+
 
 void GameSystem::update_components() {
 	for (Component* component : active_components) {

@@ -28,7 +28,7 @@ private:
 	int tickCount = 0;
 	int count = 0;
 	int r = 0;
-	int speed = 20;
+	int speed = 50;
 	bool moveLeft = false;
 	Enemy* leftEnemy;
 	Enemy* rightEnemy;

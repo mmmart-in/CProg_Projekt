@@ -14,5 +14,7 @@ const SDL_Rect& Sprite::get_rect() const {
 	return rect;
 }
 
-Sprite::~Sprite(){}
+Sprite::~Sprite() {
+	delete collider;
+}
 
