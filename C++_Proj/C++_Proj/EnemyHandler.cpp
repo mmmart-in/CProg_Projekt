@@ -13,7 +13,6 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 		}
 	}
 	count = r;
-	//varning om oinitialiserade variabler sköts här
 	outermost_enemies();
 	layer = 3;
 	tag = "enemyHandler";
@@ -30,7 +29,7 @@ void EnemyHandler::tick()
 	{
 		e->tick();
 	}
-	if (tickCount % enemyCount * speed == 0) 
+	if (tickCount %  speed == 0) 
 	{
 		move(enemies_to_move());
 		tickCount = 0;
@@ -51,6 +50,7 @@ void EnemyHandler::draw()
 		e->draw();
 	}
 }
+
 std::vector<Enemy*> EnemyHandler::enemies_to_move() {
 	std::vector<Enemy*> enemiesToMove;
 
