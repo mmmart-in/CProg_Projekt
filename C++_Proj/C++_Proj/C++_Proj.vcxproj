@@ -42,6 +42,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneData.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="UIButton.cpp" />
   </ItemGroup>
@@ -70,6 +71,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneContents.h" />
     <ClInclude Include="SceneData.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="UIButton.h" />
   </ItemGroup>

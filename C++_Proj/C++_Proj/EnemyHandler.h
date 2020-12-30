@@ -35,6 +35,7 @@ private:
 	std::vector<Enemy*> enemies;
 
 private:
+
 	EnemyHandler(int startX, int startY, int rows, int cols);
 	void move(std::vector<Enemy*> enems);
 	void outermost_enemies();
