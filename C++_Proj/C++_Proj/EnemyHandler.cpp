@@ -7,6 +7,7 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 	for (int i = 0; i < cols; i++) {
 		for (int j = 0; j < rows; j++) {
 		Enemy* e = Enemy::get_instance(startX + i * COL_WIDTH, startY + j * ROW_HEIGHT, 60, 60, i, j);
+		e->attach(*this);
 		enemies.push_back(e);
 		enemyCount++;
 		}
@@ -114,6 +115,10 @@ void EnemyHandler::resolve_collision() {
 
 std::vector<Enemy*> EnemyHandler::get_enemies() {
 	return enemies;
+}
+
+void EnemyHandler::callback(EventSubject& object) {
+	remove_enemy(dynamic_cast<Enemy*>(&object));
 }
 
 void EnemyHandler::remove_enemy(Enemy* e) {

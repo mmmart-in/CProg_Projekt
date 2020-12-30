@@ -18,7 +18,7 @@ Enemy::Enemy(int x, int y, int w, int h, int c, int r) :
 }
 
 Enemy::~Enemy() {
-
+	
 }
 
 void Enemy::tick() {
@@ -48,12 +48,12 @@ void Enemy::move(bool moveLeft)
 	
 }
 
-
 Collider* Enemy::get_collider() {
 	return collider;
 }
 
 void Enemy::resolve_collision() {
 	std::cout << "Fiende träffad" << std::endl;
+	notify();
 }
 

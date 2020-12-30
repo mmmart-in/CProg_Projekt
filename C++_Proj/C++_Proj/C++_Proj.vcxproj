@@ -29,6 +29,8 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyHandler.cpp" />
+    <ClCompile Include="EventObserver.cpp" />
+    <ClCompile Include="EventSubject.cpp" />
     <ClCompile Include="FixedSprite.cpp" />
     <ClCompile Include="GameSystem.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -52,6 +54,8 @@
     <ClInclude Include="Castle.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="EventObserver.h" />
+    <ClInclude Include="EventSubject.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyHandler.h" />

@@ -2,13 +2,13 @@
 #include <vector>
 #include "Enemy.h"
 #include "GameSystem.h"
-
+#include "EventObserver.h"
 #define ROW_HEIGHT 60
 #define COL_WIDTH 80
 
 	static Uint32 SDL_Ticks = 0;
 
-class EnemyHandler : public Sprite
+class EnemyHandler : public Sprite, public EventObserver
 {
 public:
 	std::vector<Enemy*> enemies_to_move();
@@ -20,8 +20,8 @@ public:
 	void resolve_collision();
 	Collider* get_collider();
 	std::vector<Enemy*> get_enemies();
+	void callback(EventSubject&) override;
 
-	
 	
 private:
 	int enemyCount = 0;

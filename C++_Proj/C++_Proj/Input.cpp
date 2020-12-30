@@ -17,7 +17,6 @@ bool Input::get_key(SDL_Scancode key) {
 	return keyboard[key];
 }
 
-
 void Input::rebind_key() {
 	std::cout << "Keybinds: " << std::endl;
 	for (auto keybind : keybinds)
