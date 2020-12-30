@@ -31,7 +31,7 @@ void Label::setText(std::string newText) {
 	text = newText;
 	SDL_DestroyTexture(texture);
 	SDL_Surface* surf = TTF_RenderText_Solid(mainWindow.get_font(),
-		text.c_str(), { 0,0,0 });
+		text.c_str(), textColor);
 	texture = SDL_CreateTextureFromSurface(mainWindow.get_ren(), surf);
 	SDL_FreeSurface(surf);
 }

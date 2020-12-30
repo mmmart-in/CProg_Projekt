@@ -29,8 +29,9 @@ void GameSystem::run() {
 
 		SDL_RenderClear(mainWindow.get_ren());
 
-		update_components();
+		
 		update_sprites();
+		update_components();
 		
 		SDL_RenderPresent(mainWindow.get_ren());
 		
@@ -51,36 +52,35 @@ void GameSystem::run() {
 
 void GameSystem::check_collision() {
 
-	for (auto& kv : collision_layers) {
-		for (Sprite* i : kv.second) {
-			for (Sprite* j : kv.second) {
-				if (i->get_tag() != j->get_tag()) {
-					if (i->get_collider()->check_collision(*j->get_collider())) {
-						if (i != j) {
-							i->resolve_collision();
-							j->resolve_collision();
-						}
-					}
+	
+
+	for (int i = 0; i < active_sprites.size(); i++) {
+		for (int j = 0; j < active_sprites.size(); j++) {
+			if (active_sprites[i]->get_collider()->check_collision(*active_sprites[j]->get_collider()))
+				if (i != j) {
+					active_sprites[i]->resolve_collision();
+					active_sprites[j]->resolve_collision();
 				}
-				
-			}
+
 		}
 	}
 
 }
 
 
-void GameSystem::update_components() {
-	for (Component* component : active_components) {
-		component->tick();
-		component->draw();
-	}
-}
+
 
 void GameSystem::update_sprites() {
 	for (Sprite* sprite : active_sprites) {
 		sprite->tick();
 		sprite->draw();
+	}
+}
+
+void GameSystem::update_components() {
+	for (Component* component : active_components) {
+		component->tick();
+		component->draw();
 	}
 }
 
@@ -100,7 +100,7 @@ void GameSystem::handle_input() {
 				load_new_scene(sceneData.load_menu());
 				break;
 			case SDL_SCANCODE_F2:
-				load_new_scene(sceneData.load_gameplay(3, 5));
+				load_new_scene(sceneData.load_gameplay(10, 6));
 				break;
 			case SDL_SCANCODE_F3:
 				load_new_scene(sceneData.load_gameplay(11, 15));
@@ -140,13 +140,15 @@ void GameSystem::update_scene_objects() {
 	och bullets behövde tas bort.
 	*************************************************************************************/
 
-	update_active_vector<Component>(current_scene->components->get_removed(), 
-									current_scene->components->get_added(),
-									active_components);
+	
 
 	update_active_vector<Sprite>(current_scene->sprites->get_removed(),
 								 current_scene->sprites->get_added(), 
 								 active_sprites);
+
+	update_active_vector<Component>(current_scene->components->get_removed(),
+		current_scene->components->get_added(),
+		active_components);
 	
 	//LÄGG I METOD
 	int index;
