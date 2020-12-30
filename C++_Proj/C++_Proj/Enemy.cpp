@@ -2,6 +2,7 @@
 #include <SDL_image.h>
 #include "Animator.h"
 #include "GameSystem.h"
+#include "EnemyBullet.h"
 #include <iostream>
 
 
@@ -53,8 +54,9 @@ void Enemy::move(bool moveLeft)
 	
 }
 
-Collider* Enemy::get_collider() {
-	return collider;
+void Enemy::Shoot() {
+	EnemyBullet* bptr = EnemyBullet::get_instance(rect.x + 20, rect.y + 40, 20, 20);
+	gameSystem.get_current_scene()->sprites->add(bptr);
 }
 
 void Enemy::resolve_collision() {

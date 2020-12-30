@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "MainWindow.h"
 #include <iostream>
-#include "Bullet.h"
+#include "PlayerBullet.h"
 #include <SDL_image.h>
 #include "GameSystem.h"
 #include "Input.h"
@@ -53,7 +53,7 @@ void Player::move_right(){
 
 void Player::shoot() {
 	if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
-		Bullet* bptr = Bullet::get_instance(rect.x, rect.y - 50, 30, 30);
+		PlayerBullet* bptr = PlayerBullet::get_instance(rect.x + 20, rect.y - 40, 30, 30);
 		gameSystem.get_current_scene()->sprites->add(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
 	}
@@ -65,10 +65,7 @@ void Player::draw() {
 }
 
 
-Collider* Player::get_collider() {
-	return collider;
-}
 
 void Player::resolve_collision() {
-
+	std::cout << "Player HIT!!" << std::endl;
 }

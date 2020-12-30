@@ -10,7 +10,7 @@ class Enemy :
 public:
     static Enemy* get_instance(int x, int y, int w, int h, int c, int r);
     ~Enemy();
-    Collider* get_collider();
+    void Shoot();
     void resolve_collision();
 private:
     Enemy(int x, int y, int w, int h, int c, int r);
@@ -22,7 +22,7 @@ private:
 private:
     int tickCount = 0;
     int col, row;
-    float moveSpeed = 10;
+    float moveSpeed = 15;
     Animator* anim;
     friend class EnemyHandler;
     

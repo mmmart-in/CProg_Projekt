@@ -28,7 +28,7 @@ private:
 	int tickCount = 0;
 	int count = 0;
 	int r = 0;
-	int speed = 50;
+	int speed = 90;
 	bool moveLeft = false;
 	Enemy* leftEnemy;
 	Enemy* rightEnemy;
@@ -41,6 +41,7 @@ private:
 	void outermost_enemies();
 	void enemy_destroyed();
 	void move_down();
+	void Shoot();
 
 };
 

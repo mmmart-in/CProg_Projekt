@@ -6,20 +6,16 @@ class Bullet :
     public MovableSprite
 {
 public:
-    static Bullet* get_instance(int x, int y, int w, int h);
     ~Bullet();
-    void move();
+    virtual void move();
     void draw();
     void tick();
     void animate();
     void resolve_collision();
-    Collider* get_collider();
     
-    
-
-private:
+protected:
     int tickCount;
-    float movementSpeed = 3;
+    float movementSpeed = 5;
     Animator* anim;
     Bullet(int x, int y, int w, int h);
     

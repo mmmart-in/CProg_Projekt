@@ -30,10 +30,13 @@ void EnemyHandler::tick()
 	{
 		e->tick();
 	}
-	if (tickCount %  enemyCount * speed == 0) 
+	if (tickCount % enemyCount * speed == 0) 
 	{
 		move(enemies_to_move());
 		tickCount = 0;
+	}
+	if (tickCount % 100 == 0) {
+		Shoot();
 	}
 	
 }
@@ -135,3 +138,15 @@ void EnemyHandler::remove_enemy(Enemy* e) {
 	rightEnemy = *(enemies.end() - 1);
 }
 
+void EnemyHandler::Shoot() {
+	if ((rand() % 100) + 1 < 30) {
+		if (enemies.size() == 1) {
+			enemies[0]->Shoot();
+		}
+		else {
+			int randomNumber = (rand() % (enemies.size() - 1)) + 1;
+			enemies[randomNumber]->Shoot();
+		}
+	}
+	
+}
