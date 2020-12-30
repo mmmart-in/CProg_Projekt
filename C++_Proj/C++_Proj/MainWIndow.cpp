@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include <SDL.h>
 #include <iostream>
+#include "AudioHandler.h"
 
 MainWindow::MainWindow() 
 {
@@ -12,6 +13,7 @@ MainWindow::MainWindow()
 	TTF_Init();
 	font = TTF_OpenFont("../../Resources/Minecraft.ttf", 36);
 	std::cout << TTF_GetError();
+
 }
 
 MainWindow::~MainWindow() 

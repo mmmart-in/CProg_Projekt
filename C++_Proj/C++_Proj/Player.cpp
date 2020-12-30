@@ -6,6 +6,9 @@
 #include "GameSystem.h"
 #include "Input.h"
 #include "Log.h"
+
+#include "AudioHandler.h"
+
 Player::Player(int x, int y, int w, int h):
 	MovableSprite(x, y, w, h)
 {
@@ -57,7 +60,7 @@ void Player::shoot() {
 		gameSystem.get_current_scene()->sprites->add(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
 	}
-
+	audioHandler.PlayOnce("Yes");
 }
 
 void Player::draw() {
