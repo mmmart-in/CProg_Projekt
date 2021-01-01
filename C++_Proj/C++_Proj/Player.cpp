@@ -59,8 +59,10 @@ void Player::shoot() {
 		PlayerBullet* bptr = PlayerBullet::get_instance(rect.x + 20, rect.y - 40, 30, 30);
 		gameSystem.get_current_scene()->sprites->add(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
+		
+		audioHandler.player_shoot();
 	}
-	audioHandler.PlayOnce("Yes");
+
 }
 
 void Player::draw() {

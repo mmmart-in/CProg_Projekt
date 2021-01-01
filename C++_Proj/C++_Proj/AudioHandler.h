@@ -7,9 +7,14 @@ class AudioHandler
 public:
 	
 	AudioHandler();
-	void PlayOnce(std::string);
+	void enemy_shoot();
+	void castle_hit();
+	void player_shoot();
 private:
 	Mix_Chunk* loop;
+	Mix_Chunk* castleHit;
+	Mix_Chunk* enemyShoot;
+	Mix_Chunk* playerShoot;
 };
 
 extern AudioHandler audioHandler;
