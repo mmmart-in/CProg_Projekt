@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 
 
 class MainWindow
@@ -19,6 +20,6 @@ private:
 };
 
 
-//fungerar detta utan namespace? vill vi göra såhär? vem vet? 
-	extern MainWindow mainWindow;
+
+extern MainWindow mainWindow;
 

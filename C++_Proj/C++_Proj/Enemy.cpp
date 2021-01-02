@@ -4,6 +4,7 @@
 #include "GameSystem.h"
 #include "EnemyBullet.h"
 #include <iostream>
+#include "AudioHandler.h"
 
 
 Enemy* Enemy::get_instance(int x, int y, int w, int h, int c, int r)
@@ -57,6 +58,7 @@ void Enemy::move(bool moveLeft)
 void Enemy::Shoot() {
 	EnemyBullet* bptr = EnemyBullet::get_instance(rect.x + 20, rect.y + 40, 20, 20);
 	gameSystem.get_current_scene()->sprites->add(bptr);
+	audioHandler.enemy_shoot();
 }
 
 void Enemy::resolve_collision() {
