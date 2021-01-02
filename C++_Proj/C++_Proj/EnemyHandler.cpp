@@ -14,8 +14,9 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 	}
 	count = r;
 	outermost_enemies();
-	layer = 3;
+	layer = 10;
 	tag = "enemyHandler";
+	
 }
 
 EnemyHandler* EnemyHandler::create_instance(int startX, int startY, int rows, int cols) {
@@ -28,6 +29,7 @@ void EnemyHandler::tick()
 	for (Enemy* e : enemies) 
 	{
 		e->tick();
+		
 	}
 	if (tickCount %  speed == 0) 
 	{
@@ -149,4 +151,10 @@ void EnemyHandler::Shoot() {
 		}
 	}
 	
+}
+
+void EnemyHandler::add_enemies_to_scene(Scene* scene) {
+	for (Enemy* e : enemies) {
+		scene->sprites->add(e);
+	}
 }

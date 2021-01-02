@@ -37,7 +37,7 @@ class GameSystem {
 		bool running = true;
 		Scene* current_scene;
 
-		std::map<int, std::vector<Sprite*>> collision_layers;
+		std::vector<Sprite*> collision_layers;
 		std::vector<Component*> active_components;
 		std::vector<Sprite*> active_sprites;
 	

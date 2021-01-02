@@ -10,9 +10,7 @@
 #include <typeinfo>
 
 GameSystem::GameSystem() {
-	for (int i = 0; i < 10; i++) {
-		collision_layers.insert(std::pair<int, std::vector<Sprite*>>(i, std::vector<Sprite*>()));
-	}
+	
 
 }
 
@@ -52,19 +50,17 @@ void GameSystem::run() {
 
 void GameSystem::check_collision() {
 
-	
-
-	for (int i = 0; i < active_sprites.size(); i++) {
-		for (int j = 0; j < active_sprites.size(); j++) {
-			if (active_sprites[i]->get_collider()->check_collision(*active_sprites[j]->get_collider()))
-				if (i != j) {
-					active_sprites[i]->resolve_collision();
-					active_sprites[j]->resolve_collision();
+	for (int i = 0; i < collision_layers.size(); i++) {
+		for (int j = 0; j < collision_layers.size(); j++) {
+			if (collision_layers[i]->get_collider()->check_collision(*collision_layers[j]->get_collider()))
+				if (collision_layers[i]->get_tag() != collision_layers[j]->get_tag() &&
+					collision_layers[i]->get_layer() == collision_layers[j]->get_layer()) 
+				{
+					collision_layers[i]->resolve_collision();
+					collision_layers[j]->resolve_collision();
 				}
-
 		}
 	}
-
 }
 
 
@@ -150,25 +146,18 @@ void GameSystem::update_scene_objects() {
 		current_scene->components->get_added(),
 		active_components);
 	
-	//LÄGG I METOD
-	int index;
-	for (int i = 0; i < current_scene->sprites->get_added().size(); i++) {
-		index = current_scene->sprites->get_added()[i]->get_layer();
-		collision_layers[index].push_back(current_scene->sprites->get_added()[i]);
-		std::cout << "HEJ";
-	}
 
-	
-	for (auto& kv : collision_layers) {
-		for (Sprite* s : current_scene->sprites->get_removed()) {
-			auto it = std::find(kv.second.begin(), kv.second.end(), s);
-			if (it != kv.second.end()) {
-				kv.second.erase(it);
-			}
+	//ta bort
+	for (Sprite* s : current_scene->sprites->get_removed()) {
+		auto& it = std::find(collision_layers.begin(), collision_layers.end(), s);
+		if (it != collision_layers.end()) {
+			collision_layers.erase(it);
 		}
 	}
 
-	
+	for (Sprite* sprite : current_scene->sprites->get_added()) {
+		collision_layers.push_back(sprite);
+	}
 	
 
 	
@@ -189,26 +178,24 @@ void GameSystem::load_new_scene(Scene* newScene) {
 
 	active_components.clear();
 	active_sprites.clear();
-	for (auto& kv : collision_layers) {
-		kv.second.clear();
-	}
+	collision_layers.clear();
 
 	
 
 	for (Component* component : current_scene->components->get_added())
 		active_components.push_back(component);
+
 	
 	for (Sprite* sprite : current_scene->sprites->get_added()) {
 		active_sprites.push_back(sprite);
-		collision_layers[sprite->get_layer()].push_back(sprite);
-
-		if (EnemyHandler* eh = dynamic_cast<EnemyHandler*>(sprite)) {
-			for (Enemy* e : eh->get_enemies()) {
-				collision_layers[e->get_layer()].push_back(e);
+		if (dynamic_cast<EnemyHandler*>(sprite)) {
+			for (Enemy* e : dynamic_cast<EnemyHandler*>(sprite)->get_enemies()) {
+				collision_layers.push_back(e);
 			}
 		}
+		else
+			collision_layers.push_back(sprite);
 	}
-		
 
 	
 

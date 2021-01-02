@@ -21,6 +21,7 @@ public:
 	Collider* get_collider();
 	std::vector<Enemy*> get_enemies();
 	void callback(EventSubject&) override;
+	void add_enemies_to_scene(Scene*);
 
 	
 private:
