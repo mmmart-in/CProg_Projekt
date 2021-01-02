@@ -6,7 +6,7 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 {	
 	for (int i = 0; i < cols; i++) {
 		for (int j = 0; j < rows; j++) {
-		Enemy* e = Enemy::get_instance(startX + i * COL_WIDTH, startY + j * ROW_HEIGHT, 60, 60, i, j);
+		Enemy* e = Enemy::get_instance(startX + i * COL_WIDTH, startY + j * ROW_HEIGHT, 55, 55, i, j);
 		e->attach(*this);
 		enemies.push_back(e);
 		enemyCount++;
@@ -31,14 +31,13 @@ void EnemyHandler::tick()
 		e->tick();
 		
 	}
-	if (tickCount %  speed == 0) 
+	Shoot();
+	if (tickCount % speed == 0) 
 	{
 		move(enemies_to_move());
 		tickCount = 0;
 	}
-	if (tickCount % 100 == 0) {
-		Shoot();
-	}
+	
 	
 }
 void EnemyHandler::move_down() 
@@ -141,7 +140,7 @@ void EnemyHandler::remove_enemy(Enemy* e) {
 }
 
 void EnemyHandler::Shoot() {
-	if ((rand() % 100) + 1 < 30) {
+	if ((rand() % 100) + 1 < 3) {
 		if (enemies.size() == 1) {
 			enemies[0]->Shoot();
 		}

@@ -96,7 +96,7 @@ void GameSystem::handle_input() {
 				load_new_scene(sceneData.load_menu());
 				break;
 			case SDL_SCANCODE_F2:
-				load_new_scene(sceneData.load_gameplay(10, 6));
+				load_new_scene(sceneData.load_gameplay(6, 7));
 				break;
 			case SDL_SCANCODE_F3:
 				load_new_scene(sceneData.load_gameplay(11, 15));
