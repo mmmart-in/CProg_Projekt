@@ -1,5 +1,15 @@
 #include "Animator.h"
 #include "GameSystem.h"
+
+Animator::Animator(std::vector<Animation> vecs) {
+	for (Animation v : vecs) {
+		animations.push_back(v);
+	}
+	activeTexture = animations[0].get_texture_at(0);
+	activeInt = 0;
+}
+
+
 Animator::Animator(std::initializer_list<Animation> vecs){
 	for (Animation v : vecs) {
 		animations.push_back(v);

@@ -21,6 +21,10 @@ void GameSystem::run() {
 	Uint32 tickInterval = 1000 / FPS;
 
 	while (running) {
+
+		if (gameover)
+			load_new_scene(sceneData.load_menu(), "Menu");
+
 		Uint32 nextTick = SDL_GetTicks() + tickInterval;
 		
 
@@ -94,9 +98,11 @@ void GameSystem::handle_input() {
 				break;
 			case SDL_SCANCODE_F2:
 				load_new_scene(sceneData.load_gameplay(6, 7), "Gameplay");
+				gameover = false;
 				break;
 			case SDL_SCANCODE_F3:
 				load_new_scene(sceneData.load_gameplay(11, 15), "Gameplay");
+				gameover = false;
 				break;
 			}
 		}
