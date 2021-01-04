@@ -17,32 +17,48 @@ Player::Player(int x, int y, int w, int h):
 	Animation turnRight{"../../Resources/ship2.png"};
 	Animation turnLeft{"../../Resources/ship3.png"};
 	anim = new Animator{ forward, turnRight, turnLeft};
+	hp = new Health(3);
 	layer = 1;
 	tag = "player";
 }
 
 void Player::tick() {
-	//här händer saker hela tiden.. Beroende på vad som händer kalla på olika metoder
 	
+	hp->tick();
+
 	collider->x = rect.x;
 	collider->y = rect.y;
 
-	if (input.get_key_down("Left") && rect.x > 0) {
-		move_left();
-		anim->next_image(turnLeftAnim);
-	} else if (input.get_key_down("Right") && rect.x < 1200 - rect.w) {
-		move_right();
-		anim->next_image(turnRightAnim);
-	} else
-		anim->next_image(forwardAnim);
-	
-	if (input.get_key_down("Fire"))
-		shoot();
+	handle_input();
+
+	if (hitCooldown) {
+		tickCount++;
+		if (tickCount >= 60) {
+			hitCooldown = false;
+			tickCount = 0;
+		}
+	}
 	
 }
 
 Player* Player::create_instance(int x, int y, int w, int h) {
 	return new Player(x, y, w, h);
+}
+
+void Player::handle_input() {
+	if (input.get_key_down("Left") && rect.x > 0) {
+		move_left();
+		anim->next_image(turnLeftAnim);
+	}
+	else if (input.get_key_down("Right") && rect.x < 1200 - rect.w) {
+		move_right();
+		anim->next_image(turnRightAnim);
+	}
+	else
+		anim->next_image(forwardAnim);
+
+	if (input.get_key_down("Fire"))
+		shoot();
 }
 
 void Player::move_left() {
@@ -67,10 +83,14 @@ void Player::shoot() {
 
 void Player::draw() {
 	anim->draw(this);
+	hp->draw();
 }
 
 
-
 void Player::resolve_collision() {
+	if(!hitCooldown)
+		hp->get_hit();
+
+	hitCooldown = true;
 	
 }
