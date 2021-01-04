@@ -32,7 +32,6 @@ public:
 	SceneContents<Component>* components;
 	SceneContents<Sprite>* sprites;
 private:
-	
 	Scene();
 	
 };

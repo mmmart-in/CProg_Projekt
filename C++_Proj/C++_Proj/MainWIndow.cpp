@@ -40,5 +40,3 @@ TTF_Font* MainWindow::get_font() const
 	SDL_GetWindowSize(win, widthPoint, NULL);
 		return widthPoint;
 }*/
-
-MainWindow mainWindow;

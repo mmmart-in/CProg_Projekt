@@ -1,5 +1,5 @@
 #include "Animator.h"
-
+#include "GameSystem.h"
 Animator::Animator(std::initializer_list<Animation> vecs){
 	for (Animation v : vecs) {
 		animations.push_back(v);
@@ -18,5 +18,5 @@ void Animator::next_image(int animInt) {
 }
 
 void Animator::draw(Sprite* parent) {
-	SDL_RenderCopy(mainWindow.get_ren(), activeTexture, NULL, &parent->get_rect());
+	SDL_RenderCopy(&gameSystem.get_renderer(), activeTexture, NULL, &parent->get_rect());
 }

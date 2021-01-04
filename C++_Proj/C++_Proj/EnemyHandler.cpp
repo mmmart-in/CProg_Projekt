@@ -133,7 +133,11 @@ void EnemyHandler::remove_enemy(Enemy* e) {
 	for (int i = 0; i < enemies.size(); i++) {
 		if (enemies[i] == e)
 			enemies.erase(enemies.begin() + i);
+		
 	}
+
+	if (enemies.empty())
+		return;
 
 	leftEnemy = *(enemies.begin());
 	rightEnemy = *(enemies.end() - 1);

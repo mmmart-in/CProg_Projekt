@@ -1,5 +1,4 @@
 #include "GameSystem.h"
-#include "MainWindow.h"
 #include <SDL.h>
 #include <iostream>
 #include "Input.h"
@@ -10,14 +9,14 @@
 #include <typeinfo>
 
 GameSystem::GameSystem() {
-	
-
+	mainWindow = new MainWindow();
+	UI_manager = UIManager::create_instance(&get_renderer());
 }
 
 void GameSystem::run() {
 	deltaTime = 0;
 
-	current_scene = sceneData.load_menu();
+	load_new_scene(Scene::create_instance(), "Menu");
 	
 	Uint32 tickInterval = 1000 / FPS;
 
@@ -25,13 +24,12 @@ void GameSystem::run() {
 		Uint32 nextTick = SDL_GetTicks() + tickInterval;
 		
 
-		SDL_RenderClear(mainWindow.get_ren());
+		SDL_RenderClear(&get_renderer());
 
 		
 		update_sprites();
 		update_components();
-		
-		SDL_RenderPresent(mainWindow.get_ren());
+		SDL_RenderPresent(&get_renderer());
 		
 		deltaTime = nextTick - SDL_GetTicks();
 
@@ -43,8 +41,7 @@ void GameSystem::run() {
 		update_scene_objects();
 		handle_input();
 		check_collision();
-		
-
+	
 	}
 }
 
@@ -93,27 +90,22 @@ void GameSystem::handle_input() {
 				input.rebind_key();
 				break;
 			case SDL_SCANCODE_F1:
-				load_new_scene(sceneData.load_menu());
+				load_new_scene(sceneData.load_menu(), "Menu");
 				break;
 			case SDL_SCANCODE_F2:
-				load_new_scene(sceneData.load_gameplay(6, 7));
+				load_new_scene(sceneData.load_gameplay(6, 7), "Gameplay");
 				break;
 			case SDL_SCANCODE_F3:
-				load_new_scene(sceneData.load_gameplay(11, 15));
-				break;
-
-			//TA BORT DETTA!!!!!!!
-			case SDL_SCANCODE_F4:
-				for (Sprite* sprite : active_sprites) {
-					if (EnemyHandler* eh = dynamic_cast<EnemyHandler*>(sprite)) {
-						eh->remove_enemy(eh->get_enemies()[1]);
-						std::cout << "SKITSNACKARE";
-					}
-				}
+				load_new_scene(sceneData.load_gameplay(11, 15), "Gameplay");
 				break;
 			}
 		}
+		else if (event.type == SDL_MOUSEBUTTONDOWN) {
+			SDL_Point clicked_point = { event.button.x, event.button.y };
+			UI_manager->get_UI()->interact(clicked_point);
+		}
 	}
+
 }
 
 void GameSystem::update_scene_objects() {
@@ -169,9 +161,14 @@ void GameSystem::update_scene_objects() {
 
 GameSystem::~GameSystem() {}
 
+SDL_Renderer& GameSystem::get_renderer() const {
+	return *mainWindow->get_ren();
+}
 
-void GameSystem::load_new_scene(Scene* newScene) {
-	delete current_scene;
+
+void GameSystem::load_new_scene(Scene* newScene, std::string UI) {
+	if(!current_scene)
+		delete current_scene;
 
 	current_scene = newScene;
 	
@@ -197,17 +194,20 @@ void GameSystem::load_new_scene(Scene* newScene) {
 			collision_layers.push_back(sprite);
 	}
 
-	
+	UI_manager->change_page(UI);
 
-
+	for (Component* component : UI_manager->get_UI()->get_components())
+		active_components.emplace_back(component);
 	current_scene->components->clear_vectors();
 	current_scene->sprites->clear_vectors();
 }
 
-
-
 Scene* GameSystem::get_current_scene() {
 	return current_scene;
+}
+
+const MainWindow& GameSystem::get_current_window() {
+	return *mainWindow;
 }
 
 GameSystem gameSystem;
