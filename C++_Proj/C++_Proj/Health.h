@@ -1,7 +1,7 @@
 #pragma once
-#include "Animation.h"
-#include "Animator.h"
+#include <SDL_image.h>
 #include <vector>
+#include "UI_Image.h"
 
 class Health
 {
@@ -9,10 +9,10 @@ public:
 	Health(int);
 	void get_hit();
 	void draw();
+	void tick();
 private:
-	int hitCount;
-	Animator* anim;
-	std::vector<Animation> lives;
+	int hits, MAXhits;
+	std::vector<UI_Image*> lives;
 
 };
 

@@ -12,6 +12,7 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 		enemyCount++;
 		}
 	}
+	enemiesAlive = enemies.size();
 	count = r;
 	outermost_enemies();
 	layer = 10;
@@ -25,8 +26,6 @@ EnemyHandler* EnemyHandler::create_instance(int startX, int startY, int rows, in
 
 void EnemyHandler::tick()
 {
-	
-
 	tickCount++;
 	for (Enemy* e : enemies) 
 	{
@@ -34,7 +33,7 @@ void EnemyHandler::tick()
 		
 	}
 	Shoot();
-	if (tickCount % speed == 0) 
+	if (tickCount % (enemiesAlive /2) == 0) 
 	{
 		move(enemies_to_move());
 		tickCount = 0;
@@ -132,9 +131,15 @@ void EnemyHandler::callback(EventSubject& object) {
 }
 
 void EnemyHandler::remove_enemy(Enemy* e) {
+	
+	std::cout << enemiesAlive<<std::endl;
 	for (int i = 0; i < enemies.size(); i++) {
-		if (enemies[i] == e)
+		if (enemies[i] == e) {
+			if(enemiesAlive > 3)
+				enemiesAlive--;
 			enemies.erase(enemies.begin() + i);
+		}
+			
 	}
 
 	if (enemies.empty()) {

@@ -35,6 +35,7 @@
     <ClCompile Include="EventSubject.cpp" />
     <ClCompile Include="FixedSprite.cpp" />
     <ClCompile Include="GameSystem.cpp" />
+    <ClCompile Include="Health.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Level.cpp" />
@@ -49,6 +50,7 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="UI_Button.cpp" />
+    <ClCompile Include="UI_Image.cpp" />
     <ClCompile Include="UI_Page.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +66,7 @@
     <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="EventObserver.h" />
     <ClInclude Include="EventSubject.h" />
+    <ClInclude Include="Health.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyHandler.h" />
@@ -84,6 +87,7 @@
     <ClInclude Include="SpecialUIButton.h" />
     <ClInclude Include="UIManager.h" />
     <ClInclude Include="UI_Button.h" />
+    <ClInclude Include="UI_Image.h" />
     <ClInclude Include="UI_Page.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
