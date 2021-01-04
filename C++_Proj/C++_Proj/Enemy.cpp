@@ -30,6 +30,7 @@ Enemy::~Enemy() {
 }
 
 void Enemy::tick() {
+
 	tickCount++;
 	animate();
 }
@@ -42,6 +43,8 @@ void Enemy::animate() {
 void Enemy::draw() {
 	anim->draw(this);
 }
+
+
 void Enemy::move(bool moveLeft)
 {
 	if (moveLeft)

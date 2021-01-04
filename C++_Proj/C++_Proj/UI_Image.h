@@ -5,10 +5,14 @@
 class UI_Image : public Component
 {
 public:
+	static UI_Image* get_instance(int x, int y, int w, int h, std::string image);
+	virtual void tick();
+	virtual void draw() const;
+protected:
 	UI_Image(int x, int y, int w, int h, std::string image);
-	void tick();
-	void draw() const;
+
 private:
+	
 	SDL_Texture* texture;
 };
 

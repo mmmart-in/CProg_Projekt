@@ -6,11 +6,14 @@
 class Health
 {
 public:
-	Health(int);
+	static Health* get_instance(int);
 	void get_hit();
 	void draw();
 	void tick();
 private:
+
+	Health(int);
+
 	int hits, MAXhits;
 	std::vector<UI_Image*> lives;
 

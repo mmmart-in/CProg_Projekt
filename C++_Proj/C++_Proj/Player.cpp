@@ -17,7 +17,7 @@ Player::Player(int x, int y, int w, int h):
 	Animation turnRight{"../../Resources/ship2.png"};
 	Animation turnLeft{"../../Resources/ship3.png"};
 	anim = new Animator{ forward, turnRight, turnLeft};
-	hp = new Health(3);
+	hp = Health::get_instance(3);
 	layer = 1;
 	tag = "player";
 }
