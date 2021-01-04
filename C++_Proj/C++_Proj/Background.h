@@ -9,4 +9,3 @@ public:
 private:
 	Animator* anim;
 };
-

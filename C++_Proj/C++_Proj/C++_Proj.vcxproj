@@ -47,7 +47,9 @@
     <ClCompile Include="SceneData.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="UIButton.cpp" />
+    <ClCompile Include="UIManager.cpp" />
+    <ClCompile Include="UI_Button.cpp" />
+    <ClCompile Include="UI_Page.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -79,7 +81,10 @@
     <ClInclude Include="SceneData.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="UIButton.h" />
+    <ClInclude Include="SpecialUIButton.h" />
+    <ClInclude Include="UIManager.h" />
+    <ClInclude Include="UI_Button.h" />
+    <ClInclude Include="UI_Page.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

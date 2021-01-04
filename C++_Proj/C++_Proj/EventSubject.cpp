@@ -1,5 +1,5 @@
 #include "EventSubject.h"
-
+#include <iostream>
 #include <algorithm>
 
 void EventSubject::attach(EventObserver& observer) {
@@ -13,4 +13,4 @@ void EventSubject::detach(EventObserver& observer) {
 void EventSubject::notify() {
 	for (auto& observer : observers)
 		observer->callback(*this);
-}
+ }
