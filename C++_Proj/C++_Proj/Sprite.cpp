@@ -3,9 +3,11 @@
 #include "MainWindow.h"
 
 
+
 Sprite::Sprite(int x, int y, int w, int h) : 
 	rect{ x, y, w, h } 
 {
+	
 	collider = new Collider(x, y, w, h);
 };
 

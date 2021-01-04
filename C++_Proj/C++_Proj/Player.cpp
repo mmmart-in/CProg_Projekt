@@ -72,5 +72,5 @@ void Player::draw() {
 
 
 void Player::resolve_collision() {
-	std::cout << "Player HIT!!" << std::endl;
+	
 }

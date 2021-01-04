@@ -15,7 +15,7 @@ EnemyBullet::EnemyBullet(int x, int y, int w, int h) :
 	anim = new Animator{ idle };
 	tickCount = 0;
 	layer = 1;
-	tag = "bullet";
+	tag = "enemybullet";
 }
 
 EnemyBullet::~EnemyBullet() {

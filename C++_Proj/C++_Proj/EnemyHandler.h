@@ -3,8 +3,8 @@
 #include "Enemy.h"
 #include "GameSystem.h"
 #include "EventObserver.h"
-#define ROW_HEIGHT 60
-#define COL_WIDTH 80
+#define ROW_HEIGHT 50
+#define COL_WIDTH 70
 
 	static Uint32 SDL_Ticks = 0;
 
@@ -21,6 +21,7 @@ public:
 	Collider* get_collider();
 	std::vector<Enemy*> get_enemies();
 	void callback(EventSubject&) override;
+	void add_enemies_to_scene(Scene*);
 
 	
 private:
@@ -28,7 +29,7 @@ private:
 	int tickCount = 0;
 	int count = 0;
 	int r = 0;
-	int speed = 90;
+	int speed = 2;
 	bool moveLeft = false;
 	Enemy* leftEnemy;
 	Enemy* rightEnemy;

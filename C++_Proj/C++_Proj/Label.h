@@ -9,6 +9,7 @@ public:
 	void draw() const;
 	void tick();
 	void setText(std::string newText);
+	const SDL_Texture* get_texture() const;
 	~Label();
 protected:
 	Label(int x, int y, int w, int h, std::string txt, SDL_Color);

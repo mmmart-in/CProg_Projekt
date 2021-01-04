@@ -6,7 +6,7 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 {	
 	for (int i = 0; i < cols; i++) {
 		for (int j = 0; j < rows; j++) {
-		Enemy* e = Enemy::get_instance(startX + i * COL_WIDTH, startY + j * ROW_HEIGHT, 60, 60, i, j);
+		Enemy* e = Enemy::get_instance(startX + i * COL_WIDTH, startY + j * ROW_HEIGHT, 55, 55, i, j);
 		e->attach(*this);
 		enemies.push_back(e);
 		enemyCount++;
@@ -14,8 +14,9 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 	}
 	count = r;
 	outermost_enemies();
-	layer = 3;
+	layer = 10;
 	tag = "enemyHandler";
+	
 }
 
 EnemyHandler* EnemyHandler::create_instance(int startX, int startY, int rows, int cols) {
@@ -24,19 +25,21 @@ EnemyHandler* EnemyHandler::create_instance(int startX, int startY, int rows, in
 
 void EnemyHandler::tick()
 {
+	
+
 	tickCount++;
 	for (Enemy* e : enemies) 
 	{
 		e->tick();
+		
 	}
-	if (tickCount %  speed == 0) 
+	Shoot();
+	if (tickCount % speed == 0) 
 	{
 		move(enemies_to_move());
 		tickCount = 0;
 	}
-	if (tickCount % 100 == 0) {
-		Shoot();
-	}
+	
 	
 }
 void EnemyHandler::move_down() 
@@ -134,12 +137,18 @@ void EnemyHandler::remove_enemy(Enemy* e) {
 			enemies.erase(enemies.begin() + i);
 	}
 
+	if (enemies.empty()) {
+		gameSystem.game_over(true);
+		return;
+	}
+		
+
 	leftEnemy = *(enemies.begin());
 	rightEnemy = *(enemies.end() - 1);
 }
 
 void EnemyHandler::Shoot() {
-	if ((rand() % 100) + 1 < 30) {
+	if ((rand() % 100) + 1 < 3) {
 		if (enemies.size() == 1) {
 			enemies[0]->Shoot();
 		}
@@ -149,4 +158,10 @@ void EnemyHandler::Shoot() {
 		}
 	}
 	
+}
+
+void EnemyHandler::add_enemies_to_scene(Scene* scene) {
+	for (Enemy* e : enemies) {
+		scene->sprites->add(e);
+	}
 }

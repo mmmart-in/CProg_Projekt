@@ -19,7 +19,3 @@ private:
 	TTF_Font* font;
 };
 
-
-
-extern MainWindow mainWindow;
-
