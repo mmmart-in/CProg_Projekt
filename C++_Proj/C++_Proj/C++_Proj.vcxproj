@@ -25,7 +25,6 @@
     <ClCompile Include="AudioHandler.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="Button_StartGame.cpp" />
     <ClCompile Include="Castle.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -34,23 +33,24 @@
     <ClCompile Include="EnemyHandler.cpp" />
     <ClCompile Include="EventObserver.cpp" />
     <ClCompile Include="EventSubject.cpp" />
+    <ClCompile Include="FixedSprite.cpp" />
     <ClCompile Include="GameSystem.cpp" />
+    <ClCompile Include="Health.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="MovableSprite.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneData.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="Textfield.cpp" />
     <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="UI_Button.cpp" />
-    <ClCompile Include="UI_Gameplay.cpp" />
-    <ClCompile Include="UI_Menu.cpp" />
+    <ClCompile Include="UI_Image.cpp" />
     <ClCompile Include="UI_Page.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -60,21 +60,23 @@
     <ClInclude Include="AudioHandler.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Bullet.h" />
-    <ClInclude Include="Button_StartGame.h" />
     <ClInclude Include="Castle.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="EventObserver.h" />
     <ClInclude Include="EventSubject.h" />
+    <ClInclude Include="Health.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyHandler.h" />
+    <ClInclude Include="FixedSprite.h" />
     <ClInclude Include="GameSystem.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="MovableSprite.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerBullet.h" />
     <ClInclude Include="Scene.h" />
@@ -82,15 +84,11 @@
     <ClInclude Include="SceneData.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="Textfield.h" />
+    <ClInclude Include="SpecialUIButton.h" />
     <ClInclude Include="UIManager.h" />
     <ClInclude Include="UI_Button.h" />
-    <ClInclude Include="UI_Gameplay.h" />
-    <ClInclude Include="UI_Menu.h" />
+    <ClInclude Include="UI_Image.h" />
     <ClInclude Include="UI_Page.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

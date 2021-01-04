@@ -4,7 +4,7 @@
 #include "GameSystem.h"
 #include "EventObserver.h"
 #define ROW_HEIGHT 50
-#define COL_WIDTH 70
+#define COL_WIDTH 80
 
 	static Uint32 SDL_Ticks = 0;
 
@@ -30,6 +30,7 @@ private:
 	int count = 0;
 	int r = 0;
 	int speed = 2;
+	int enemiesAlive;
 	bool moveLeft = false;
 	Enemy* leftEnemy;
 	Enemy* rightEnemy;

@@ -27,6 +27,12 @@
     <ClCompile Include="Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MovableSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FixedSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Castle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -102,16 +108,10 @@
     <ClCompile Include="UI_Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Textfield.cpp">
+    <ClCompile Include="Health.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UI_Menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Button_StartGame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UI_Gameplay.cpp">
+    <ClCompile Include="UI_Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -123,6 +123,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MovableSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Castle.h">
@@ -203,23 +209,17 @@
     <ClInclude Include="UI_Page.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SpecialUIButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="UI_Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Textfield.h">
+    <ClInclude Include="Health.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UI_Menu.h">
+    <ClInclude Include="UI_Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Button_StartGame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Gameplay.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
