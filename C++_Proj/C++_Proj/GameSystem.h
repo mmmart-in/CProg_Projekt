@@ -18,10 +18,10 @@ class GameSystem {
 		void run();
 		GameSystem();
 		~GameSystem();
-		
 		void load_new_scene(Scene* newScene);
 		Scene* get_current_scene();
 		template<typename T>void update_active_vector(const std::vector<T*>&, const std::vector<T*>&, std::vector<T*>&);
+		void game_over(bool b) { gameover = b; }
 	private:
 		void check_collision();
 		void update_components();
@@ -34,6 +34,7 @@ class GameSystem {
 		//FPS SKA KUNNA ÄNDRAS VIA INMATNINGSFÄLT!?!??!?!?!
 		int FPS = 60;
 		float dur;
+		bool gameover = false;
 		bool running = true;
 		Scene* current_scene;
 

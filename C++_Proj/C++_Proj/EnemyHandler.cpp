@@ -25,6 +25,8 @@ EnemyHandler* EnemyHandler::create_instance(int startX, int startY, int rows, in
 
 void EnemyHandler::tick()
 {
+	
+
 	tickCount++;
 	for (Enemy* e : enemies) 
 	{
@@ -134,6 +136,12 @@ void EnemyHandler::remove_enemy(Enemy* e) {
 		if (enemies[i] == e)
 			enemies.erase(enemies.begin() + i);
 	}
+
+	if (enemies.empty()) {
+		gameSystem.game_over(true);
+		return;
+	}
+		
 
 	leftEnemy = *(enemies.begin());
 	rightEnemy = *(enemies.end() - 1);
