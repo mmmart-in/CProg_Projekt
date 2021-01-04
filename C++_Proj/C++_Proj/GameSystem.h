@@ -5,7 +5,7 @@
 #include "Scene.h"
 #include <map>
 #include "UIManager.h"
-
+#include "SceneData.h"
 #include "MainWindow.h"
 
 class GameSystem {
@@ -20,6 +20,7 @@ class GameSystem {
 		const MainWindow& get_current_window();
 		void load_new_scene(Scene* newScene, std::string UI);
 		Scene* get_current_scene();
+		SceneData* get_scene_data() const;
 		const MainWindow& get_current_window() const;
 		template<typename T>void update_active_vector(const std::vector<T*>&, const std::vector<T*>&, std::vector<T*>&);
 	private:
@@ -37,11 +38,11 @@ class GameSystem {
 		float dur;
 		bool running = true;
 		Scene* current_scene;
+		SceneData* sceneData;
 		UIManager* UI_manager;
 		std::vector<Sprite*> collision_layers;
 		std::vector<Component*> active_components;
 		std::vector<Sprite*> active_sprites;
-	
 };
 
 extern GameSystem gameSystem;

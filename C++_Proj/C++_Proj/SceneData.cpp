@@ -24,11 +24,6 @@ Scene* SceneData::load_gameplay(int r, int c) {
 	scene->sprites->add(c2);
 	scene->sprites->add(c3);
 	scene->sprites->add(eh);
-	Label* lb = Label::getInstance(0, 0, 100, 100, "Score", { 255, 255, 255 });
-	Score* score = Score::get_instance(130, 40, 30, 30, 0, { 255, 200, 200, 255 }, *eh);
-	scene->components->add(lb);
-	scene->components->add(score);
+
 	return scene;
 }
-
-SceneData sceneData;

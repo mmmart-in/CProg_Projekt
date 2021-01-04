@@ -12,8 +12,7 @@ Enemy* Enemy::get_instance(int x, int y, int w, int h, int c, int r)
 	return new Enemy(x, y, w, h, c, r);
 }
 
-Enemy::Enemy(int x, int y, int w, int h, int c, int r) :
-	MovableSprite(x, y, w, h), col(c), row(r) {
+Enemy::Enemy(int x, int y, int w, int h, int c, int r) : Sprite(x, y, w, h), col(c), row(r) {
 	Animation idle{ "../../Resources/enemy1.png",
 		"../../Resources/enemy2.png",
 		"../../Resources/enemy3.png",

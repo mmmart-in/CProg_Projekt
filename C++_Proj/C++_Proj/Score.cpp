@@ -9,7 +9,7 @@ Score* Score::get_instance(int x, int y, int w, int h, int s, SDL_Color col, Ene
 
 
 Score::Score(int x, int y, int w, int h, int s, SDL_Color col, EnemyHandler& eh) :
-	Label(x, y, w, h, std::to_string(s), col), score(s), tickCount(0) {
+	Label({ x, y, w, h }, std::to_string(s), col), score(s), tickCount(0) {
 
 	for (Enemy* e : eh.get_enemies()) {
 		e->attach(*this);

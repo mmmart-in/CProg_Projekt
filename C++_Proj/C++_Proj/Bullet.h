@@ -1,9 +1,8 @@
 #pragma once
-#include "MovableSprite.h"
+
 #include <string>
 #include "Animator.h"
-class Bullet :
-    public MovableSprite
+class Bullet : public Sprite
 {
 public:
     ~Bullet();

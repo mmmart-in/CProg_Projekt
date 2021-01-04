@@ -5,8 +5,7 @@ Castle* Castle::get_instance(int x, int y, int w, int h) {
 	return new Castle(x, y, w, h);
 }
 
-Castle::Castle(int x, int y, int w, int h):
-	FixedSprite(x, y, w, h)
+Castle::Castle(int x, int y, int w, int h): Sprite(x, y, w, h)
 {
 	Animation one = { "../../Resources/Castle1.png" };
 	Animation two = { "../../Resources/Castle2.png" };

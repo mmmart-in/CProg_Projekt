@@ -10,7 +10,7 @@ public:
 	virtual void tick() = 0;
 	const SDL_Rect& get_rect() const;
 protected:
-	Component(int, int, int, int);
+	Component(SDL_Rect);
 private:
 	SDL_Rect rect;
 	Component(const Component&) = delete;

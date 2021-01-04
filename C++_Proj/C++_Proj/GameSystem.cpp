@@ -10,6 +10,8 @@
 
 GameSystem::GameSystem() {
 	mainWindow = new MainWindow();
+	sceneData = new SceneData();
+	current_scene = sceneData->load_menu();
 	UI_manager = UIManager::create_instance(&get_renderer());
 }
 
@@ -23,12 +25,11 @@ void GameSystem::run() {
 	while (running) {
 		Uint32 nextTick = SDL_GetTicks() + tickInterval;
 		
-
 		SDL_RenderClear(&get_renderer());
 
-		
 		update_sprites();
 		update_components();
+		UI_manager->update_UI();
 		SDL_RenderPresent(&get_renderer());
 		
 		deltaTime = nextTick - SDL_GetTicks();
@@ -61,8 +62,6 @@ void GameSystem::check_collision() {
 }
 
 
-
-
 void GameSystem::update_sprites() {
 	for (Sprite* sprite : active_sprites) {
 		sprite->tick();
@@ -86,17 +85,17 @@ void GameSystem::handle_input() {
 			case SDL_SCANCODE_ESCAPE:
 				running = false;
 				break;
+			case SDL_SCANCODE_F8:
 			case SDL_SCANCODE_F12:
 				input.rebind_key();
 				break;
 			case SDL_SCANCODE_F1:
-				load_new_scene(sceneData.load_menu(), "Menu");
 				break;
 			case SDL_SCANCODE_F2:
-				load_new_scene(sceneData.load_gameplay(6, 7), "Gameplay");
+				//load_new_scene(sceneData.load_gameplay(6, 7), "Gameplay");
 				break;
 			case SDL_SCANCODE_F3:
-				load_new_scene(sceneData.load_gameplay(11, 15), "Gameplay");
+				load_new_scene(get_scene_data()->load_gameplay(11, 15), "Gameplay");
 				break;
 			}
 		}
@@ -128,15 +127,13 @@ void GameSystem::update_scene_objects() {
 	och bullets behövde tas bort.
 	*************************************************************************************/
 
-	
-
 	update_active_vector<Sprite>(current_scene->sprites->get_removed(),
 								 current_scene->sprites->get_added(), 
 								 active_sprites);
 
 	update_active_vector<Component>(current_scene->components->get_removed(),
-		current_scene->components->get_added(),
-		active_components);
+									current_scene->components->get_added(),
+									active_components);
 	
 
 	//ta bort
@@ -151,10 +148,6 @@ void GameSystem::update_scene_objects() {
 		collision_layers.push_back(sprite);
 	}
 	
-
-	
-
-
 	current_scene->components->clear_vectors();
 	current_scene->sprites->clear_vectors();
 }
@@ -171,13 +164,11 @@ void GameSystem::load_new_scene(Scene* newScene, std::string UI) {
 		delete current_scene;
 
 	current_scene = newScene;
-	
+	std::cout << "argument is: " << UI << std::endl;
 
 	active_components.clear();
 	active_sprites.clear();
 	collision_layers.clear();
-
-	
 
 	for (Component* component : current_scene->components->get_added())
 		active_components.push_back(component);
@@ -196,14 +187,16 @@ void GameSystem::load_new_scene(Scene* newScene, std::string UI) {
 
 	UI_manager->change_page(UI);
 
-	for (Component* component : UI_manager->get_UI()->get_components())
-		active_components.emplace_back(component);
 	current_scene->components->clear_vectors();
 	current_scene->sprites->clear_vectors();
 }
 
 Scene* GameSystem::get_current_scene() {
 	return current_scene;
+}
+
+SceneData* GameSystem::get_scene_data() const {
+	return sceneData;
 }
 
 const MainWindow& GameSystem::get_current_window() {

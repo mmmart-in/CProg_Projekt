@@ -6,11 +6,9 @@
 #include "GameSystem.h"
 #include "Input.h"
 #include "Log.h"
-
 #include "AudioHandler.h"
 
-Player::Player(int x, int y, int w, int h):
-	MovableSprite(x, y, w, h)
+Player::Player(int x, int y, int w, int h): Sprite(x, y, w, h)
 {
 	//SKAPA ANIMATIONER HÄR:::::
 	Animation forward{"../../Resources/ship1.png"};

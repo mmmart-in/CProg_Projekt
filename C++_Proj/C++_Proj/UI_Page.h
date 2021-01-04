@@ -3,17 +3,16 @@
 #include "Component.h"
 #include <vector>
 #include <string>
-
+#include "UI_Button.h"
 class UI_Page {
 public:
-	static UI_Page* create_instance(std::string);
 	void add(Component*);
-	const std::string& get_page_name(std::string) const;
 	const std::vector<Component*>& get_components() const;
 	void interact(SDL_Point&);
+	void draw_UI();
+	virtual void interact_with(UI_Button*) = 0;
+	~UI_Page();
 private:
-	UI_Page(std::string);
-	std::string page_name;
 	std::vector<Component*> components;
 };
 

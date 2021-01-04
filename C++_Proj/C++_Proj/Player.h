@@ -1,10 +1,9 @@
 #pragma once
-#include "MovableSprite.h"
 #include <string>
 #include "Animator.h"
 #include "Animation.h"
-class Player :
-    public MovableSprite
+
+class Player : public Sprite
 {
 public:
     static Player* create_instance(int, int, int, int);
