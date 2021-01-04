@@ -22,6 +22,7 @@ class GameSystem {
 		Scene* get_current_scene();
 		const MainWindow& get_current_window() const;
 		template<typename T>void update_active_vector(const std::vector<T*>&, const std::vector<T*>&, std::vector<T*>&);
+		void game_over(bool b) { gameover = b; }
 	private:
 		void check_collision();
 		void update_components();
@@ -36,6 +37,7 @@ class GameSystem {
 		int FPS = 60;
 		float dur;
 		bool running = true;
+		bool gameover = false;
 		Scene* current_scene;
 		UIManager* UI_manager;
 		std::vector<Sprite*> collision_layers;

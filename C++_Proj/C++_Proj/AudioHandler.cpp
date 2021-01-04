@@ -7,8 +7,8 @@ AudioHandler::AudioHandler(){
 	playerShoot = Mix_LoadWAV("../../Resources/SoundFX/SpaceInvaders_PlayerShoot.wav");
 	enemyShoot = Mix_LoadWAV("../../Resources/SoundFX/SpaceInvaderShoot_Kort.wav");
 	castleHit = Mix_LoadWAV("../../Resources/SoundFX/SpaceInvaders_CastleHit.wav");
-	playerShoot->volume = 20;
-	enemyShoot->volume = 20;
+	playerShoot->volume = 5;
+	enemyShoot->volume = 5;
 }
 
 void AudioHandler::enemy_shoot() {
