@@ -27,7 +27,7 @@ Background::Background(int x, int y, int w, int h) :
 
 void Background::tick() {
 	tickCount++;
-	if (tickCount % 3 == 0) {
+	if (tickCount % 5 == 0) {
 		anim->next_image(0);
 		tickCount = 0;
 	}
