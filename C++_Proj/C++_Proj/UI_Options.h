@@ -1,9 +1,10 @@
 #pragma once
+
 #include "UI_Page.h"
-#include "UI_Button.h"
-class UI_Menu : public UI_Page {
+#include <string>
+class UI_Options : public UI_Page {
 public:
-	UI_Menu(std::string);
+	UI_Options(std::string);
 	void interact_with(Component*) override;
 };
 

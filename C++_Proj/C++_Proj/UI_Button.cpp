@@ -10,7 +10,7 @@ UI_Button::~UI_Button() {
 	SDL_DestroyTexture(pressed);
 	SDL_DestroyTexture(regular);
 	SDL_DestroyTexture(showing);
-	delete label;
+
 }
 
 

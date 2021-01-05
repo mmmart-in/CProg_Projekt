@@ -1,6 +1,8 @@
 #include "UI_Page.h"
 #include <iostream>
 #include "UI_Button.h"
+#include "GameSystem.h"
+UI_Page::UI_Page(std::string page_name) : page_name(page_name) {}
 
 void UI_Page::add(Component* component) {
 	components.push_back(component);
@@ -22,7 +24,7 @@ void UI_Page::draw_UI() {
 }
 
 UI_Page::~UI_Page() {
-	for (int i = 0; i < components.size(); i++)
-		delete components[i];
+	for (auto it = components.begin(); it != components.end(); it++)
+		delete* it;
 }
 

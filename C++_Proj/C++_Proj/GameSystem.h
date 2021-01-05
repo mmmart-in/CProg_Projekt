@@ -10,7 +10,6 @@
 
 class GameSystem {
 
-
 	public:
 		float deltaTime;
 		void run();
@@ -21,9 +20,13 @@ class GameSystem {
 		void load_new_scene(Scene* newScene, std::string UI);
 		Scene* get_current_scene();
 		SceneData* get_scene_data() const;
+		inline UIManager* get_ui_manager() const { return UI_manager;  }
 		const MainWindow& get_current_window() const;
 		template<typename T>void update_active_vector(const std::vector<T*>&, const std::vector<T*>&, std::vector<T*>&);
 		void game_over(bool b) { gameover = b; }
+		inline int get_fps() const { return FPS; }
+		inline const std::vector<Sprite*>& get_active_sprites() const { return active_sprites; }
+
 	private:
 		void check_collision();
 		void update_components();

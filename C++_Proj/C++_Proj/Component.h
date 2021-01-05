@@ -5,7 +5,7 @@
 class Component {
 
 public:
-	~Component();
+	virtual ~Component();
 	virtual void draw() const = 0;
 	virtual void tick() = 0;
 	const SDL_Rect& get_rect() const;

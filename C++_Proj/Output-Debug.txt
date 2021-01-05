@@ -1,0 +1,80 @@
+﻿'C++_Proj.exe' (Win32): Loaded 'C:\Spelprojekt 2020\CProg_Projekt\C++_Proj\x64\Debug\C++_Proj.exe'. Symbols loaded.
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. Symbols loaded.
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\SDL2.dll'. Module was built without symbols.
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\setupapi.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\cfgmgr32.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\bcrypt.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\SDL2_image.dll'. Module was built without symbols.
+'C++_Proj.exe' (Win32): Loaded 'C:\SDL2\lib\x64\SDL2_mixer.dll'. Module was built without symbols.
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\SDL2_ttf.dll'. Module was built without symbols.
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\msvcp140d.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140_1d.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\version.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\winmm.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\libfreetype-6.dll'. Module was built without symbols.
+'C++_Proj.exe' (Win32): Loaded 'C:\SDL2\bin\zlib1.dll'. Module was built without symbols.
+The thread 0x3994 has exited with code 0 (0x0).
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\clbcatq.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\MMDevAPI.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\devobj.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\avrt.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\AudioSes.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\powrprof.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\umpdc.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\ResourcePolicyClient.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\ws2_32.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\ntmarta.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. 
+'C++_Proj.exe' (Win32): Unloaded 'C:\Windows\System32\WinTypes.dll'
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\d3d9.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\windows.storage.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\dwmapi.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\wldp.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_8e1b465b962975a0\nvldumdx.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\msasn1.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\cryptnet.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\crypt32.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\wintrust.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\imagehlp.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\cryptsp.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\rsaenh.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_8e1b465b962975a0\nvd3dumx.dll'. 
+The thread 0x38f0 has exited with code 0 (0x0).
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\nvspcap64.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\profapi.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\gpapi.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Program Files\NVIDIA Corporation\Ansel\NvCameraAllowlisting64.dll'. 
+'C++_Proj.exe' (Win32): Unloaded 'C:\Program Files\NVIDIA Corporation\Ansel\NvCameraAllowlisting64.dll'
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\DXCore.dll'. 
+'C++_Proj.exe' (Win32): Loaded 'C:\Windows\System32\libpng16-16.dll'. Module was built without symbols.
+'C++_Proj.exe' (Win32): Loaded 'C:\Program Files (x86)\Overwolf\0.162.0.7\OWExplorer.dll'. 

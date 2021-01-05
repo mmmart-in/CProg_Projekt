@@ -11,7 +11,7 @@
 #include "Score.h"
 #include "Label.h"
 #include <algorithm>
-
+#include "UI_Options.h"
 UIManager* UIManager::create_instance(SDL_Renderer* renderer) {
     return new UIManager(renderer);
 }
@@ -45,9 +45,9 @@ UIManager::UIManager(SDL_Renderer* renderer) : active_page(0), renderer(*rendere
 
 UI_Page* UIManager::create_Menu() {
     
-    UI_Page* menu = new UI_Menu();
+    UI_Page* menu = new UI_Menu("Menu");
     
-    UI_Button* start_game = Button_StartGame::create_instance({ 450, 300, 300, 50 }, "Press play", { 255, 255, 255 }, "StartGameplay", 5, 7);
+    UI_Button* start_game = new Button_StartGame({ 450, 300, 300, 50 }, "Press play", { 255, 255, 255 }, "StartGameplay", 5, 7);
 
     menu->add(Label::getInstance({ 300, 100, 600, 100 }, "SPACE INVADERS", { 100, 100, 255 }));
     menu->add(start_game);
@@ -56,7 +56,7 @@ UI_Page* UIManager::create_Menu() {
 }
 
 UI_Page* UIManager::create_Gameplay() {
-    UI_Page* gameplay = UI_Gameplay::create_instance();
+    UI_Page* gameplay = UI_Gameplay::create_instance("Gameplay");
 
     EnemyHandler* enemy_handler = 0;
 
@@ -67,6 +67,14 @@ UI_Page* UIManager::create_Gameplay() {
             enemy_handler = eh;
     }
 
+    if (!enemy_handler) {
+        for (auto& sprites : gameSystem.get_active_sprites()) {
+            EnemyHandler* eh = dynamic_cast<EnemyHandler*>(sprites);
+            if (eh)
+                enemy_handler = eh;
+        }
+    }
+
     gameplay->add(Score::get_instance(130, 40, 30, 30, 0, { 255, 200, 200, 255 }, *enemy_handler));
     gameplay->add(Label::getInstance({ 0, 0, 100, 100 }, "Score", { 255, 255, 255 }));
     
@@ -74,5 +82,14 @@ UI_Page* UIManager::create_Gameplay() {
 }
 
 UI_Page* UIManager::create_Options() {
-    return nullptr;
+    auto options = new UI_Options("Options");
+
+    options->add(Label::getInstance({ 450, 50, 300, 50 }, "OPTIONS", { 255, 255, 255 }));
+    options->add(Label::getInstance({ 150, 150, 50, 50 }, "FPS", { 255, 255, 255 }));
+    options->add(Label::getInstance({ 220, 150, 50, 50 }, std::to_string(gameSystem.get_fps()), { 255, 255, 255 }));
+
+    options->add(Textfield::create_instance({ 210, 145, 100, 50 }, { 255, 255, 0 }));
+
+    return options;
+
 }
