@@ -7,6 +7,7 @@
 #include "SceneData.h"
 #include "EnemyHandler.h"
 #include <typeinfo>
+#include "Options.h"
 
 GameSystem::GameSystem() {
 	mainWindow = new MainWindow();
@@ -23,7 +24,7 @@ void GameSystem::run() {
 	while (running) {
 
 		if (gameover)
-			load_new_scene(sceneData.load_menu(), "Menu");
+			load_new_scene(sceneData->load_menu(), "Menu");
 
 		Uint32 nextTick = SDL_GetTicks() + tickInterval;
 		
@@ -33,6 +34,7 @@ void GameSystem::run() {
 		
 		update_sprites();
 		update_components();
+		UI_manager->update_UI();
 		SDL_RenderPresent(&get_renderer());
 		
 		deltaTime = nextTick - SDL_GetTicks();
@@ -93,16 +95,10 @@ void GameSystem::handle_input() {
 			case SDL_SCANCODE_F12:
 				input.rebind_key();
 				break;
-			case SDL_SCANCODE_F1:
-				load_new_scene(sceneData.load_menu(), "Menu");
-				break;
-			case SDL_SCANCODE_F2:
-				load_new_scene(sceneData.load_gameplay(6, 7), "Gameplay");
-				gameover = false;
-				break;
-			case SDL_SCANCODE_F3:
-				load_new_scene(sceneData.load_gameplay(11, 15), "Gameplay");
-				gameover = false;
+			case SDL_SCANCODE_0:
+				Options* options = Options::create_instance(get_renderer());
+				options->run();
+				delete options;
 				break;
 			}
 		}
@@ -157,10 +153,6 @@ void GameSystem::update_scene_objects() {
 		collision_layers.push_back(sprite);
 	}
 	
-
-	
-
-
 	current_scene->components->clear_vectors();
 	current_scene->sprites->clear_vectors();
 }
@@ -202,14 +194,18 @@ void GameSystem::load_new_scene(Scene* newScene, std::string UI) {
 
 	UI_manager->change_page(UI);
 
-	for (Component* component : UI_manager->get_UI()->get_components())
-		active_components.emplace_back(component);
+	game_over(0);
+
 	current_scene->components->clear_vectors();
 	current_scene->sprites->clear_vectors();
 }
 
 Scene* GameSystem::get_current_scene() {
 	return current_scene;
+}
+
+SceneData* GameSystem::get_scene_data() const {
+	return sceneData;
 }
 
 const MainWindow& GameSystem::get_current_window() {

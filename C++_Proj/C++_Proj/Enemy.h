@@ -1,11 +1,9 @@
 #pragma once
-#include "MovableSprite.h"
 #include <string>
 #include "Animator.h"
 #include "EventSubject.h"
 
-class Enemy :
-    public MovableSprite, public EventSubject
+class Enemy : public Sprite, public EventSubject
 {
 public:
     static Enemy* get_instance(int x, int y, int w, int h, int c, int r);

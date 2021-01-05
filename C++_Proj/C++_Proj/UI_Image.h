@@ -5,9 +5,12 @@
 class UI_Image : public Component
 {
 public:
-	UI_Image(int x, int y, int w, int h, std::string image);
-	void tick();
-	void draw() const;
+	static UI_Image* get_instance(SDL_Rect, std::string image);
+	virtual void tick();
+	virtual void draw() const;
+protected:
+	UI_Image(SDL_Rect, std::string image);
+
 private:
 	SDL_Texture* texture;
 };

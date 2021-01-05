@@ -7,8 +7,7 @@
 
 
 
-Bullet::Bullet(int x, int y, int w, int h) :
-	MovableSprite(x, y, w, h) {
+Bullet::Bullet(int x, int y, int w, int h) : Sprite(x, y, w, h) {
 	
 }
 

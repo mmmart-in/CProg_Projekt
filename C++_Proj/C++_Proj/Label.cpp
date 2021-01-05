@@ -2,11 +2,11 @@
 #include <SDL_ttf.h>
 #include <iostream>
 #include "GameSystem.h"
-Label* Label::getInstance(int x, int y, int w, int h, std::string txt, SDL_Color textColor) {
-	return new Label(x, y, w, h, txt, textColor);
+Label* Label::getInstance(SDL_Rect rect, std::string txt, SDL_Color textColor) {
+	return new Label(rect, txt, textColor);
 }
 
-Label::Label(int x, int y, int w, int h, std::string text, SDL_Color textColor) : Component(x, y, w, h), text(text), textColor(textColor){
+Label::Label(SDL_Rect rect, std::string text, SDL_Color textColor) : Component(rect), text(text), textColor(textColor){
 	SDL_Surface* surf = TTF_RenderText_Solid(gameSystem.get_current_window().get_font(), text.c_str(), textColor);
 	texture = SDL_CreateTextureFromSurface(&gameSystem.get_renderer(), surf);
 	SDL_FreeSurface(surf);
