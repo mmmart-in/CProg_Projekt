@@ -1,6 +1,7 @@
 #include "Castle.h"
 #include "GameSystem.h"
 #include <iostream>
+#include "AudioHandler.h"
 Castle* Castle::get_instance(int x, int y, int w, int h) {
 	return new Castle(x, y, w, h);
 }
@@ -48,6 +49,7 @@ void Castle::resolve_collision() {
 		else
 			hitCount++;
 		hit = true;
+		audioHandler.castle_hit();
 	}
 	
 }
