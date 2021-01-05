@@ -65,3 +65,13 @@ inline void GameSystem::update_active_vector(const std::vector<T*>& removed, con
 	}
 		
 }
+
+struct inten {
+public:
+	int y;
+	inten(int x) : y(x) {}
+	bool operator()(int x) {
+		return x > y;
+	}
+	
+};
