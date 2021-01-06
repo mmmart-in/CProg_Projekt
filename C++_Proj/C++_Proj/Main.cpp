@@ -1,16 +1,5 @@
-#include <iostream>
-#include <SDL.h>
-#include "MainWindow.h"
-#include <SDL_image.h>
 #include "GameSystem.h"
-#include "Player.h"
-#include "Label.h"
 #include "Input.h"
-#include "Enemy.h"
-#include "EnemyHandler.h"
-#include <vector>
-#include "Level.h"
-#include "Textfield.h"
 
 int main(int argc, char** argv) {
 	

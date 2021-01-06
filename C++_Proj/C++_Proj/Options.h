@@ -5,11 +5,11 @@
 #include "UI_Image.h"
 class Options {
 public:
-	static Options* create_instance(SDL_Renderer&);
+	static Options* create_instance(SDL_Renderer&, std::string);
 	void run();
 	~Options();
 private:
-	Options(SDL_Renderer&);
+	Options(SDL_Renderer&, std::string);
 	UIManager* UI_manager;
 	std::string previous_ui_page;
 	SDL_Renderer& renderer;

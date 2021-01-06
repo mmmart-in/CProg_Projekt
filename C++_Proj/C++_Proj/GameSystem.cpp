@@ -96,18 +96,16 @@ void GameSystem::handle_input() {
 				input.rebind_key();
 				break;
 			case SDL_SCANCODE_0:
-				Options* options = Options::create_instance(get_renderer());
+				Options* options = Options::create_instance(get_renderer(), UI_manager->get_active_ui_name());
 				options->run();
 				delete options;
 				break;
 			}
 		}
-		else if (event.type == SDL_MOUSEBUTTONDOWN) {
-			SDL_Point clicked_point = { event.button.x, event.button.y };
-			UI_manager->get_UI()->interact(clicked_point);
-		}
-	}
 
+		if (event.type == SDL_MOUSEBUTTONDOWN && event.key.repeat == 0)
+			UI_manager->handle_interact({ event.button.x, event.button.y});
+	}
 }
 
 void GameSystem::update_scene_objects() {

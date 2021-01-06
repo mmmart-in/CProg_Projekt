@@ -2,8 +2,8 @@
 #include <iostream>
 #include "GameSystem.h"
 
-Options* Options::create_instance(SDL_Renderer& renderer) {
-	return new Options(renderer);
+Options* Options::create_instance(SDL_Renderer& renderer, std::string previous_ui_page) {
+	return new Options(renderer, previous_ui_page);
 }
 
 void Options::run() {
@@ -19,14 +19,8 @@ void Options::run() {
 				running = false;
 				break;
 			case SDL_MOUSEBUTTONDOWN:
-				SDL_Point point = { event.button.x, event.button.y };
-				std::cout << point.x << std::endl;
-				for (auto& component : UI_manager->get_UI()->get_components()) {
-					if(SDL_PointInRect(&point, &component->get_rect()))
-						UI_manager->get_UI()->interact_with(component);
-
-				break;
-				}
+				if (event.type == SDL_MOUSEBUTTONDOWN && event.key.repeat == 0)
+					UI_manager->handle_interact({ event.button.x, event.button.y });
 			}
 		}
 
@@ -40,11 +34,9 @@ Options::~Options() {
 	UI_manager->change_page(previous_ui_page);
 }
 
-Options::Options(SDL_Renderer& renderer) : renderer(renderer) {
+Options::Options(SDL_Renderer& renderer, std::string previous_ui_name) : renderer(renderer), previous_ui_page(previous_ui_name) {
 	UI_manager = UIManager::create_instance(&renderer);
-
 	UI_manager->change_page("Options");
-
 	std::cout << previous_ui_page << std::endl;
 	SDL_Surface* surface = SDL_CreateRGBSurface(0, 1200, 800, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
 	SDL_RenderReadPixels(&renderer, NULL, SDL_PIXELFORMAT_ABGR8888, surface->pixels, surface->pitch);
