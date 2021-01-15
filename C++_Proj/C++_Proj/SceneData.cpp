@@ -1,6 +1,6 @@
 #include "SceneData.h"
-#include "Label.h"
-#include "Score.h"
+#include "UI_Label.h"
+#include "UI_Score.h"
 #include "EnemyHandler.h"
 #include "Player.h"
 #include "Castle.h"

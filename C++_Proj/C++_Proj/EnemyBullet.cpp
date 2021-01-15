@@ -22,11 +22,11 @@ EnemyBullet::EnemyBullet(int x, int y, int w, int h) :
 void EnemyBullet::tick() {
 	Bullet::tick();
 	if (rect.y >= 800)
-		gameSystem.get_current_scene()->sprites->remove(this);
+		gameSystem.get_current_scene().sprites->remove(this);
 }
 
 void EnemyBullet::move() {
-	rect.y += (gameSystem.deltaTime / 10) * movementSpeed;
+	rect.y += (gameSystem.get_deltatime() / 10) * movementSpeed;
 	collider->x = rect.x;
 	collider->y = rect.y;
 

@@ -139,7 +139,7 @@ std::vector<Enemy*> EnemyHandler::get_enemies() {
 
 void EnemyHandler::callback(EventSubject& object) {
 	remove_enemy(dynamic_cast<Enemy*>(&object));
-	gameSystem.get_current_scene()->sprites->remove(dynamic_cast<Enemy*>(&object));
+	gameSystem.get_current_scene().sprites->remove(dynamic_cast<Enemy*>(&object));
 }
 
 void EnemyHandler::remove_enemy(Enemy* e) {

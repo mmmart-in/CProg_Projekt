@@ -48,9 +48,9 @@ void Enemy::draw() {
 void Enemy::move(bool moveLeft)
 {
 	if (moveLeft)
-		rect.x -= (gameSystem.deltaTime/ 10) * moveSpeed;
+		rect.x -= (gameSystem.get_deltatime() / 10) * moveSpeed;
 	else
-		rect.x += (gameSystem.deltaTime/ 10) * moveSpeed;
+		rect.x += (gameSystem.get_deltatime() / 10) * moveSpeed;
 
 	collider->x = rect.x;
 	collider->y = rect.y;
@@ -60,7 +60,7 @@ void Enemy::move(bool moveLeft)
 
 void Enemy::Shoot() {
 	EnemyBullet* bptr = EnemyBullet::get_instance(rect.x + 20, rect.y + 40, 20, 20);
-	gameSystem.get_current_scene()->sprites->add(bptr);
+	gameSystem.get_current_scene().sprites->add(bptr);
 	audioHandler.enemy_shoot();
 }
 

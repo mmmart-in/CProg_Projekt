@@ -5,7 +5,6 @@
 #include <SDL_image.h>
 #include "GameSystem.h"
 #include "Input.h"
-#include "Log.h"
 #include "AudioHandler.h"
 
 Player::Player(int x, int y, int w, int h): Sprite(x, y, w, h)
@@ -43,8 +42,7 @@ void Player::tick() {
 			hitCooldown = false;
 			tickCount = 0;
 		}
-	}
-	
+	}	
 }
 
 Player* Player::create_instance(int x, int y, int w, int h) {
@@ -68,18 +66,18 @@ void Player::handle_input() {
 }
 
 void Player::move_left() {
-	rect.x -= (gameSystem.deltaTime / 10) * moveSpeed;
+	rect.x -= (gameSystem.get_deltatime() / 10) * moveSpeed;
 }
 
 void Player::move_right(){
-	rect.x += (gameSystem.deltaTime / 10) * moveSpeed;
+	rect.x += (gameSystem.get_deltatime() / 10) * moveSpeed;
 
 }
 
 void Player::shoot() {
 	if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
 		PlayerBullet* bptr = PlayerBullet::get_instance(rect.x + 20, rect.y - 40, 30, 30);
-		gameSystem.get_current_scene()->sprites->add(bptr);
+		gameSystem.get_current_scene().sprites->add(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
 		
 		audioHandler.player_shoot();
@@ -99,4 +97,9 @@ void Player::resolve_collision() {
 
 	hitCooldown = true;
 	
+}
+
+Player::~Player() {
+	delete anim;
+	delete hp;
 }
