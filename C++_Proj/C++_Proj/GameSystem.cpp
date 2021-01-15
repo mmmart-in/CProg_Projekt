@@ -2,7 +2,6 @@
 #include <SDL.h>
 #include <iostream>
 #include "Input.h"
-#include "Log.h"
 #include <chrono>
 #include "SceneData.h"
 #include "EnemyHandler.h"
@@ -45,13 +44,14 @@ void GameSystem::run() {
 			
 		
 		update_scene_objects();
-		handle_input();
 		check_collision();
+		handle_input();
 	
 	}
 }
 
 void GameSystem::check_collision() {
+
 
 	for (int i = 0; i < collision_layers.size(); i++) {
 		for (int j = 0; j < collision_layers.size(); j++) {
@@ -96,18 +96,16 @@ void GameSystem::handle_input() {
 				input.rebind_key();
 				break;
 			case SDL_SCANCODE_0:
-				Options* options = Options::create_instance(get_renderer());
+				Options* options = Options::create_instance(get_renderer(), UI_manager->get_active_ui_name());
 				options->run();
 				delete options;
 				break;
 			}
 		}
-		else if (event.type == SDL_MOUSEBUTTONDOWN) {
-			SDL_Point clicked_point = { event.button.x, event.button.y };
-			UI_manager->get_UI()->interact(clicked_point);
-		}
-	}
 
+		if (event.type == SDL_MOUSEBUTTONDOWN && event.key.repeat == 0)
+			UI_manager->handle_interact({ event.button.x, event.button.y});
+	}
 }
 
 void GameSystem::update_scene_objects() {
@@ -200,15 +198,15 @@ void GameSystem::load_new_scene(Scene* newScene, std::string UI) {
 	current_scene->sprites->clear_vectors();
 }
 
-Scene* GameSystem::get_current_scene() {
-	return current_scene;
+Scene& GameSystem::get_current_scene() const {
+	return *current_scene;
 }
 
-SceneData* GameSystem::get_scene_data() const {
-	return sceneData;
+SceneData& GameSystem::get_scene_data() const {
+	return *sceneData;
 }
 
-const MainWindow& GameSystem::get_current_window() {
+MainWindow& GameSystem::get_current_window() const {
 	return *mainWindow;
 }
 

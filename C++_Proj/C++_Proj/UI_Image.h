@@ -1,13 +1,16 @@
 #pragma once
-#include "Component.h"
+#include "UI_Component.h"
 #include <string>
 #include <SDL_image.h>
-class UI_Image : public Component
+
+class UI_Image : public UI_Component
 {
 public:
 	static UI_Image* get_instance(SDL_Rect, std::string image);
-	virtual void tick();
-	virtual void draw() const;
+	void tick() override;
+	void draw() override;
+	void interact() override {}
+	~UI_Image();
 protected:
 	UI_Image(SDL_Rect, std::string image);
 

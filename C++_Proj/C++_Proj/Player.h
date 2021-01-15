@@ -8,10 +8,11 @@ class Player : public Sprite
 {
 public:
     static Player* create_instance(int, int, int, int);
-    
+    ~Player();
     void shoot();
     
     void resolve_collision();
+    ~Player();
 
 private:
     Player(int x, int y, int w, int h);
@@ -32,6 +33,7 @@ private:
     float moveSpeed = 4;
     Uint32 fireCooldownCount = 0; 
     Animator* anim;
+    Animation* forward, * turnRight, * turnLeft;
     Health* hp;
     
 };

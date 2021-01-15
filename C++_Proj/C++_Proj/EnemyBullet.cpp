@@ -7,30 +7,26 @@ EnemyBullet* EnemyBullet::get_instance(int x, int y, int w, int h) {
 
 EnemyBullet::EnemyBullet(int x, int y, int w, int h) :
 	Bullet(x, y, w, h) {
-	Animation idle{ "../../Resources/eBullet1.png",
+	animation = new Animation{ "../../Resources/eBullet1.png",
 	"../../Resources/eBullet2.png",
 	"../../Resources/eBullet3.png",
 	"../../Resources/eBullet4.png" };
 
-	anim = new Animator{ idle };
+	anim = new Animator{ animation };
 	tickCount = 0;
 	layer = 1;
 	tag = "enemybullet";
 }
 
-EnemyBullet::~EnemyBullet() {
-	
-	delete anim;
-}
 
 void EnemyBullet::tick() {
 	Bullet::tick();
 	if (rect.y >= 800)
-		gameSystem.get_current_scene()->sprites->remove(this);
+		gameSystem.get_current_scene().sprites->remove(this);
 }
 
 void EnemyBullet::move() {
-	rect.y += (gameSystem.deltaTime / 10) * movementSpeed;
+	rect.y += (gameSystem.get_deltatime() / 10) * movementSpeed;
 	collider->x = rect.x;
 	collider->y = rect.y;
 

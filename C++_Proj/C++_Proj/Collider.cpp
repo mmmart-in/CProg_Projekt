@@ -6,9 +6,6 @@ Collider::Collider(int x, int y, int w, int h) :
 
 }
 
-Collider::~Collider() {
-
-}
 
 /*
     leftA = x;

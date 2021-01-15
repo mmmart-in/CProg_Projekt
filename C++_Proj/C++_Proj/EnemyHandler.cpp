@@ -41,6 +41,18 @@ void EnemyHandler::tick()
 	
 	
 }
+
+EnemyHandler::~EnemyHandler() {
+	delete leftEnemy;
+	delete rightEnemy;
+
+	for (Enemy* e : enemies) {
+		delete e;
+	}
+
+	enemies.clear();
+}
+
 void EnemyHandler::move_down() 
 {
 	for (Enemy* e : enemies)
@@ -127,7 +139,7 @@ std::vector<Enemy*> EnemyHandler::get_enemies() {
 
 void EnemyHandler::callback(EventSubject& object) {
 	remove_enemy(dynamic_cast<Enemy*>(&object));
-	gameSystem.get_current_scene()->sprites->remove(dynamic_cast<Enemy*>(&object));
+	gameSystem.get_current_scene().sprites->remove(dynamic_cast<Enemy*>(&object));
 }
 
 void EnemyHandler::remove_enemy(Enemy* e) {

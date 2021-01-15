@@ -31,3 +31,8 @@ void Health::tick() {
 	if (hits >= MAXhits)
 		gameSystem.game_over(true);
 }
+
+Health::~Health() {
+	for (auto& x : lives)
+		delete x;
+}

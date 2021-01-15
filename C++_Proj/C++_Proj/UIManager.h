@@ -1,24 +1,29 @@
 #pragma once
 
 #include <vector>
-#include "UI_Page.h"
+#include "UI_Component.h"
 #include <iostream>
 #include <map>
+
+
+
 class UIManager  {
-	using Create_Page_Function = UI_Page * (UIManager::*)();
+	using UI_Loader = void(UIManager::*)();
 public:
 	static UIManager* create_instance(SDL_Renderer*);
 	void change_page(std::string);
+	void handle_interact(SDL_Point);
 	void update_UI();
-	inline UI_Page* get_UI() const { return active_page;  } 
+	const std::string get_active_ui_name() const;
 private:
 	UIManager(SDL_Renderer*);
-	UI_Page* active_page;
+	std::string active_ui_name;
 	SDL_Renderer& renderer;
-	std::map<std::string, Create_Page_Function> pages;
-
-	UI_Page* create_Menu();
-	UI_Page* create_Gameplay();
-	UI_Page* create_Options();
+	std::map<std::string, UI_Loader> pages;
+	std::vector<UI_Component*> UI_components;
+	SDL_Event event;
+	void create_Menu();
+	void create_Gameplay();
+	void create_Options();
 };
 

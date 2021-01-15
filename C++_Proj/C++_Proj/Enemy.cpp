@@ -13,7 +13,7 @@ Enemy* Enemy::get_instance(int x, int y, int w, int h, int c, int r)
 }
 
 Enemy::Enemy(int x, int y, int w, int h, int c, int r) : Sprite(x, y, w, h), col(c), row(r) {
-	Animation idle{ "../../Resources/enemy1.png",
+	idle = new Animation{ "../../Resources/enemy1.png",
 		"../../Resources/enemy2.png",
 		"../../Resources/enemy3.png",
 		"../../Resources/enemy4.png" ,
@@ -25,7 +25,8 @@ Enemy::Enemy(int x, int y, int w, int h, int c, int r) : Sprite(x, y, w, h), col
 }
 
 Enemy::~Enemy() {
-	
+	delete idle;
+	delete anim;
 }
 
 void Enemy::tick() {
@@ -47,9 +48,9 @@ void Enemy::draw() {
 void Enemy::move(bool moveLeft)
 {
 	if (moveLeft)
-		rect.x -= (gameSystem.deltaTime/ 10) * moveSpeed;
+		rect.x -= (gameSystem.get_deltatime() / 10) * moveSpeed;
 	else
-		rect.x += (gameSystem.deltaTime/ 10) * moveSpeed;
+		rect.x += (gameSystem.get_deltatime() / 10) * moveSpeed;
 
 	collider->x = rect.x;
 	collider->y = rect.y;
@@ -59,7 +60,7 @@ void Enemy::move(bool moveLeft)
 
 void Enemy::Shoot() {
 	EnemyBullet* bptr = EnemyBullet::get_instance(rect.x + 20, rect.y + 40, 20, 20);
-	gameSystem.get_current_scene()->sprites->add(bptr);
+	gameSystem.get_current_scene().sprites->add(bptr);
 	audioHandler.enemy_shoot();
 }
 

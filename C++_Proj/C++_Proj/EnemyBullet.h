@@ -5,7 +5,6 @@ class EnemyBullet : public Bullet
 {
 public:
 	static EnemyBullet* get_instance(int x, int y, int w, int h);
-    ~EnemyBullet();
     void move();
     void tick();
 

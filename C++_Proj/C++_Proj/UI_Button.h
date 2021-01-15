@@ -1,20 +1,19 @@
 #pragma once
 
-#include "Component.h"
+#include "UI_Component.h"
 #include <string>
-#include "Label.h"
+#include "UI_Label.h"
 #include <iostream>
 #include "EventSubject.h"
 
-class UI_Button : public Component{
+class UI_Button : public UI_Component {
 
 public:
 	UI_Button(SDL_Rect, std::string, SDL_Color, std::string);
-	~UI_Button();
+	~UI_Button() override;
 	void tick() override {};
-	void draw() const override;
-	void set_pressed(bool) const;
-	virtual void invoke() = 0;
+	void draw() override;
+	void interact() override {}
 	inline std::string get_button_name() const { return button_name; }
 private:
 	std::string button_name;
@@ -24,7 +23,7 @@ private:
 	SDL_Texture* pressed;
 	SDL_Texture* regular;
 	SDL_Texture* showing;
-	Label* label;
+	UI_Label* label;
 };
 
 
