@@ -7,6 +7,7 @@ class AudioHandler
 public:
 	
 	AudioHandler();
+	~AudioHandler();
 	void enemy_shoot();
 	void castle_hit();
 	void player_shoot();

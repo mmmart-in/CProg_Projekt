@@ -12,6 +12,7 @@
 #include "Label.h"
 #include <algorithm>
 #include "UI_Options.h"
+#include "Background.h"
 UIManager* UIManager::create_instance(SDL_Renderer* renderer) {
     return new UIManager(renderer);
 }
@@ -48,7 +49,7 @@ UI_Page* UIManager::create_Menu() {
     UI_Page* menu = new UI_Menu("Menu");
     
     UI_Button* start_game = new Button_StartGame({ 450, 300, 300, 50 }, "Press play", { 255, 255, 255 }, "StartGameplay", 5, 7);
-
+    
     menu->add(Label::getInstance({ 300, 100, 600, 100 }, "SPACE INVADERS", { 100, 100, 255 }));
     menu->add(start_game);
     

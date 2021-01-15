@@ -8,21 +8,17 @@ PlayerBullet* PlayerBullet::get_instance(int x, int y, int w, int h) {
 
 PlayerBullet::PlayerBullet(int x, int y, int w, int h) :
 	Bullet(x, y, w, h) {
-	Animation idle{ "../../Resources/bullet1.png",
+	animation = new Animation{ "../../Resources/bullet1.png",
 	"../../Resources/bullet2.png",
 	"../../Resources/bullet3.png",
 	"../../Resources/bullet4.png" };
 
-	anim = new Animator{ idle };
+	anim = new Animator{ animation };
 	tickCount = 0;
 	layer = 2;
 	tag = "playerbullet";
 }
 
-PlayerBullet::~PlayerBullet() {
-	
-	delete anim;
-}
 void PlayerBullet::tick() {
 	Bullet::tick();
 	if (rect.y <= 0)

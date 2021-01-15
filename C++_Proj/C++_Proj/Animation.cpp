@@ -14,6 +14,13 @@ Animation::Animation(std::initializer_list<std::string> images) {
 	}
 }
 
+Animation::~Animation() {
+	for (SDL_Texture* t : texts) {
+		SDL_DestroyTexture(t);
+	}
+	texts.clear();
+}
+
 SDL_Texture* Animation::get_texture_at(int i) {
 	return texts[i];
 }

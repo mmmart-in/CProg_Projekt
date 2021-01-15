@@ -53,6 +53,7 @@ void GameSystem::run() {
 
 void GameSystem::check_collision() {
 
+
 	for (int i = 0; i < collision_layers.size(); i++) {
 		for (int j = 0; j < collision_layers.size(); j++) {
 			if (collision_layers[i]->get_collider()->check_collision(*collision_layers[j]->get_collider()))

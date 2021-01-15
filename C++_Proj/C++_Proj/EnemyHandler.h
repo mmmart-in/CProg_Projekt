@@ -12,7 +12,7 @@ class EnemyHandler : public Sprite, public EventObserver
 {
 public:
 	std::vector<Enemy*> enemies_to_move();
-
+	~EnemyHandler();
 	static EnemyHandler* create_instance(int, int, int, int);
 	void tick();
 	void draw();

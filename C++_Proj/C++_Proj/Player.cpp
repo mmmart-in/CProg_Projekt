@@ -11,13 +11,21 @@
 Player::Player(int x, int y, int w, int h): Sprite(x, y, w, h)
 {
 	//SKAPA ANIMATIONER HÄR:::::
-	Animation forward{"../../Resources/ship1.png"};
-	Animation turnRight{"../../Resources/ship2.png"};
-	Animation turnLeft{"../../Resources/ship3.png"};
+	forward = new Animation{"../../Resources/ship1.png"};
+	turnRight = new Animation{"../../Resources/ship2.png"};
+	turnLeft = new Animation{"../../Resources/ship3.png"};
 	anim = new Animator{ forward, turnRight, turnLeft};
 	hp = Health::get_instance(3);
 	layer = 1;
 	tag = "player";
+}
+
+Player::~Player() {
+	delete forward;
+	delete turnLeft;
+	delete turnRight;
+	delete anim;
+	delete hp;
 }
 
 void Player::tick() {

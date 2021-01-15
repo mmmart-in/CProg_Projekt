@@ -5,7 +5,7 @@ class Castle : public Sprite
 {
 public:
     static Castle* get_instance(int x, int y, int w, int h);
-   
+    ~Castle();
     void draw();
     void tick();
     void resolve_collision();
@@ -14,6 +14,7 @@ private:
     void animate(int);
 private:
     Animator* anim;
+    Animation* one, * two, * three, * four;
     int hitCount, tickCount;
     bool hit;
 };

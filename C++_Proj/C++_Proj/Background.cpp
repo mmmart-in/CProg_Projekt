@@ -9,7 +9,7 @@ Background::Background(int x, int y, int w, int h) :
 	Sprite(x, y, w, h)
 {
 
-	Animation bg{"../../Resources/back1.png",
+	bg = new Animation{"../../Resources/back1.png",
 	"../../Resources/back2.png", 
 	"../../Resources/back3.png", 
 	"../../Resources/back4.png", 
@@ -23,6 +23,10 @@ Background::Background(int x, int y, int w, int h) :
 	"../../Resources/back12.png", };
 	anim = new Animator{bg};
 	layer = 20;
+}
+
+Background::~Background() {
+	delete anim;
 }
 
 void Background::tick() {

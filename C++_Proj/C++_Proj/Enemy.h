@@ -22,6 +22,7 @@ private:
     int col, row;
     float moveSpeed = 18;
     Animator* anim;
+    Animation* idle;
     friend class EnemyHandler;
     
 };

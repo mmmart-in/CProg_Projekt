@@ -6,7 +6,7 @@ class PlayerBullet : public Bullet
 {
 public:
     static PlayerBullet* get_instance(int x, int y, int w, int h);
-    ~PlayerBullet();
+
     void move();
     void tick();
 

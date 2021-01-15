@@ -10,6 +10,12 @@ AudioHandler::AudioHandler(){
 	playerShoot->volume = 5;
 	enemyShoot->volume = 5;
 }
+AudioHandler::~AudioHandler() {
+	delete loop;
+	delete castleHit;
+	delete enemyShoot;
+	delete playerShoot;
+}
 
 void AudioHandler::enemy_shoot() {
 	
