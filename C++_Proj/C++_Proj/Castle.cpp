@@ -7,13 +7,21 @@ Castle* Castle::get_instance(int x, int y, int w, int h) {
 
 Castle::Castle(int x, int y, int w, int h): Sprite(x, y, w, h)
 {
-	Animation one = { "../../Resources/Castle1.png" };
-	Animation two = { "../../Resources/Castle2.png" };
-	Animation three = { "../../Resources/Castle3.png" };
-	Animation four = { "../../Resources/Castle4.png" };
+	one = new Animation{ "../../Resources/Castle1.png" };
+	two = new Animation{ "../../Resources/Castle2.png" };
+	three = new Animation{ "../../Resources/Castle3.png" };
+	four = new Animation{ "../../Resources/Castle4.png" };
 	anim = new Animator{one, two, three, four};
 	layer = 1;
 	tag = "Castle";
+}
+
+Castle::~Castle() {
+	delete one;
+	delete two;
+	delete three;
+	delete four;
+	delete anim;
 }
 
 void Castle::tick() {

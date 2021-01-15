@@ -13,7 +13,7 @@ Enemy* Enemy::get_instance(int x, int y, int w, int h, int c, int r)
 }
 
 Enemy::Enemy(int x, int y, int w, int h, int c, int r) : Sprite(x, y, w, h), col(c), row(r) {
-	Animation idle{ "../../Resources/enemy1.png",
+	idle = new Animation{ "../../Resources/enemy1.png",
 		"../../Resources/enemy2.png",
 		"../../Resources/enemy3.png",
 		"../../Resources/enemy4.png" ,
@@ -25,7 +25,8 @@ Enemy::Enemy(int x, int y, int w, int h, int c, int r) : Sprite(x, y, w, h), col
 }
 
 Enemy::~Enemy() {
-	
+	delete idle;
+	delete anim;
 }
 
 void Enemy::tick() {

@@ -41,6 +41,18 @@ void EnemyHandler::tick()
 	
 	
 }
+
+EnemyHandler::~EnemyHandler() {
+	delete leftEnemy;
+	delete rightEnemy;
+
+	for (Enemy* e : enemies) {
+		delete e;
+	}
+
+	enemies.clear();
+}
+
 void EnemyHandler::move_down() 
 {
 	for (Enemy* e : enemies)

@@ -8,6 +8,7 @@
 
 Scene* SceneData::load_menu() {
 	Scene* main_menu = Scene::create_instance();
+	
 
 	return main_menu;
 }
