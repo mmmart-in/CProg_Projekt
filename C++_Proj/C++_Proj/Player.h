@@ -12,6 +12,7 @@ public:
     void shoot();
     
     void resolve_collision();
+    ~Player();
 
 private:
     Player(int x, int y, int w, int h);

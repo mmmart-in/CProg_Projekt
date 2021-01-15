@@ -56,10 +56,9 @@ UIManager::UIManager(SDL_Renderer* renderer) : renderer(*renderer) {
 
 void UIManager::create_Menu() {
     
-    UI_Button* start_game = UI_StartGame::create_instance({ 450, 300, 300, 50 }, "Press play", { 255, 255, 255 }, "StartGameplay");
-    UI_components.push_back(UI_Label::getInstance({ 300, 100, 600, 100 }, "SPACE INVADERS", { 100, 100, 255 }));
-    UI_components.push_back(start_game);
-    
+    UI_components.push_back(UI_StartGame::create_instance({ 450, 300, 300, 50 }, "Press to play", { 255, 255, 255 }, "StartGameplay"));
+    UI_components.push_back(UI_StartGame::create_instance({ 450, 400, 300, 50 }, "How to play", { 255, 255, 255 }, "HowToPlay"));
+    UI_components.push_back(UI_Label::getInstance({ 300, 100, 600, 100 }, "SPACE INVADERS", { 100, 100, 255 }));    
 }
 
 void UIManager::create_Gameplay() {
@@ -67,7 +66,7 @@ void UIManager::create_Gameplay() {
     EnemyHandler* enemy_handler = 0;
 
     //Be till gud att casten lyckas
-    for (auto& sprites : gameSystem.get_current_scene()->sprites->get_added()) {
+    for (auto& sprites : gameSystem.get_current_scene().sprites->get_added()) {
         EnemyHandler* eh = dynamic_cast<EnemyHandler*>(sprites);
         if (eh)
             enemy_handler = eh;

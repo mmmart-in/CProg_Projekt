@@ -2,7 +2,6 @@
 #include "MainWIndow.h"
 #include <iostream>
 #include "Animation.h"
-#include "Log.h"
 #include "GameSystem.h"
 
 
@@ -23,7 +22,7 @@ void Bullet::tick() {
 }
 
 void Bullet::move() {
-	rect.y -= (gameSystem.deltaTime / 10) * movementSpeed;
+	rect.y -= (gameSystem.get_deltatime() / 10) * movementSpeed;
 	collider->x = rect.x;
 	collider->y = rect.y;
 	
@@ -43,6 +42,6 @@ void Bullet::draw() {
 
 void Bullet::resolve_collision() {
 	
-	gameSystem.get_current_scene()->sprites->remove(this);
+	gameSystem.get_current_scene().sprites->remove(this);
 }
 

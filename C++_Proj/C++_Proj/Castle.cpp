@@ -43,7 +43,7 @@ void Castle::resolve_collision() {
 	
 	if (!hit) {
 		if (hitCount >= 3) {
-			gameSystem.get_current_scene()->sprites->remove(this);
+			gameSystem.get_current_scene().sprites->remove(this);
 		}
 		else
 			hitCount++;

@@ -2,7 +2,6 @@
 #include <SDL.h>
 #include <iostream>
 #include "Input.h"
-#include "Log.h"
 #include <chrono>
 #include "SceneData.h"
 #include "EnemyHandler.h"
@@ -198,15 +197,15 @@ void GameSystem::load_new_scene(Scene* newScene, std::string UI) {
 	current_scene->sprites->clear_vectors();
 }
 
-Scene* GameSystem::get_current_scene() {
-	return current_scene;
+Scene& GameSystem::get_current_scene() const {
+	return *current_scene;
 }
 
-SceneData* GameSystem::get_scene_data() const {
-	return sceneData;
+SceneData& GameSystem::get_scene_data() const {
+	return *sceneData;
 }
 
-const MainWindow& GameSystem::get_current_window() {
+MainWindow& GameSystem::get_current_window() const {
 	return *mainWindow;
 }
 

@@ -32,6 +32,8 @@ void Options::run() {
 
 Options::~Options() {
 	UI_manager->change_page(previous_ui_page);
+	delete UI_manager;
+	SDL_DestroyTexture(background);
 }
 
 Options::Options(SDL_Renderer& renderer, std::string previous_ui_name) : renderer(renderer), previous_ui_page(previous_ui_name) {

@@ -31,8 +31,8 @@ public:
 	static Scene* create_instance();
 	SceneContents<Component>* components;
 	SceneContents<Sprite>* sprites;
+	~Scene();
 private:
 	Scene();
-	
 };
 

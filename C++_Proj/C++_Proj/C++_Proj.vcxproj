@@ -37,6 +37,7 @@
     <ClCompile Include="Health.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="UI_Exit.cpp" />
+    <ClCompile Include="UI_HowToPlay.cpp" />
     <ClCompile Include="UI_Label.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -69,12 +70,12 @@
     <ClInclude Include="EventObserver.h" />
     <ClInclude Include="EventSubject.h" />
     <ClInclude Include="Health.h" />
-    <ClInclude Include="Log.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyHandler.h" />
     <ClInclude Include="GameSystem.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="UI_Exit.h" />
+    <ClInclude Include="UI_HowToPlay.h" />
     <ClInclude Include="UI_Label.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="MainWindow.h" />
