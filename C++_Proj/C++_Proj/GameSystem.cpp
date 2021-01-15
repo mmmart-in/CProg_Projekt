@@ -44,8 +44,8 @@ void GameSystem::run() {
 			
 		
 		update_scene_objects();
-		handle_input();
 		check_collision();
+		handle_input();
 	
 	}
 }
