@@ -1,7 +1,7 @@
 #ifndef UI_MANAGER_H
 #define UI_MANAGER_H
 
-#include <vector>d
+#include <vector>
 #include "UI_Component.h"
 #include <iostream>
 #include <map>

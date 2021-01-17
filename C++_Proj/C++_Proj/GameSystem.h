@@ -49,7 +49,7 @@ class GameSystem {
 		SceneData* sceneData;
 		UIManager* UI_manager;
 		AudioHandler* audioHandler;
-		float FPS = 60;
+		int FPS = 60;
 		float dur;
 		float deltaTime;
 		bool running = true;

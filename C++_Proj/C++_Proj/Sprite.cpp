@@ -5,7 +5,7 @@
 
 
 Sprite::Sprite(int x, int y, int w, int h) : 
-	rect{ x, y, w, h } 
+	rect{ x, y, w, h }, layer(0)
 {
 
 	collider = new Collider(x, y, w, h);
