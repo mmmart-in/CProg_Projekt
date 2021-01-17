@@ -106,7 +106,6 @@ void UIManager::create_HowToPlay() {
     SDL_SetTextureColorMod(background, 30, 30, 30);
    
     UI_components.push_back(UI_Image::get_instance({ 0, 0, 1200, 800 }, background));
-  
     UI_components.push_back(UI_Label::getInstance({ 450, 50, 300, 50 }, "HOW TO PLAY", { 255, 255, 255 }));
     UI_components.push_back(UI_Label::getInstance({ 550, 200, 100, 50 }, "MOVE:", { 255, 33, 255 }));
     UI_components.push_back(UI_Label::getInstance({ 435, 300, 330, 50 }, "LEFT AND RIGHT ARROW", { 255, 255, 255 }));
@@ -114,5 +113,5 @@ void UIManager::create_HowToPlay() {
     UI_components.push_back(UI_Label::getInstance({ 500, 500, 200, 50 }, "SPACEBAR", { 255, 255, 255 }));
     UI_components.push_back(UI_Label::getInstance({ 500, 500, 200, 50 }, "SPACEBAR", { 255, 255, 255 }));
     UI_components.push_back(UI_Label::getInstance({ 20, 700, 150, 50 }, "BACK", { 255, 255, 255 }));
-    
+   
 }

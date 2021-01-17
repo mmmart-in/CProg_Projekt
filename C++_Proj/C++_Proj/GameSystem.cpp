@@ -97,11 +97,6 @@ void GameSystem::handle_input() {
 			case SDL_SCANCODE_F12:
 				input.rebind_key();
 				break;
-			case SDL_SCANCODE_0:
-				Options* options = Options::create_instance(get_renderer(), UI_manager->get_active_ui_name());
-				options->run();
-				delete options;
-				break;
 			}
 		}
 
