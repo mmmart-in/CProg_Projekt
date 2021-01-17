@@ -3,7 +3,6 @@
 
 AudioHandler::AudioHandler(){
 	Mix_OpenAudio(20500, AUDIO_S16SYS, 2, 512);
-	Mix_Music* loop = Mix_LoadMUS("E:/Downloads/post rock bounce.mp3");
 	playerShoot = Mix_LoadWAV("../../Resources/SoundFX/SpaceInvaders_PlayerShoot.wav");
 	enemyShoot = Mix_LoadWAV("../../Resources/SoundFX/SpaceInvaderShoot_Kort.wav");
 	castleHit = Mix_LoadWAV("../../Resources/SoundFX/SpaceInvaders_CastleHit.wav");
@@ -11,7 +10,6 @@ AudioHandler::AudioHandler(){
 	enemyShoot->volume = 5;
 }
 AudioHandler::~AudioHandler() {
-	delete loop;
 	delete castleHit;
 	delete enemyShoot;
 	delete playerShoot;

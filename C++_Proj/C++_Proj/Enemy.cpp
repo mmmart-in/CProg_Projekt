@@ -48,13 +48,12 @@ void Enemy::draw() {
 void Enemy::move(bool moveLeft)
 {
 	if (moveLeft)
-		get_rect().x -= (gameSystem.get_deltatime() / 10) * moveSpeed;
+		get_rect().x -= (gameSystem.get_deltatime() / 10.0f) * moveSpeed;
 	else
-		get_rect().x += (gameSystem.get_deltatime() / 10) * moveSpeed;
+		get_rect().x += (gameSystem.get_deltatime() / 10.0f) * moveSpeed;
 
 	get_collider()->getX() = get_rect().x;
 	get_collider()->getY() = get_rect().y;
-	
 	
 }
 

@@ -15,7 +15,6 @@ public:
 	void castle_hit() const;
 	void player_shoot() const;
 private:
-	Mix_Chunk* loop;
 	Mix_Chunk* castleHit;
 	Mix_Chunk* enemyShoot;
 	Mix_Chunk* playerShoot;

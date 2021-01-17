@@ -6,7 +6,7 @@ Castle* Castle::get_instance(int x, int y, int w, int h) {
 	return new Castle(x, y, w, h);
 }
 
-Castle::Castle(int x, int y, int w, int h): Sprite(x, y, w, h)
+Castle::Castle(int x, int y, int w, int h): Sprite(x, y, w, h), hit(false), hitCount(0), tickCount(0)
 {
 	one = new Animation{ "../../Resources/Castle1.png" };
 	two = new Animation{ "../../Resources/Castle2.png" };
@@ -57,7 +57,7 @@ void Castle::resolve_collision() {
 		else
 			hitCount++;
 		hit = true;
-		audioHandler.castle_hit();
+		gameSystem.get_audio_handler().castle_hit();
 	}
 	
 }
