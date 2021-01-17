@@ -10,9 +10,7 @@ public:
     static Player* create_instance(int, int, int, int);
     ~Player();
     void shoot();
-    
     void resolve_collision();
-    ~Player();
 
 private:
     Player(int x, int y, int w, int h);

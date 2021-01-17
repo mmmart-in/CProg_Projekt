@@ -61,7 +61,7 @@ void Enemy::move(bool moveLeft)
 void Enemy::Shoot() {
 	EnemyBullet* bptr = EnemyBullet::get_instance(rect.x + 20, rect.y + 40, 20, 20);
 	gameSystem.get_current_scene().sprites->add(bptr);
-	audioHandler.enemy_shoot();
+	gameSystem.get_audio_handler().enemy_shoot();
 }
 
 void Enemy::resolve_collision() {

@@ -25,5 +25,6 @@ private:
 	void create_Menu();
 	void create_Gameplay();
 	void create_Options();
+	void create_HowToPlay();
 };
 

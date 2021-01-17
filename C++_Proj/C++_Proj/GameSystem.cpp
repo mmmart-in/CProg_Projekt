@@ -11,6 +11,7 @@
 GameSystem::GameSystem() {
 	mainWindow = new MainWindow();
 	UI_manager = UIManager::create_instance(&get_renderer());
+	audioHandler = new AudioHandler();
 }
 
 void GameSystem::run() {
@@ -48,6 +49,7 @@ void GameSystem::run() {
 		handle_input();
 	
 	}
+
 }
 
 void GameSystem::check_collision() {
@@ -155,7 +157,12 @@ void GameSystem::update_scene_objects() {
 	current_scene->sprites->clear_vectors();
 }
 
-GameSystem::~GameSystem() {}
+GameSystem::~GameSystem() {
+	delete current_scene;
+	delete sceneData;
+	delete UI_manager;
+	delete mainWindow;
+}
 
 SDL_Renderer& GameSystem::get_renderer() const {
 	return *mainWindow->get_ren();
@@ -168,12 +175,9 @@ void GameSystem::load_new_scene(Scene* newScene, std::string UI) {
 
 	current_scene = newScene;
 	
-
 	active_components.clear();
 	active_sprites.clear();
 	collision_layers.clear();
-
-	
 
 	for (Component* component : current_scene->components->get_added())
 		active_components.push_back(component);
@@ -204,6 +208,10 @@ Scene& GameSystem::get_current_scene() const {
 
 SceneData& GameSystem::get_scene_data() const {
 	return *sceneData;
+}
+
+AudioHandler& GameSystem::get_audio_handler() const {
+	return *audioHandler;
 }
 
 MainWindow& GameSystem::get_current_window() const {

@@ -21,6 +21,8 @@ protected:
 	int layer;
 	std::string tag;
 private:
+	Sprite(const Sprite&) = delete;
+	Sprite& operator=(const Sprite&) = delete;
 	
 };
 

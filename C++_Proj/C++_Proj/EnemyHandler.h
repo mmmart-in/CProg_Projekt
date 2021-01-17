@@ -45,5 +45,6 @@ private:
 	void move_down();
 	void Shoot();
 
+	EnemyHandler& operator=(const EnemyHandler&) = delete;
 };
 

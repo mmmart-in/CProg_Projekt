@@ -32,5 +32,3 @@ void AudioHandler::castle_hit() {
 	
 	Mix_PlayChannel(-1, castleHit, 0);
 }
-
-AudioHandler audioHandler;

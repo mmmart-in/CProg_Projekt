@@ -18,5 +18,4 @@ private:
 	Mix_Chunk* playerShoot;
 };
 
-extern AudioHandler audioHandler;
 

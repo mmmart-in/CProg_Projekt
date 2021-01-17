@@ -7,6 +7,7 @@
 #include "UIManager.h"
 #include "SceneData.h"
 #include "MainWindow.h"
+#include "AudioHandler.h"
 
 class GameSystem {
 
@@ -20,6 +21,7 @@ class GameSystem {
 		MainWindow& get_current_window() const;
 		Scene& get_current_scene() const;
 		SceneData& get_scene_data() const;
+		AudioHandler& get_audio_handler() const;
 
 		template<typename T>void update_active_vector(const std::vector<T*>&, const std::vector<T*>&, std::vector<T*>&);
 		
@@ -44,7 +46,7 @@ class GameSystem {
 		Scene* current_scene;
 		SceneData* sceneData;
 		UIManager* UI_manager;
-
+		AudioHandler* audioHandler;
 		int FPS = 60;
 		float dur;
 		float deltaTime;
@@ -69,9 +71,7 @@ inline void GameSystem::update_active_vector(const std::vector<T*>& removed, con
 		}
 	}
 
-	for (T* type : added) {
-		std::cout << "added" << std::endl;
+	for (T* type : added) 
 		destination.push_back(type);
-	}
-		
+	
 }
