@@ -35,7 +35,9 @@ class GameSystem {
 		void load_new_scene(Scene* newScene, std::string UI);
 		
 	private:
-		
+		void empty_collision_layers();
+		void remove_components();
+		void remove_sprites();
 		void check_collision();
 		void update_components();
 		void update_sprites();

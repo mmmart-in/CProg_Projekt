@@ -97,10 +97,8 @@ void GameSystem::handle_input() {
 			case SDL_SCANCODE_F12:
 				input.rebind_key();
 				break;
-			case SDL_SCANCODE_0:
-				Options* options = Options::create_instance(get_renderer(), UI_manager->get_active_ui_name());
-				options->run();
-				delete options;
+			case SDL_SCANCODE_F2:
+				load_new_scene(sceneData->load_gameplay(4, 6), "Gameplay");
 				break;
 			}
 		}
@@ -175,9 +173,9 @@ void GameSystem::load_new_scene(Scene* newScene, std::string UI) {
 
 	current_scene = newScene;
 	
-	active_components.clear();
+	remove_components();
+	empty_collision_layers();
 	active_sprites.clear();
-	collision_layers.clear();
 
 	for (Component* component : current_scene->components->get_added())
 		active_components.push_back(component);
@@ -200,6 +198,20 @@ void GameSystem::load_new_scene(Scene* newScene, std::string UI) {
 
 	current_scene->components->clear_vectors();
 	current_scene->sprites->clear_vectors();
+}
+
+void GameSystem::remove_components() {
+	for (Component* c : active_components) {
+		delete c;
+	}
+	active_components.clear();
+}
+
+void GameSystem::empty_collision_layers() 
+{
+	for (Sprite* s : collision_layers)
+		delete s;
+	collision_layers.clear();
 }
 
 Scene& GameSystem::get_current_scene() const {
