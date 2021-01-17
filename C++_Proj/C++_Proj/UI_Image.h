@@ -1,4 +1,6 @@
-#pragma once
+#ifndef UI_IMAGE_H
+#define UI_IMAGE_H
+
 #include "UI_Component.h"
 #include <string>
 #include <SDL_image.h>
@@ -20,3 +22,4 @@ private:
 	SDL_Texture* texture;
 };
 
+#endif

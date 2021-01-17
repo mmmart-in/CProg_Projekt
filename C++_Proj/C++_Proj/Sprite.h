@@ -1,4 +1,6 @@
-#pragma once
+#ifndef SPRITE_H
+#define SPRITE_H
+
 #include <SDL.h>
 #include <string>
 #include "Collider.h"
@@ -26,3 +28,4 @@ private:
 	
 };
 
+#endif

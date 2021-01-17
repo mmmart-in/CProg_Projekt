@@ -1,4 +1,6 @@
-#pragma once
+#ifndef COMPONENT_H
+#define COMPONENT_H
+
 
 #include <SDL.h>
 
@@ -17,3 +19,4 @@ private:
 	const Component& operator=(const Component&) = delete;
 };
 
+#endif

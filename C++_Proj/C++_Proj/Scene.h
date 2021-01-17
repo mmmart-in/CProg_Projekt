@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SCENE_H
+#define SCENE_H
 
 #include "Component.h"
 #include "Sprite.h"
@@ -36,3 +37,4 @@ private:
 	Scene();
 };
 
+#endif

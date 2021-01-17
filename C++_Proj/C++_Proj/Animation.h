@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ANIMATION_H
+#define ANIMATION_H
 #include <vector>
 #include <SDL_image.h>
 #include <initializer_list>
@@ -16,3 +17,4 @@ private:
 	std::vector<SDL_Texture*> texts;
 };
 
+#endif

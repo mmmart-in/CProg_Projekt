@@ -1,4 +1,7 @@
-#pragma once
+#ifndef AUDIOHANDLER_H
+#define AUDIOHANDLER_H
+
+
 #include <SDL_mixer.h>
 #include <string>
 
@@ -19,3 +22,4 @@ private:
 };
 
 
+#endif 

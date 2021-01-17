@@ -1,4 +1,6 @@
-#pragma once
+#ifndef OPTIONS_H
+#define OPTIONS_H
+
 #include <SDL.h>
 #include <string>
 #include "UIManager.h"
@@ -16,3 +18,4 @@ private:
 	SDL_Texture* background;
 };
 
+#endif

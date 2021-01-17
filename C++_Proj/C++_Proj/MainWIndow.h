@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
@@ -18,3 +20,4 @@ private:
 	TTF_Font* font;
 };
 
+#endif

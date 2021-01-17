@@ -1,4 +1,5 @@
-#pragma once
+#ifndef UI_LABEL_H
+#define UI_LABEL_H
 
 #include "UI_Component.h"
 #include <string>
@@ -20,3 +21,5 @@ private:
 	SDL_Texture* texture;
 	SDL_Color textColor;
 };
+
+#endif

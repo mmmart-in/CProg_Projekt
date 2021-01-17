@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <string>
 #include "Animator.h"
 #include "Animation.h"
@@ -36,3 +38,4 @@ private:
     
 };
 
+#endif

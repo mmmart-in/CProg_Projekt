@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ENEMYHANDLER_H
+#define ENEMYHANDLER_H
+
 #include <vector>
 #include "Enemy.h"
 #include "GameSystem.h"
@@ -48,3 +50,4 @@ private:
 	EnemyHandler& operator=(const EnemyHandler&) = delete;
 };
 
+#endif

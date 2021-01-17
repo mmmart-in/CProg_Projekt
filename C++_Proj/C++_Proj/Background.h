@@ -1,4 +1,6 @@
-#pragma once
+#ifndef BACKGROUND_H
+#define BACKGROUND_H
+
 #include "Animator.h"
 #include "Animation.h"
 class Background : public Sprite
@@ -15,3 +17,5 @@ private:
 	Animation* bg;
 	int tickCount = 0;
 };
+
+#endif

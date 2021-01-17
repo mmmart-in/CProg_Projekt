@@ -209,9 +209,6 @@
     <ClInclude Include="UIManager.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="SpecialUIButton.h">
-      <Filter>Header Files\UI</Filter>
-    </ClInclude>
     <ClInclude Include="UI_Component.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>

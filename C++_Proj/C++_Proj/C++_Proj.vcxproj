@@ -83,7 +83,6 @@
     <ClInclude Include="SceneData.h" />
     <ClInclude Include="UI_Score.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="SpecialUIButton.h" />
     <ClInclude Include="UI_StartGame.h" />
     <ClInclude Include="UI_Textfield.h" />
     <ClInclude Include="UIManager.h" />

@@ -1,6 +1,7 @@
-#pragma once
+#ifndef UI_MANAGER_H
+#define UI_MANAGER_H
 
-#include <vector>
+#include <vector>d
 #include "UI_Component.h"
 #include <iostream>
 #include <map>
@@ -28,3 +29,4 @@ private:
 	void create_HowToPlay();
 };
 
+#endif

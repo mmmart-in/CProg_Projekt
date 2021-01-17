@@ -1,4 +1,5 @@
-#pragma once
+#ifndef UI_TEXTFIELD_H
+#define UI_TEXTFIELD_H
 
 #include <string>
 #include "UI_Component.h"
@@ -22,3 +23,4 @@ private:
 
 };
 
+#endif

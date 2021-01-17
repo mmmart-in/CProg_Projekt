@@ -1,4 +1,6 @@
-#pragma once
+#ifndef GAMESYSTEM_H
+#define GAMESYSTEM_H
+
 #include <vector>
 #include "Component.h"
 #include "Sprite.h"
@@ -75,3 +77,6 @@ inline void GameSystem::update_active_vector(const std::vector<T*>& removed, con
 		destination.push_back(type);
 	
 }
+
+
+#endif

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef UI_EXIT_H
+#define UI_EXIT_H
+
 #include "UI_Button.h"
 class UI_HowToPlay : public UI_Button {
 public:
@@ -8,3 +10,4 @@ private:
 	UI_HowToPlay(SDL_Rect, std::string, SDL_Color, std::string);
 };
 
+#endif

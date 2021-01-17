@@ -1,4 +1,7 @@
-#pragma once
+#ifndef COLLIDER_H
+#define COLLIDER_H
+
+
 #include <SDL.h>
 struct Collider
 {
@@ -7,3 +10,4 @@ struct Collider
 	int x, y, w, h;
 };
 
+#endif
