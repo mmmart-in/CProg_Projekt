@@ -16,14 +16,17 @@ public:
 	void update_UI();
 	const std::string get_active_ui_name() const;
 private:
+	void create_Menu();
+	void create_Gameplay();
+	void create_Options();
+
+private:
 	UIManager(SDL_Renderer*);
 	std::string active_ui_name;
 	SDL_Renderer& renderer;
 	std::map<std::string, UI_Loader> pages;
 	std::vector<UI_Component*> UI_components;
 	SDL_Event event;
-	void create_Menu();
-	void create_Gameplay();
-	void create_Options();
+
 };
 

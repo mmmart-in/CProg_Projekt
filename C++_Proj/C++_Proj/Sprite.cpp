@@ -12,7 +12,7 @@ Sprite::Sprite(int x, int y, int w, int h) :
 };
 
 
-const SDL_Rect& Sprite::get_rect() const {
+SDL_Rect& Sprite::get_rect(){
 	return rect;
 }
 

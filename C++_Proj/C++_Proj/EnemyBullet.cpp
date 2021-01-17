@@ -14,20 +14,21 @@ EnemyBullet::EnemyBullet(int x, int y, int w, int h) :
 
 	anim = new Animator{ animation };
 	tickCount = 0;
-	layer = 1;
-	tag = "enemybullet";
+	set_layer(1);
+	set_tag("enemybullet");
 }
 
 
 void EnemyBullet::tick() {
 	Bullet::tick();
-	if (rect.y >= 800)
+	if (get_rect().y >= 800)
 		gameSystem.get_current_scene().sprites->remove(this);
 }
 
 void EnemyBullet::move() {
-	rect.y += (gameSystem.get_deltatime() / 10) * movementSpeed;
-	collider->x = rect.x;
-	collider->y = rect.y;
+	get_rect().y += (gameSystem.get_deltatime() / 10) * movementSpeed;
+	get_collider()->getX() = get_rect().x;
+	get_collider()->getY() = get_rect().y;
+	
 
 }

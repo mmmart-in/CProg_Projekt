@@ -12,8 +12,8 @@ Castle::Castle(int x, int y, int w, int h): Sprite(x, y, w, h)
 	three = new Animation{ "../../Resources/Castle3.png" };
 	four = new Animation{ "../../Resources/Castle4.png" };
 	anim = new Animator{one, two, three, four};
-	layer = 1;
-	tag = "Castle";
+	set_layer(1);
+	set_tag("Castle");
 }
 
 Castle::~Castle() {

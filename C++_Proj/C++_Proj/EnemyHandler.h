@@ -23,7 +23,15 @@ public:
 	void callback(EventSubject&) override;
 	void add_enemies_to_scene(Scene*);
 
-	
+private:
+
+	EnemyHandler(int startX, int startY, int rows, int cols);
+	void move(std::vector<Enemy*> enems);
+	void outermost_enemies();
+	void enemy_destroyed();
+	void move_down();
+	void Shoot();
+
 private:
 	int enemyCount = 0;
 	int tickCount = 0;
@@ -35,15 +43,6 @@ private:
 	Enemy* leftEnemy;
 	Enemy* rightEnemy;
 	std::vector<Enemy*> enemies;
-
-private:
-
-	EnemyHandler(int startX, int startY, int rows, int cols);
-	void move(std::vector<Enemy*> enems);
-	void outermost_enemies();
-	void enemy_destroyed();
-	void move_down();
-	void Shoot();
 
 };
 

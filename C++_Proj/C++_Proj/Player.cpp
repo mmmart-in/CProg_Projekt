@@ -15,8 +15,8 @@ Player::Player(int x, int y, int w, int h): Sprite(x, y, w, h)
 	turnLeft = new Animation{"../../Resources/ship3.png"};
 	anim = new Animator{ forward, turnRight, turnLeft};
 	hp = Health::get_instance(3);
-	layer = 1;
-	tag = "player";
+	set_layer(1);
+	set_tag("Player");
 }
 
 Player::~Player() {
@@ -31,8 +31,8 @@ void Player::tick() {
 	
 	hp->tick();
 
-	collider->x = rect.x;
-	collider->y = rect.y;
+	get_collider()->getX() = get_rect().x;
+	get_collider()->getY() = get_rect().y;
 
 	handle_input();
 
@@ -50,11 +50,11 @@ Player* Player::create_instance(int x, int y, int w, int h) {
 }
 
 void Player::handle_input() {
-	if (input.get_key_down("Left") && rect.x > 0) {
+	if (input.get_key_down("Left") && get_rect().x > 0) {
 		move_left();
 		anim->next_image(turnLeftAnim);
 	}
-	else if (input.get_key_down("Right") && rect.x < 1200 - rect.w) {
+	else if (input.get_key_down("Right") && get_rect().x < 1200 - get_rect().w) {
 		move_right();
 		anim->next_image(turnRightAnim);
 	}
@@ -66,20 +66,19 @@ void Player::handle_input() {
 }
 
 void Player::move_left() {
-	rect.x -= (gameSystem.get_deltatime() / 10) * moveSpeed;
+	get_rect().x -= (gameSystem.get_deltatime() / 10) * moveSpeed;
 }
 
 void Player::move_right(){
-	rect.x += (gameSystem.get_deltatime() / 10) * moveSpeed;
+	get_rect().x += (gameSystem.get_deltatime() / 10) * moveSpeed;
 
 }
 
 void Player::shoot() {
 	if (fireCooldownCount <= SDL_GetTicks() - fireCooldown) {
-		PlayerBullet* bptr = PlayerBullet::get_instance(rect.x + 20, rect.y - 40, 30, 30);
+		PlayerBullet* bptr = PlayerBullet::get_instance(get_rect().x + 10, get_rect().y - 25, 30, 30);
 		gameSystem.get_current_scene().sprites->add(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
-		
 		audioHandler.player_shoot();
 	}
 
@@ -99,7 +98,3 @@ void Player::resolve_collision() {
 	
 }
 
-Player::~Player() {
-	delete anim;
-	delete hp;
-}

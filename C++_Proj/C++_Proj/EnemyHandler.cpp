@@ -15,8 +15,8 @@ EnemyHandler::EnemyHandler(int startX, int startY, int rows, int cols) : Sprite(
 	enemiesAlive = enemies.size();
 	count = r;
 	outermost_enemies();
-	layer = 10;
-	tag = "enemyHandler";
+	set_layer(10);
+	set_tag("enemyhandler");
 	
 }
 
@@ -56,7 +56,7 @@ EnemyHandler::~EnemyHandler() {
 void EnemyHandler::move_down() 
 {
 	for (Enemy* e : enemies)
-		e->rect.y += ROW_HEIGHT;
+		e->get_rect().y += ROW_HEIGHT;
 }
 void EnemyHandler::draw() 
 {
@@ -78,12 +78,12 @@ std::vector<Enemy*> EnemyHandler::enemies_to_move() {
 void EnemyHandler::move(std::vector<Enemy*> enems)
 {
 	//nåt skumt här???
-	if (moveLeft && leftEnemy->rect.x <= 5) {
+	if (moveLeft && leftEnemy->get_rect().x <= 5) {
 		moveLeft = false;
 		move_down();
 		
 	}
-	else if (!moveLeft && rightEnemy->rect.x > 1200 - rightEnemy->rect.w) {
+	else if (!moveLeft && rightEnemy->get_rect().x > 1200 - rightEnemy->get_rect().w) {
 		moveLeft = true;
 		move_down();
 	}
@@ -126,7 +126,7 @@ void  EnemyHandler::enemy_destroyed() {
 //enemydestroyed, uppdatera fiender längst ut på kanten (kalla på outermost_enemies();)
 
 Collider* EnemyHandler::get_collider() {
-	return collider;
+	return get_collider();
 }
 
 void EnemyHandler::resolve_collision() {

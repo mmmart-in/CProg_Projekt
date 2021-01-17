@@ -23,9 +23,7 @@ void Bullet::tick() {
 }
 
 void Bullet::move() {
-	rect.y -= (gameSystem.get_deltatime() / 10) * movementSpeed;
-	collider->x = rect.x;
-	collider->y = rect.y;
+
 	
 }
 

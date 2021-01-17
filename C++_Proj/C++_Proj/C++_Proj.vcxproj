@@ -38,7 +38,6 @@
     <ClCompile Include="UI_Exit.cpp" />
     <ClCompile Include="UI_HowToPlay.cpp" />
     <ClCompile Include="UI_Label.cpp" />
-    <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Options.cpp" />
@@ -75,7 +74,6 @@
     <ClInclude Include="UI_Exit.h" />
     <ClInclude Include="UI_HowToPlay.h" />
     <ClInclude Include="UI_Label.h" />
-    <ClInclude Include="Level.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Options.h" />
     <ClInclude Include="Player.h" />

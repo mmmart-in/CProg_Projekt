@@ -10,9 +10,8 @@ public:
     static Player* create_instance(int, int, int, int);
     ~Player();
     void shoot();
-    
     void resolve_collision();
-    ~Player();
+    
 
 private:
     Player(int x, int y, int w, int h);
@@ -30,7 +29,7 @@ private:
     int fireCooldown = 100;
     int tickCount = 0;
     bool hitCooldown = false;
-    float moveSpeed = 4;
+    float moveSpeed = 6;
     Uint32 fireCooldownCount = 0; 
     Animator* anim;
     Animation* forward, * turnRight, * turnLeft;
