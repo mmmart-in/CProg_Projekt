@@ -5,7 +5,7 @@
 #include <SDL_image.h>
 #include "GameSystem.h"
 #include "Input.h"
-#include "AudioHandler.h"
+
 
 Player::Player(int x, int y, int w, int h): Sprite(x, y, w, h)
 {
@@ -79,9 +79,8 @@ void Player::shoot() {
 		PlayerBullet* bptr = PlayerBullet::get_instance(get_rect().x + 10, get_rect().y - 25, 30, 30);
 		gameSystem.get_current_scene().sprites->add(bptr);
 		fireCooldownCount = SDL_GetTicks() + fireCooldown;
-		audioHandler.player_shoot();
+		gameSystem.get_audio_handler().player_shoot();
 	}
-
 }
 
 void Player::draw() {

@@ -1,5 +1,5 @@
-#ifndef UI_EXIT_H
-#define UI_EXIT_H
+#ifndef UIEXIT_H
+#define UIEXIT_H
 
 #include "UI_Button.h"
 class UI_Exit : public UI_Button {

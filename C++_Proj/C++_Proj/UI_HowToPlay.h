@@ -1,5 +1,5 @@
-#ifndef UI_EXIT_H
-#define UI_EXIT_H
+#ifndef UI_HOW_TO_PLAY_H
+#define UI_HOW_TO_PLAY_H
 
 #include "UI_Button.h"
 class UI_HowToPlay : public UI_Button {
