@@ -20,7 +20,6 @@ public:
 	SDL_Rect& get_rect();
 protected:
 	Sprite(int x, int y, int w, int h);
-	
 private:
 	Sprite(const Sprite&) = delete;
 	const Sprite& operator=(const Sprite&) = delete;
@@ -28,10 +27,7 @@ private:
 	Collider* collider;
 	int layer;
 	std::string tag;
-private:
-	Sprite(const Sprite&) = delete;
-	Sprite& operator=(const Sprite&) = delete;
-	
 };
+
 
 #endif

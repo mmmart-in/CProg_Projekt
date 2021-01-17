@@ -11,6 +11,7 @@
 #include "UI_StartGame.h"
 #include "UI_HowToPlay.h"
 #include "UI_Image.h"
+#include "UI_Exit.h"
 
 UIManager* UIManager::create_instance(SDL_Renderer* renderer) {
     return new UIManager(renderer);
@@ -97,16 +98,21 @@ void UIManager::create_Options() {
 
 
 void UIManager::create_HowToPlay() {
+    UI_components.push_back(UI_Exit::create_instance({ 20, 700, 150, 50 }, "BACK", { 255, 255, 255 }, "Exit_button"));
     SDL_Surface* surface = SDL_CreateRGBSurface(0, 1200, 800, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
     SDL_RenderReadPixels(&renderer, NULL, SDL_PIXELFORMAT_ABGR8888, surface->pixels, surface->pitch);
     SDL_Texture* background = SDL_CreateTextureFromSurface(&renderer, surface);
     SDL_FreeSurface(surface);
     SDL_SetTextureColorMod(background, 30, 30, 30);
-
+   
     UI_components.push_back(UI_Image::get_instance({ 0, 0, 1200, 800 }, background));
+  
     UI_components.push_back(UI_Label::getInstance({ 450, 50, 300, 50 }, "HOW TO PLAY", { 255, 255, 255 }));
     UI_components.push_back(UI_Label::getInstance({ 550, 200, 100, 50 }, "MOVE:", { 255, 33, 255 }));
     UI_components.push_back(UI_Label::getInstance({ 435, 300, 330, 50 }, "LEFT AND RIGHT ARROW", { 255, 255, 255 }));
     UI_components.push_back(UI_Label::getInstance({ 550, 400, 100, 50 }, "SHOOT:", { 255, 33, 255 }));
     UI_components.push_back(UI_Label::getInstance({ 500, 500, 200, 50 }, "SPACEBAR", { 255, 255, 255 }));
+    UI_components.push_back(UI_Label::getInstance({ 500, 500, 200, 50 }, "SPACEBAR", { 255, 255, 255 }));
+    UI_components.push_back(UI_Label::getInstance({ 20, 700, 150, 50 }, "BACK", { 255, 255, 255 }));
+    
 }

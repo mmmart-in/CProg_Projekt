@@ -118,13 +118,13 @@
       <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="UI_StartGame.cpp">
-      <Filter>Source Files\UI\Buttons</Filter>
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="UI_Exit.cpp">
-      <Filter>Source Files\UI\Buttons</Filter>
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="UI_HowToPlay.cpp">
-      <Filter>Source Files\UI\Buttons</Filter>
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -222,13 +222,13 @@
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="UI_StartGame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Exit.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="UI_HowToPlay.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Exit.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

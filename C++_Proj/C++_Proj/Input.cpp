@@ -23,6 +23,7 @@ void Input::rebind_key() {
 		std::cout << "Action: '" << keybind.first << "'" << " - Key: " << SDL_GetScancodeName(keybind.second) << std::endl;
 	
 	std::string command;
+	std::cout << "Enter existing command (ex ""FIRE""): ";
 	std::cin >> command;
 	
 	auto it = keybinds.find(command);

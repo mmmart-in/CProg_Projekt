@@ -31,7 +31,7 @@ class GameSystem {
 		inline const std::vector<Sprite*>& get_active_sprites() const { return active_sprites; }
 		inline UIManager* get_ui_manager() const { return UI_manager; }
 		inline void game_over(bool b) { gameover = b; }
-		inline const int get_deltatime() const { return deltaTime; }
+		inline const float get_deltatime() const { return deltaTime; }
 		void load_new_scene(Scene* newScene, std::string UI);
 		
 	private:
@@ -49,7 +49,7 @@ class GameSystem {
 		SceneData* sceneData;
 		UIManager* UI_manager;
 		AudioHandler* audioHandler;
-		int FPS = 60;
+		float FPS = 60;
 		float dur;
 		float deltaTime;
 		bool running = true;
