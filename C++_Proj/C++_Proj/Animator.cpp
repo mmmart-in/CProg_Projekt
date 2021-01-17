@@ -21,7 +21,7 @@ Animator::Animator(std::initializer_list<Animation*> vecs){
 	activeInt = 0;
 }
 
-void Animator::next_image(int animInt) {
+void Animator::next_image(int animInt){
 	//Här är next image!
 	if (activeInt >= animations[animInt]->get_size())
 		activeInt = 0;

@@ -25,18 +25,10 @@ MainWindow::~MainWindow()
 	TTF_Quit();
 }
 
-SDL_Renderer* MainWindow::get_ren() const 
-{
+SDL_Renderer* MainWindow::get_ren() const {
 	return ren;
 }
 
-TTF_Font* MainWindow::get_font() const 
-{
+TTF_Font* MainWindow::get_font() const  {
 	return font;
 }
-
-/*int* MainWindow::get_width() {
-	int* widthPoint = nullptr; 
-	SDL_GetWindowSize(win, widthPoint, NULL);
-		return widthPoint;
-}*/

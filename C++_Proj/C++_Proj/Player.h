@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <string>
 #include "Animator.h"
 #include "Animation.h"
@@ -10,9 +12,7 @@ public:
     static Player* create_instance(int, int, int, int);
     ~Player();
     void shoot();
-    
     void resolve_collision();
-    ~Player();
 
 private:
     Player(int x, int y, int w, int h);
@@ -38,3 +38,4 @@ private:
     
 };
 
+#endif

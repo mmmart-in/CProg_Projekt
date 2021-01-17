@@ -38,7 +38,6 @@
     <ClCompile Include="UI_Exit.cpp" />
     <ClCompile Include="UI_HowToPlay.cpp" />
     <ClCompile Include="UI_Label.cpp" />
-    <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Options.cpp" />
@@ -75,7 +74,6 @@
     <ClInclude Include="UI_Exit.h" />
     <ClInclude Include="UI_HowToPlay.h" />
     <ClInclude Include="UI_Label.h" />
-    <ClInclude Include="Level.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Options.h" />
     <ClInclude Include="Player.h" />
@@ -85,7 +83,6 @@
     <ClInclude Include="SceneData.h" />
     <ClInclude Include="UI_Score.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="SpecialUIButton.h" />
     <ClInclude Include="UI_StartGame.h" />
     <ClInclude Include="UI_Textfield.h" />
     <ClInclude Include="UIManager.h" />

@@ -9,6 +9,8 @@
 #include <algorithm>
 #include <functional>
 #include "UI_StartGame.h"
+#include "UI_HowToPlay.h"
+#include "UI_Image.h"
 
 UIManager* UIManager::create_instance(SDL_Renderer* renderer) {
     return new UIManager(renderer);
@@ -52,12 +54,13 @@ UIManager::UIManager(SDL_Renderer* renderer) : renderer(*renderer) {
     pages.insert(std::make_pair("Menu", &UIManager::create_Menu));
     pages.insert(std::make_pair("Gameplay", &UIManager::create_Gameplay));
     pages.insert(std::make_pair("Options", &UIManager::create_Options));
+    pages.insert(std::make_pair("HowToPlay", &UIManager::create_HowToPlay));
 }
 
 void UIManager::create_Menu() {
     
     UI_components.push_back(UI_StartGame::create_instance({ 450, 300, 300, 50 }, "Press to play", { 255, 255, 255 }, "StartGameplay"));
-    UI_components.push_back(UI_StartGame::create_instance({ 450, 400, 300, 50 }, "How to play", { 255, 255, 255 }, "HowToPlay"));
+    UI_components.push_back(UI_HowToPlay::create_instance({ 450, 400, 300, 50 }, "How to play", { 255, 255, 255 }, "HowToPlay"));
     UI_components.push_back(UI_Label::getInstance({ 300, 100, 600, 100 }, "SPACE INVADERS", { 100, 100, 255 }));    
 }
 
@@ -89,7 +92,21 @@ void UIManager::create_Options() {
 
     UI_components.push_back(UI_Label::getInstance({ 450, 50, 300, 50 }, "OPTIONS", { 255, 255, 255 }));
     UI_components.push_back(UI_Label::getInstance({ 150, 150, 50, 50 }, "FPS", { 255, 255, 255 }));
-    //UI_components.push_back(UI_Label::getInstance({ 220, 150, 50, 50 }, std::to_string(gameSystem.get_fps()), { 255, 255, 255 }));
     UI_components.push_back(UI_Textfield::create_instance({ 220, 160, 100, 50 }, { 255, 255, 255 }, std::to_string(gameSystem.get_fps())));
+}
 
+
+void UIManager::create_HowToPlay() {
+    SDL_Surface* surface = SDL_CreateRGBSurface(0, 1200, 800, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
+    SDL_RenderReadPixels(&renderer, NULL, SDL_PIXELFORMAT_ABGR8888, surface->pixels, surface->pitch);
+    SDL_Texture* background = SDL_CreateTextureFromSurface(&renderer, surface);
+    SDL_FreeSurface(surface);
+    SDL_SetTextureColorMod(background, 30, 30, 30);
+
+    UI_components.push_back(UI_Image::get_instance({ 0, 0, 1200, 800 }, background));
+    UI_components.push_back(UI_Label::getInstance({ 450, 50, 300, 50 }, "HOW TO PLAY", { 255, 255, 255 }));
+    UI_components.push_back(UI_Label::getInstance({ 550, 200, 100, 50 }, "MOVE:", { 255, 33, 255 }));
+    UI_components.push_back(UI_Label::getInstance({ 435, 300, 330, 50 }, "LEFT AND RIGHT ARROW", { 255, 255, 255 }));
+    UI_components.push_back(UI_Label::getInstance({ 550, 400, 100, 50 }, "SHOOT:", { 255, 33, 255 }));
+    UI_components.push_back(UI_Label::getInstance({ 500, 500, 200, 50 }, "SPACEBAR", { 255, 255, 255 }));
 }

@@ -22,7 +22,7 @@ Background::Background(int x, int y, int w, int h) :
 	"../../Resources/back11.png",
 	"../../Resources/back12.png", };
 	anim = new Animator{bg};
-	layer = 20;
+	set_layer(20);
 }
 
 Background::~Background() {

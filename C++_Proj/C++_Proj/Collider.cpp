@@ -2,8 +2,8 @@
 
 
 Collider::Collider(int x, int y, int w, int h) :
-	x(x), y(y), w(w - 15), h(h-10) {
-
+	x(x), y(y), w(w - 10), h(h-10) {
+    
 }
 
 

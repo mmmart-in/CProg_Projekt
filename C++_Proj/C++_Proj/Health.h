@@ -1,4 +1,7 @@
-#pragma once
+#ifndef HEALTH_H
+#define HEALTH_H
+
+
 #include <SDL_image.h>
 #include <vector>
 #include "UI_Image.h"
@@ -17,3 +20,4 @@ private:
 	std::vector<UI_Image*> lives;
 };
 
+#endif

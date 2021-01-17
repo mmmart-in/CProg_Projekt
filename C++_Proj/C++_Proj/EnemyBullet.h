@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ENEMYBULLET_H
+#define ENEMYBULLET_H
+
 #include "Bullet.h"
 #include "GameSystem.h"
 class EnemyBullet : public Bullet
@@ -12,3 +14,4 @@ private:
 	EnemyBullet(int x, int y, int w, int h);
 };
 
+#endif

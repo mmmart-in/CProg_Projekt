@@ -1,6 +1,7 @@
-#pragma once
+#ifndef UI_MANAGER_H
+#define UI_MANAGER_H
 
-#include <vector>
+#include <vector>d
 #include "UI_Component.h"
 #include <iostream>
 #include <map>
@@ -16,6 +17,11 @@ public:
 	void update_UI();
 	const std::string get_active_ui_name() const;
 private:
+	void create_Menu();
+	void create_Gameplay();
+	void create_Options();
+
+private:
 	UIManager(SDL_Renderer*);
 	std::string active_ui_name;
 	SDL_Renderer& renderer;
@@ -25,5 +31,7 @@ private:
 	void create_Menu();
 	void create_Gameplay();
 	void create_Options();
+	void create_HowToPlay();
 };
 
+#endif

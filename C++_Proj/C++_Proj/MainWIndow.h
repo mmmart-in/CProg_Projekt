@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
@@ -9,7 +11,6 @@ class MainWindow
 public:
 	MainWindow();
 	~MainWindow();
-	//int* get_width();
 	SDL_Renderer* get_ren() const;
 	TTF_Font* get_font() const;
 
@@ -19,3 +20,4 @@ private:
 	TTF_Font* font;
 };
 
+#endif

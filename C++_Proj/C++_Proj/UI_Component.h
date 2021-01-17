@@ -1,4 +1,6 @@
-#pragma once
+#ifndef UI_COMPONENT_H
+#define UI_COMPONENT_H
+
 #include "Component.h"
 
 class UI_Component {
@@ -13,3 +15,4 @@ private:
 	SDL_Rect rect;
 };
 
+#endif

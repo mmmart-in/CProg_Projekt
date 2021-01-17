@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ANIMATOR_H
+#define ANIMATOR_H
+
 #include <vector>
 #include <SDL.h>
 #include <initializer_list>
@@ -22,3 +24,4 @@ private:
 
 };
 
+#endif

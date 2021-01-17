@@ -15,19 +15,19 @@ PlayerBullet::PlayerBullet(int x, int y, int w, int h) :
 
 	anim = new Animator{ animation };
 	tickCount = 0;
-	layer = 2;
-	tag = "playerbullet";
+	set_layer(2);
+	set_tag("playerbullet");
 }
 
 void PlayerBullet::tick() {
 	Bullet::tick();
-	if (rect.y <= 0)
+	if (get_rect().y <= 0)
 		gameSystem.get_current_scene().sprites->remove(this);
 }
 
 void PlayerBullet::move() {
-	rect.y -= (gameSystem.get_deltatime() / 10) * movementSpeed;
-	collider->x = rect.x;
-	collider->y = rect.y;
+	get_rect().y -= (gameSystem.get_deltatime() / 10) * movementSpeed;
+	get_collider()->getX() = get_rect().x;
+	get_collider()->getY() = get_rect().y;
 
 }

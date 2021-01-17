@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ENEMY_H
+#define ENEMY_H
+
 #include <string>
 #include "Animator.h"
 #include "EventSubject.h"
@@ -26,3 +28,5 @@ private:
     friend class EnemyHandler;
     
 };
+
+#endif

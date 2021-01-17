@@ -48,9 +48,7 @@ void Input::rebind_key() {
 	}
 }
 
-Input::~Input() {
-	delete keyboard;
-}
+
 
 
 Input input;

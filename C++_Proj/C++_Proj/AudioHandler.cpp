@@ -17,20 +17,18 @@ AudioHandler::~AudioHandler() {
 	delete playerShoot;
 }
 
-void AudioHandler::enemy_shoot() {
+void AudioHandler::enemy_shoot() const {
 	
 	if(Mix_PlayChannel(-1, enemyShoot, 0) ==-1)
 		std::cerr <<Mix_GetError()<< std::endl;
 	
 }
-void AudioHandler::player_shoot() {
+void AudioHandler::player_shoot() const {
 	
 	Mix_PlayChannel(-1, playerShoot, 0);;
 	
 }
-void AudioHandler::castle_hit() {
+void AudioHandler::castle_hit() const {
 	
 	Mix_PlayChannel(-1, castleHit, 0);
 }
-
-AudioHandler audioHandler;

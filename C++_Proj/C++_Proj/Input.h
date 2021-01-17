@@ -1,4 +1,6 @@
-#pragma once
+#ifndef INPUT_H
+#define INPUT_H
+
 #include <SDL.h>
 #include <map>
 #include <string>
@@ -10,7 +12,7 @@ public:
 	void rebind_key();
 	bool get_key_down(std::string);
 	bool get_key(SDL_Scancode);
-	~Input();
+
 private:
 	const Uint8* keyboard;
 	std::map<std::string, SDL_Scancode> keybinds;
@@ -18,5 +20,5 @@ private:
 
 extern Input input;
 
-
+#endif
 

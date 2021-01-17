@@ -1,4 +1,6 @@
-#pragma once
+#ifndef UI_SCORE_H
+#define UI_SCORE_H
+
 #include "UI_Label.h"
 #include "EventObserver.h"
 #include "EnemyHandler.h"
@@ -16,3 +18,4 @@ private:
 	int score, tickCount;
 };
 
+#endif

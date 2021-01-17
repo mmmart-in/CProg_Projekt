@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CASTLE_H
+#define CASTLE_H
+
 #include "Animation.h"
 #include "Animator.h"
 class Castle : public Sprite
@@ -19,3 +21,4 @@ private:
     bool hit;
 };
 
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef EVENTSUBJECT_H
+#define EVENTSUBJECT_H
 
 #include <vector>
 #include "EventObserver.h"
@@ -13,3 +14,4 @@ private:
 	std::vector<EventObserver*> observers;
 };
 
+#endif

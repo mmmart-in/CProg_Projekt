@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SCENECONTENTS_H
+#define SCENECONTENTS_H
 
 #include <string>
 #include <vector>
@@ -40,3 +41,5 @@ template<typename T>
 inline const std::vector<T*>& SceneContents<T>::get_removed() const {
 	return removed;
 }
+
+#endif

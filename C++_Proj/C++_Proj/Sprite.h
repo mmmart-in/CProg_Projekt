@@ -1,4 +1,6 @@
-#pragma once
+#ifndef SPRITE_H
+#define SPRITE_H
+
 #include <SDL.h>
 #include <string>
 #include "Collider.h"
@@ -13,14 +15,23 @@ public:
 	virtual void resolve_collision() = 0;
 	std::string get_tag() { return tag; }
 	int get_layer() { return layer; }
-	const SDL_Rect& get_rect() const;
+	void set_layer(int x) { layer = x; }
+	void set_tag(std::string x) { tag = x; }
+	SDL_Rect& get_rect();
 protected:
 	Sprite(int x, int y, int w, int h);
+	
+private:
+	Sprite(const Sprite&) = delete;
+	const Sprite& operator=(const Sprite&) = delete;
 	SDL_Rect rect;
 	Collider* collider;
 	int layer;
 	std::string tag;
 private:
+	Sprite(const Sprite&) = delete;
+	Sprite& operator=(const Sprite&) = delete;
 	
 };
 
+#endif
