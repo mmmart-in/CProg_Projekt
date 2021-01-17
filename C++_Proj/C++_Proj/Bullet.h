@@ -16,7 +16,7 @@ public:
     
 protected:
     int tickCount;
-    float movementSpeed = 5;
+    float movementSpeed = 7;
     Animator* anim;
     Animation* animation;
     Bullet(int x, int y, int w, int h);

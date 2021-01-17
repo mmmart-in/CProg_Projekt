@@ -20,8 +20,8 @@ Enemy::Enemy(int x, int y, int w, int h, int c, int r) : Sprite(x, y, w, h), col
 		"../../Resources/enemy5.png" ,
 		"../../Resources/enemy6.png" };
 	anim = new Animator{idle};
-	layer = 2;
-	tag = "enemy";
+	set_layer(2);
+	set_tag("Enemy");
 }
 
 Enemy::~Enemy() {
@@ -48,18 +48,18 @@ void Enemy::draw() {
 void Enemy::move(bool moveLeft)
 {
 	if (moveLeft)
-		rect.x -= (gameSystem.get_deltatime() / 10) * moveSpeed;
+		get_rect().x -= (gameSystem.get_deltatime() / 10) * moveSpeed;
 	else
-		rect.x += (gameSystem.get_deltatime() / 10) * moveSpeed;
+		get_rect().x += (gameSystem.get_deltatime() / 10) * moveSpeed;
 
-	collider->x = rect.x;
-	collider->y = rect.y;
+	get_collider()->getX() = get_rect().x;
+	get_collider()->getY() = get_rect().y;
 	
 	
 }
 
 void Enemy::Shoot() {
-	EnemyBullet* bptr = EnemyBullet::get_instance(rect.x + 20, rect.y + 40, 20, 20);
+	EnemyBullet* bptr = EnemyBullet::get_instance(get_rect().x + 20, get_rect().y + 40, 20, 20);
 	gameSystem.get_current_scene().sprites->add(bptr);
 	gameSystem.get_audio_handler().enemy_shoot();
 }

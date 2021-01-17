@@ -21,10 +21,10 @@ Animation::~Animation() {
 	texts.clear();
 }
 
-SDL_Texture* Animation::get_texture_at(int i) {
+SDL_Texture* Animation::get_texture_at(int i) const {
 	return texts[i];
 }
 
-int Animation::get_size() {
+const int Animation::get_size() const {
 	return texts.size();
 }

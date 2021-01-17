@@ -11,9 +11,9 @@ public:
 	
 	AudioHandler();
 	~AudioHandler();
-	void enemy_shoot();
-	void castle_hit();
-	void player_shoot();
+	void enemy_shoot() const;
+	void castle_hit() const;
+	void player_shoot() const;
 private:
 	Mix_Chunk* loop;
 	Mix_Chunk* castleHit;
