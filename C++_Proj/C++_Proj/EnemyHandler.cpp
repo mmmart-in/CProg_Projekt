@@ -144,7 +144,7 @@ void EnemyHandler::callback(EventSubject& object) {
 
 void EnemyHandler::remove_enemy(Enemy* e) {
 	
-	std::cout << enemiesAlive<<std::endl;
+	
 	for (int i = 0; i < enemies.size(); i++) {
 		if (enemies[i] == e) {
 			if(enemiesAlive > 3)

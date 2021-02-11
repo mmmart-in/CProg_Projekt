@@ -65,7 +65,7 @@ void Enemy::Shoot() {
 }
 
 void Enemy::resolve_collision() {
-	std::cout << "Fiende träffad" << std::endl;
+
 	notify();
 }
 
