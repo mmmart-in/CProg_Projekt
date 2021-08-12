@@ -55,14 +55,14 @@ void GameSystem::run() {
 void GameSystem::check_collision() {
 
 
-	for (int i = 0; i < collision_layers.size(); i++) {
-		for (int j = 0; j < collision_layers.size(); j++) {
-			if (collision_layers[i]->get_collider()->check_collision(*collision_layers[j]->get_collider()))
-				if (collision_layers[i]->get_tag() != collision_layers[j]->get_tag() &&
-					collision_layers[i]->get_layer() == collision_layers[j]->get_layer()) 
+	for (int i = 0; i < collisionObjects.size(); i++) {
+		for (int j = 0; j < collisionObjects.size(); j++) {
+			if (collisionObjects[i]->get_collider()->check_collision(*collisionObjects[j]->get_collider()))
+				if (collisionObjects[i]->get_tag() != collisionObjects[j]->get_tag() &&
+					collisionObjects[i]->get_layer() == collisionObjects[j]->get_layer()) 
 				{
-					collision_layers[i]->resolve_collision();
-					collision_layers[j]->resolve_collision();
+					collisionObjects[i]->resolve_collision();
+					collisionObjects[j]->resolve_collision();
 				}
 		}
 	}
@@ -138,14 +138,14 @@ void GameSystem::update_scene_objects() {
 
 	//ta bort
 	for (Sprite* s : current_scene->sprites->get_removed()) {
-		auto& it = std::find(collision_layers.begin(), collision_layers.end(), s);
-		if (it != collision_layers.end()) {
-			collision_layers.erase(it);
+		auto& it = std::find(collisionObjects.begin(), collisionObjects.end(), s);
+		if (it != collisionObjects.end()) {
+			collisionObjects.erase(it);
 		}
 	}
 
 	for (Sprite* sprite : current_scene->sprites->get_added()) {
-		collision_layers.push_back(sprite);
+		collisionObjects.push_back(sprite);
 	}
 	
 	current_scene->components->clear_vectors();
@@ -172,7 +172,7 @@ void GameSystem::load_new_scene(Scene* newScene, std::string UI) {
 	
 	active_components.clear();
 	active_sprites.clear();
-	collision_layers.clear();
+	collisionObjects.clear();
 
 	for (Component* component : current_scene->components->get_added())
 		active_components.push_back(component);
@@ -182,11 +182,11 @@ void GameSystem::load_new_scene(Scene* newScene, std::string UI) {
 		active_sprites.push_back(sprite);
 		if (dynamic_cast<EnemyHandler*>(sprite)) {
 			for (Enemy* e : dynamic_cast<EnemyHandler*>(sprite)->get_enemies()) {
-				collision_layers.push_back(e);
+				collisionObjects.push_back(e);
 			}
 		}
 		else
-			collision_layers.push_back(sprite);
+			collisionObjects.push_back(sprite);
 	}
 
 	UI_manager->change_page(UI);

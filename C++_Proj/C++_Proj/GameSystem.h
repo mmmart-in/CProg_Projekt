@@ -55,7 +55,7 @@ class GameSystem {
 		bool running = true;
 		bool gameover = false;
 		
-		std::vector<Sprite*> collision_layers;
+		std::vector<Sprite*> collisionObjects;
 		std::vector<Component*> active_components;
 		std::vector<Sprite*> active_sprites;
 };
